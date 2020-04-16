@@ -5,11 +5,10 @@ import { Nav } from 'react-bootstrap'
 
 const Navigation = () => (
   <Nav defaultActiveKey="/" className="flex-column">
-    <Link componentClass={Nav.Link} to='/'>Noble Christian School</Link>
-    <Link componentClass={Nav.Link} to='/Application'>Applications</Link>
-    <Link componentClass={Nav.Link} to='/Tuition'>Tuition</Link>
-    <Link componentClass={Nav.Link} to='/Wiki'>Wiki</Link>
-    <Link componentClass={Nav.Link} to='/Tuition'>Tuition</Link>
+    <Nav.Item><Nav.Link componentClass={Link} to='/'>Noble Christian School</Nav.Link></Nav.Item>
+    <Nav.Item><Nav.Link componentClass={Link} to='/Application'>Applications</Nav.Link></Nav.Item>
+    <Nav.Item><Nav.Link componentClass={Link} to='/Tuition'>Tuition</Nav.Link></Nav.Item>
+    <Nav.Item><Nav.Link componentClass={Link} to='/Wiki'>Wiki</Nav.Link></Nav.Item>
   </Nav>
 )
 

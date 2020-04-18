@@ -8,9 +8,10 @@ class Navigation extends Component {
     super(props)
     this.state = {
       navItems: [
-        { id: 1, title: 'Student Applications', path: '/'},
-        { id: 1, title: 'School Fees', path: '/tuition'},
-        { id: 1, title: 'Help', path: '/help'}
+        { id: 0, title: 'Noble Christian School', path: '/'},
+        { id: 1, title: 'Student Applications', path: '/applications'},
+        { id: 2, title: 'School Fees', path: '/tuition'},
+        { id: 3, title: 'Help', path: '/help'}
       ]
     }
   }
@@ -19,7 +20,7 @@ class Navigation extends Component {
     const { navItems } = this.state
     return (
       <Fragment>
-        <Nav>
+        <Nav defaultActiveKey="/" className="flex-column">
           {navItems.map(navItem => (
             <Nav.Item>
               <Link to={navItem.path} componentClass={Nav.Link}>{navItem.title}</Link>

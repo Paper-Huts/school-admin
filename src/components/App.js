@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Navigation from '../components/Navigation/Navigation'
 import Landing from '../components/Landing/Landing'
-import Application from '../components/Application/Application'
+import Applications from '../components/Applications/Applications'
 import Tuition from '../components/Tuition/Tuition'
 import Help from '../components/Help/Help'
 import { Switch, Route } from 'react-router-dom'
@@ -18,9 +18,9 @@ function App() {
           <Col>
             <Switch>
               <Route exact path='/' component={Landing} />
-              <Route exact path='/Application' component={Application} />
-              <Route exact path='/Tuition' component={Tuition} />
-              <Route exact path='/Help' component={Help} />
+              <Route exact path='/applications' component={Applications} />
+              <Route exact path='/tuition' component={Tuition} />
+              <Route exact path='/help' component={Help} />
             </Switch>
           </Col>
         </Row>

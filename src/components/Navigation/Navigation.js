@@ -1,15 +1,34 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import styles from '../../stylesheets/Navigation.module.css'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 
-const Navigation = () => (
-  <Nav defaultActiveKey="/" className="flex-column">
-    <Nav.Item><Nav.Link componentClass={Link} to='/'>Noble Christian School</Nav.Link></Nav.Item>
-    <Nav.Item><Nav.Link componentClass={Link} to='/Application'>Applications</Nav.Link></Nav.Item>
-    <Nav.Item><Nav.Link componentClass={Link} to='/Tuition'>Tuition</Nav.Link></Nav.Item>
-    <Nav.Item><Nav.Link componentClass={Link} to='/Wiki'>Wiki</Nav.Link></Nav.Item>
-  </Nav>
-)
+class Navigation extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      navItems: [
+        { id: 1, title: 'Student Applications', path: '/'},
+        { id: 1, title: 'School Fees', path: '/tuition'},
+        { id: 1, title: 'Help', path: '/help'}
+      ]
+    }
+  }
+
+  render() {
+    const { navItems } = this.state
+    return (
+      <Fragment>
+        <Nav>
+          {navItems.map(navItem => (
+            <Nav.Item>
+              <Link to={navItem.path} componentClass={Nav.Link}>{navItem.title}</Link>
+            </Nav.Item>
+          ))}
+        </Nav>
+      </Fragment>
+    )
+  }
+}
 
 export default Navigation

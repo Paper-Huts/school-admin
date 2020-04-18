@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import NavigationContainer from '../components/Navigation/NavigationContainer'
-import Landing from '../components/Landing/Landing'
+import LandingContainer from '../components/Landing/LandingContainer'
 import Applications from '../components/Applications/Applications'
 import Tuition from '../components/Tuition/Tuition'
 import Help from '../components/Help/Help'
@@ -17,7 +17,7 @@ function App() {
           </Col>
           <Col>
             <Switch>
-              <Route exact path='/' component={Landing} />
+              <Route exact path='/' component={LandingContainer} />
               <Route exact path='/applications' component={Applications} />
               <Route exact path='/tuition' component={Tuition} />
               <Route exact path='/help' component={Help} />

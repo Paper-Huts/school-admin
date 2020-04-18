@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Navigation from '../components/Navigation/Navigation'
+import NavigationContainer from '../components/Navigation/NavigationContainer'
 import Landing from '../components/Landing/Landing'
 import Applications from '../components/Applications/Applications'
 import Tuition from '../components/Tuition/Tuition'
@@ -13,7 +13,7 @@ function App() {
       <Container fluid>
         <Row>
           <Col md={2}>
-            <Navigation />
+            <NavigationContainer />
           </Col>
           <Col>
             <Switch>

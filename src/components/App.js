@@ -6,6 +6,7 @@ import NavigationContainer from '../components/Navigation/NavigationContainer'
 import LandingContainer from '../components/Landing/LandingContainer'
 import StudentApplications from '../components/StudentApplications/StudentApplications'
 import TuitionContainer from '../components/Tuition/TuitionContainer'
+import styles from '../stylesheets/App.module.css'
 import Help from '../components/Help/Help'
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <Fragment>
       <Container fluid>
         <Row>
-          <Col md={2}>
+          <Col md={2} className={styles.sideNav}>
             <NavigationContainer />
           </Col>
           <Col>

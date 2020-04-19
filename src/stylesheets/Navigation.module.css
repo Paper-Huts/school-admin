@@ -2,3 +2,20 @@
   border-right: 1px solid black;
   height: 100vh;
 }
+
+.navItems {
+  margin-top: 1rem;
+  border: 1px solid rgba(40,40,40, 0.5);
+  border-radius: .3rem;
+}
+
+.navItems a {
+  font-size: .8em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo {
+  padding: 0;
+  width: 110%;
+}

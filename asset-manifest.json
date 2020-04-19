@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/nobledbms/static/css/main.a30e6548.chunk.css",
+    "main.js": "/nobledbms/static/js/main.74197c0d.chunk.js",
+    "main.js.map": "/nobledbms/static/js/main.74197c0d.chunk.js.map",
+    "runtime-main.js": "/nobledbms/static/js/runtime-main.9e650b37.js",
+    "runtime-main.js.map": "/nobledbms/static/js/runtime-main.9e650b37.js.map",
+    "static/css/2.de424728.chunk.css": "/nobledbms/static/css/2.de424728.chunk.css",
+    "static/js/2.e555c0cd.chunk.js": "/nobledbms/static/js/2.e555c0cd.chunk.js",
+    "static/js/2.e555c0cd.chunk.js.map": "/nobledbms/static/js/2.e555c0cd.chunk.js.map",
+    "index.html": "/nobledbms/index.html",
+    "precache-manifest.bbe39a2900440d70ce2d46a44a383745.js": "/nobledbms/precache-manifest.bbe39a2900440d70ce2d46a44a383745.js",
+    "service-worker.js": "/nobledbms/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/nobledbms/static/css/2.de424728.chunk.css.map",
+    "static/css/main.a30e6548.chunk.css.map": "/nobledbms/static/css/main.a30e6548.chunk.css.map",
+    "static/js/2.e555c0cd.chunk.js.LICENSE.txt": "/nobledbms/static/js/2.e555c0cd.chunk.js.LICENSE.txt",
+    "static/media/Noble Christian School Logo_01.png": "/nobledbms/static/media/Noble Christian School Logo_01.45efeeaf.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e650b37.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.e555c0cd.chunk.js",
+    "static/css/main.a30e6548.chunk.css",
+    "static/js/main.74197c0d.chunk.js"
+  ]
+}

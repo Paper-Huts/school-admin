@@ -8,6 +8,8 @@ import StudentApplications from '../components/StudentApplications/StudentApplic
 import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
 
+import TuitionPayment from '../components/Tuition/TuitionPayment/TuitionPayment'
+
 function App() {
   return (
     <Fragment>
@@ -22,6 +24,7 @@ function App() {
               <Route exact path='/studentApplications' component={StudentApplications} />
               <Route exact path='/tuition' component={TuitionContainer} />
               <Route exact path='/help' component={Help} />
+              <Route path='/tuition/payment' component={TuitionPayment} />
             </Switch>
           </Col>
         </Row>

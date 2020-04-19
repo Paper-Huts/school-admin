@@ -1,16 +1,12 @@
 import React from 'react'
-import { Switch, Route, useRouteMatch, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import TuitionPayment from './TuitionPayment/TuitionPayment'
-
 const Tuition = ({ summaryStats }) => {
-
-  const { path, url } = useRouteMatch();
   
   return (
     <div>
@@ -30,7 +26,7 @@ const Tuition = ({ summaryStats }) => {
         <br />
         <Row>
           <Col>
-            <Link to={`${url}/payment`} >
+            <Link to='/tuition/payment' >
               <Button variant="secondary">Pay School Fees</Button>
             </Link>
           </Col>
@@ -58,12 +54,6 @@ const Tuition = ({ summaryStats }) => {
             </ul>
           </Col>
         </Row>
-        <Switch>
-          <Route exact path={path} />
-          <Route path={`${path}/tuition-payment`} >
-            <TuitionPayment />
-          </Route>
-        </Switch>
       </Container>
     </div>
   );

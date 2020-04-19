@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
-const Applications = () => (
+const StudentApplications = () => (
   <Container fluid>
     <h1>Applications</h1>
   </Container>
 )
 
-export default Applications
+export default StudentApplications

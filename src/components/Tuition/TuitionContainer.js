@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
 
 import Tution from './Tuition'
 
@@ -20,9 +20,9 @@ class LandingContainer extends Component {
     const { summaryStats } = this.state
 
     return (
-      <Container fluid>
-        <Tution summaryStats={summaryStats} />
-      </Container>
+        <Container fluid>
+            <Tution summaryStats={summaryStats} />
+        </Container>
     )
   }
 }

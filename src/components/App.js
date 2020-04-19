@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import NavigationContainer from '../components/Navigation/NavigationContainer'
 import LandingContainer from '../components/Landing/LandingContainer'
 import StudentApplications from '../components/StudentApplications/StudentApplications'
-import Tuition from '../components/Tuition/Tuition'
+import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <Switch>
               <Route exact path='/' component={LandingContainer} />
               <Route exact path='/studentApplications' component={StudentApplications} />
-              <Route exact path='/tuition' component={Tuition} />
+              <Route exact path='/tuition' component={TuitionContainer} />
               <Route exact path='/help' component={Help} />
             </Switch>
           </Col>

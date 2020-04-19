@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import NavigationContainer from '../components/Navigation/NavigationContainer'
 import LandingContainer from '../components/Landing/LandingContainer'
 import StudentApplications from '../components/StudentApplications/StudentApplications'
+import styles from '../stylesheets/App.module.css'
 import Tuition from '../components/Tuition/Tuition'
 import Help from '../components/Help/Help'
 import { Switch, Route } from 'react-router-dom'
@@ -12,7 +13,7 @@ function App() {
     <Fragment>
       <Container fluid>
         <Row>
-          <Col md={2}>
+          <Col md={2} className={styles.sideNav}>
             <NavigationContainer />
           </Col>
           <Col>

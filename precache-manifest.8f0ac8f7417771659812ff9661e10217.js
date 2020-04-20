@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "368c84e1f717b253678ced58b76835ae",
+    "revision": "071722c3afad73e937f8e2c8f7ad51a9",
     "url": "/noble-dbms-app/index.html"
   },
   {
-    "revision": "aec59f8efa6309b57863",
+    "revision": "38751621657b4c017741",
     "url": "/noble-dbms-app/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "249b774d5e6fe0ab9b33",
-    "url": "/noble-dbms-app/static/css/main.7802feb6.chunk.css"
+    "revision": "ddc8c6648849d9554946",
+    "url": "/noble-dbms-app/static/css/main.040b385a.chunk.css"
   },
   {
-    "revision": "aec59f8efa6309b57863",
-    "url": "/noble-dbms-app/static/js/2.55858564.chunk.js"
+    "revision": "38751621657b4c017741",
+    "url": "/noble-dbms-app/static/js/2.b23ad2a0.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/noble-dbms-app/static/js/2.55858564.chunk.js.LICENSE.txt"
+    "url": "/noble-dbms-app/static/js/2.b23ad2a0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "249b774d5e6fe0ab9b33",
-    "url": "/noble-dbms-app/static/js/main.fac4429d.chunk.js"
+    "revision": "ddc8c6648849d9554946",
+    "url": "/noble-dbms-app/static/js/main.76ddec38.chunk.js"
   },
   {
     "revision": "be1534b95f3003906c23",

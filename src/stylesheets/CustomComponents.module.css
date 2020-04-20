@@ -1,0 +1,32 @@
+.mainHeader {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5rem 2rem 2rem;
+  padding: 1rem 3rem;
+  border-bottom: 3px solid #00B1FF;
+}
+
+.largeButton {
+  height: 20vh;
+  line-height: 20vh;
+  width: 25vw;
+  color: rgba(0,0,0,0.9);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 400;
+  border: 2px solid rgba(0,0,0,0.6);
+  border-radius: 5px;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.links a:link, a:visited {
+  background-color: rgba(0,0,0,0.6);
+  text-decoration: none;
+}
+
+.links a:hover, a:visited {
+  background-color: rgba(0,0,0,0.6);
+}

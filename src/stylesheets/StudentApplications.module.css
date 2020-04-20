@@ -1,0 +1,21 @@
+.period {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.periodTitle {
+  font-weight: 500;
+}
+
+.periodValue {
+  font-weight: 400;
+}
+
+.optionsBar {
+  padding: 5rem;
+  align-items: center;
+  text-align: center;
+}

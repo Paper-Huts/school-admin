@@ -8,6 +8,8 @@ import StudentApplicationsContainer from '../components/StudentApplications/Stud
 import styles from '../stylesheets/App.module.css'
 import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
+import NewStudent from './StudentApplications/NewStudent/NewStudent'
+import UpdateStudent from './StudentApplications/UpdateStudent/UpdateStudent'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
               <Route exact path='/applications' component={StudentApplicationsContainer} />
               <Route exact path='/tuition' component={TuitionContainer} />
               <Route exact path='/help' component={Help} />
+              <Route exact path='/applications/new_student' component={NewStudent} />
+              <Route exact path='/applications/update_student' component={UpdateStudent} />
             </Switch>
           </Col>
         </Row>

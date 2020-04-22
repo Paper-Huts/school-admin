@@ -1,9 +1,17 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
+import styles from '../../stylesheets/StudentApplications.module.css'
+import LargeButton from '../CustomComponents/LargeButton'
 
-const StudentApplications = () => (
+const StudentApplications = ({options}) => (
   <Container fluid>
-    <h1>Applications</h1>
+    <Row className={styles.optionsBar}>
+      {options.map(option => 
+        <Col key={option.id}>
+          <LargeButton label={option} />
+        </Col>
+      )}
+    </Row>
   </Container>
 )
 

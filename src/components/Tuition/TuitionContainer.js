@@ -27,12 +27,14 @@ class TuitionContainer extends Component {
         ],
         subPages: [
           {
+            id: 1,
             title: 'School Fees Payment',
             path: '/tuition/payment'
           },
           {
+            id: 2,
             title: 'Payment History',
-            path: '/payment-history'
+            path: '/tuition/payment-history'
           }
         ]
       },

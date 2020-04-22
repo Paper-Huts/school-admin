@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
+import Header from '../../CustomComponents/Header'
+
 const TuitionPaymentHistory = () => {
     
     return (
-        <Container>
-            <h1>Payment History</h1>
-            <hr />
-            <br />
+        <Container fluid>
+            <Header header='Payment History'/>
             <Row>
                 <Col>
                     <Form>
@@ -17,7 +17,7 @@ const TuitionPaymentHistory = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-            </Row>
+            </Row>            
         </Container>
     )
 }

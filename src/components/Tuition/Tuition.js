@@ -1,21 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import LargerButton from '../CustomComponents/LargeButton'
+import Header from '../../components/CustomComponents/Header'
 
 const Tuition = ({ summaryStats, pageInfo }) => {
   
   return (
     <div>
-      <Container>
-        <h1>School Fees Payment</h1>
-        <hr />
-        <br />
+      <Container fluid>
+        <Header header={pageInfo.title} />
         <Row>
         { summaryStats.map(
           ({ id, value, title }) =>
@@ -28,20 +25,10 @@ const Tuition = ({ summaryStats, pageInfo }) => {
         <br />
         {
           pageInfo.subPages.map(
-            ({title, path}) =>
-            (<LargerButton path={path} label={title} />)
+            ({id, title, path}) =>
+            (<LargerButton key={id} path={path} label={title} />)
           )
         }
-        <Row>
-          <Col>
-            <Link to='/tuition/payment' >
-              <Button variant="secondary">Pay School Fees</Button>
-            </Link>
-          </Col>
-            <Link to='/tuition/payment-history' >
-              <Col><Button variant="secondary">Payment History</Button></Col>
-            </Link>
-        </Row>
         <br />
         <h3>School Fees Information</h3>
         <hr />

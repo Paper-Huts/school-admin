@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
+import Header from '../../CustomComponents/Header'
+
 const TuitionPayment = () => {
     
     return (
-        <Container>
-            <h1>Pay School Fees</h1>
-            <hr />
-            <br />
+        <Container fluid>
+            <Header header='Pay School Fees' />
             <Row>
                 <Col>
                     <Form>

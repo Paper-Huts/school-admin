@@ -10,6 +10,7 @@ import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
 
 import TuitionPayment from '../components/Tuition/TuitionPayment/TuitionPayment'
+import TuitionPaymentHistory from '../components/Tuition/TuitionPaymentHistory/TuitionPaymentHistory'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route exact path='/tuition' component={TuitionContainer} />
               <Route exact path='/help' component={Help} />
               <Route path='/tuition/payment' component={TuitionPayment} />
+              <Route path='/tuition/payment-history' component={TuitionPaymentHistory} />
             </Switch>
           </Col>
         </Row>

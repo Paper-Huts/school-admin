@@ -6,7 +6,9 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const Tuition = ({ summaryStats }) => {
+import LargerButton from '../CustomComponents/LargeButton'
+
+const Tuition = ({ summaryStats, pageInfo }) => {
   
   return (
     <div>
@@ -24,13 +26,21 @@ const Tuition = ({ summaryStats }) => {
         ) }
         </Row>
         <br />
+        {
+          pageInfo.subPages.map(
+            ({title, path}) =>
+            (<LargerButton path={path} label={title} />)
+          )
+        }
         <Row>
           <Col>
             <Link to='/tuition/payment' >
               <Button variant="secondary">Pay School Fees</Button>
             </Link>
           </Col>
-          <Col><Button variant="secondary">Payment History</Button></Col>
+            <Link to='/tuition/payment-history' >
+              <Col><Button variant="secondary">Payment History</Button></Col>
+            </Link>
         </Row>
         <br />
         <h3>School Fees Information</h3>

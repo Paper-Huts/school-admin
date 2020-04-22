@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 
 import Tution from './Tuition'
 
-class LandingContainer extends Component {
+class TuitionContainer extends Component {
   constructor(props) {
     super(props)
 
@@ -27,4 +27,4 @@ class LandingContainer extends Component {
   }
 }
 
-export default LandingContainer;
+export default TuitionContainer;

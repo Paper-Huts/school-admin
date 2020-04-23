@@ -4,11 +4,11 @@ import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import Header from '../../CustomComponents/Header'
 
-const TuitionPayment = () => {
+const TuitionPaymentHistory = () => {
     
     return (
         <Container fluid>
-            <Header header='Pay School Fees' />
+            <Header header='Payment History'/>
             <Row>
                 <Col>
                     <Form>
@@ -17,9 +17,9 @@ const TuitionPayment = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-            </Row>
+            </Row>            
         </Container>
     )
 }
 
-export default TuitionPayment;
+export default TuitionPaymentHistory;

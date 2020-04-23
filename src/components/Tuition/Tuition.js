@@ -1,23 +1,18 @@
 import React from 'react'
-import { Switch, Route, useRouteMatch, Link } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import TuitionPayment from './TuitionPayment/TuitionPayment'
+import LargerButton from '../CustomComponents/LargeButton'
+import Header from '../../components/CustomComponents/Header'
 
-const Tuition = ({ summaryStats }) => {
-
-  const { path, url } = useRouteMatch();
+const Tuition = ({ summaryStats, pageInfo }) => {
   
   return (
     <div>
-      <Container>
-        <h1>School Fees Payment</h1>
-        <hr />
-        <br />
+      <Container fluid>
+        <Header header={pageInfo.title} />
         <Row>
         { summaryStats.map(
           ({ id, value, title }) =>
@@ -28,14 +23,12 @@ const Tuition = ({ summaryStats }) => {
         ) }
         </Row>
         <br />
-        <Row>
-          <Col>
-            <Link to={`${url}/payment`} >
-              <Button variant="secondary">Pay School Fees</Button>
-            </Link>
-          </Col>
-          <Col><Button variant="secondary">Payment History</Button></Col>
-        </Row>
+        {
+          pageInfo.subPages.map(
+            ({id, title, path}) =>
+            (<LargerButton key={id} path={path} label={title} />)
+          )
+        }
         <br />
         <h3>School Fees Information</h3>
         <hr />
@@ -58,12 +51,6 @@ const Tuition = ({ summaryStats }) => {
             </ul>
           </Col>
         </Row>
-        <Switch>
-          <Route exact path={path} />
-          <Route path={`${path}/tuition-payment`} >
-            <TuitionPayment />
-          </Route>
-        </Switch>
       </Container>
     </div>
   );

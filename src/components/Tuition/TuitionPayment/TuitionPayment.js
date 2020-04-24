@@ -2,11 +2,15 @@ import React from 'react'
 
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
+import StudentNameList from '../../../tests/MOCK_DATA_Student_Names.json'
+
 import Header from '../../CustomComponents/Header'
 import SearchList from '../../CustomComponents/Search/SearchList'
 import SearchBar from '../../CustomComponents/Search/SearchBar'
 
 const TuitionPayment = () => {
+
+    let data = StudentNameList
     
     return (
         <Container fluid>
@@ -19,8 +23,9 @@ const TuitionPayment = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-                <SearchBar searchProps='Enter student name' />
-                <SearchList />
+                {/* <Col>
+                    <SearchBar searchProps='Enter student name' />
+                </Col> */}
             </Row>
         </Container>
     )

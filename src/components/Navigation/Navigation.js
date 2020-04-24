@@ -8,7 +8,8 @@ const Navigation = (props) => (
   <Nav variant='pills' defaultActiveKey="/" className="flex-column">
     <Nav.Item>
       <Nav.Link as={Link} to={props.navBrand.path} key={props.navBrand.id}>
-        <img src={Logo} className={styles.logo} alt={props.navBrand.title} />
+        {/* <img src={Logo} className={styles.logo} alt={props.navBrand.title} /> */}
+        <h2 className={styles.logo}>PaperHuts Admin</h2>
       </Nav.Link>
     </Nav.Item>
     {props.navItems.map(navItem => (

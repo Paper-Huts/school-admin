@@ -4,7 +4,7 @@
 }
 
 .navItems {
-  height: 15vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +24,11 @@
 
 .logo {
   text-align: center;
-  padding: 0;
-  width: 110%;
+  height: 10vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.logo a.nav-link {
+  color: black important!;
 }

@@ -3,7 +3,8 @@ import React from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import Header from '../../CustomComponents/Header'
-import SearchContainer from '../../CustomComponents/Search/SearchContainer'
+import SearchList from '../../CustomComponents/Search/SearchList'
+import SearchBar from '../../CustomComponents/Search/SearchBar'
 
 const TuitionPayment = () => {
     
@@ -18,7 +19,8 @@ const TuitionPayment = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-                <SearchContainer />
+                <SearchBar searchProps='Enter student name' />
+                <SearchList />
             </Row>
         </Container>
     )

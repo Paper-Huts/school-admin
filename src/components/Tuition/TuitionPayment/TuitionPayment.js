@@ -17,24 +17,26 @@ const TuitionPayment = () => {
             <SearchBar placeholder='Enter Student Name' controlId='studentNameSearch' />
             <Row>
                 <Col>
-                <Table striped bordered hover>
+                <Table striped hover size='sm'>
                     <thead>
                     <tr>
+                        <th>ID Number</th>
                         <th>Student Name</th>
-                        <th>Action</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     {data.map(({id, first_name, last_name}) => (
-                        <tr key={id}>
-                        <td>
-                            {first_name} {last_name}
-                        </td>
-                        <td>
-                            <Button>
-                                Pay Fees
-                            </Button>
-                        </td>
+                        <tr>
+                            <td>{id}</td>
+                            <td>
+                                {first_name} {last_name}
+                            </td>
+                            <td>
+                                <Button size='sm'>
+                                    Pay Fees
+                                </Button>
+                            </td>
                         </tr>
                     ))}
                     </tbody>      

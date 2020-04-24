@@ -5,6 +5,7 @@
 
 .navItems {
   height: 10vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,19 +17,24 @@
 
 .navItems a {
   color: black;
-  font-size: 1em;
+  font-size: 2vh;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
 }
 
 .logo {
+  font-size: 3vw;
+  text-transform: uppercase;
+  text-decoration: none;
   text-align: center;
   height: 10vh;
+  line-height: 7vh;
   margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-bottom: 13vh;
+  width: 100%;
 }
 
-.logo a.nav-link {
-  color: black important!;
+h2.logo a {
+  color: black;
 }

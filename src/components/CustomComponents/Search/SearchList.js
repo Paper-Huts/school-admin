@@ -28,3 +28,5 @@ const SearchList = ({ data, searchProps }) => (
     </Table>
   </Row>
 )
+
+export default SearchList

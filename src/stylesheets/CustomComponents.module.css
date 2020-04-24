@@ -26,6 +26,18 @@
   text-decoration: none;
 }
 
-.links a:hover, a:visited {
+.links a:visited {
   background-color: rgba(0,0,0,0.6);
+}
+
+/*********** Student Forms ********************/
+/* Tabs */
+.tabs a:active {
+  background-color: #CFF0FF !important;
+}
+
+.studentInfoForm {
+  height: 60vh;
+  background-color: #CFF0FF;
+  border-radius: 0 0 .5rem .5rem;
 }

@@ -1,12 +1,12 @@
 import React from 'react'
-import { Form, FormControl, Row, Col } from 'react-bootstrap'
+import { Form, Row, Col } from 'react-bootstrap'
 
-const SearchBar = ({ placeholder, controlId }) => (
+const SearchBar = ({ placeholder, controlId, handleChange }) => (
   <Row>
     <Col>   
       <Form>
           <Form.Group controlId={controlId}>
-              <Form.Control size="lg" type="text" placeholder={placeholder} />
+              <Form.Control size="lg" type="text" placeholder={placeholder} onChange={handleChange} />
           </Form.Group>
       </Form>
     </Col> 

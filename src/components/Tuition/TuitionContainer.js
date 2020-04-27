@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container'
 
 import Tution from './Tuition'
 
-import StudentNameList from '../../tests/MOCK_DATA_Student_Names.json'
-
 class TuitionContainer extends Component {
   constructor(props) {
     super(props)
@@ -31,14 +29,12 @@ class TuitionContainer extends Component {
           {
             id: 1,
             title: 'School Fees Payment',
-            path: '/tuition/payment',
-            data: StudentNameList
+            path: '/tuition/payment'
           },
           {
             id: 2,
             title: 'Payment History',
-            path: '/tuition/payment-history',
-            data: {}
+            path: '/tuition/payment-history'
           }
         ]
       },

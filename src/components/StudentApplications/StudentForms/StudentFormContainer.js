@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Tabs, Tab } from 'react-bootstrap'
 import PersonalInformation from './PersonalInformation'
 import styles from '../../../stylesheets/CustomComponents.module.css'
+import GuardianInformation from './GuardianInformation'
 
 class StudentFormContainer extends Component {
   constructor(props) {
@@ -35,11 +36,12 @@ class StudentFormContainer extends Component {
     return (
       <Container>
         <Tabs defaultActiveKey={defaultTab} className={styles.tabs + ' nav-justified'}>
-          {tabs.map(tab => (
-            <Tab eventKey={tab.name} title={tab.title}>
-              <PersonalInformation items={tab.items} />
-            </Tab>
-          ))}
+          <Tab eventKey='personalInformation' title='personalInformation'>
+            <PersonalInformation />
+          </Tab>
+          <Tab eventKey='guardianInformation' title='guardianInformation'>
+            <GuardianInformation />
+          </Tab>
         </Tabs>
       </Container>
     )

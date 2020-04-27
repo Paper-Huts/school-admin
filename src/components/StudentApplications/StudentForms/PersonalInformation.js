@@ -98,7 +98,7 @@ const PersonalInformation = ({ items }) => (
             </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Disability Status</Form.Label>
+              <Form.Label>Disability Information</Form.Label>
               <Form.Control type='text' />
             </Form.Group>
           </Col>

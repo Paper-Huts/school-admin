@@ -1,24 +1,3 @@
-.mainHeader {
-  text-transform: uppercase;
-  text-align: center;
-  margin: 5rem 2rem;
-  padding: 1rem 3rem;
-  border-bottom: 3px solid #00B1FF;
-}
-
-.card {
-  padding: 2rem;
-  text-align: center;
-}
-
-.cardValue {
-  font-size: 2em;
-  color: #F99F1C;
-}
-
-.cardTitle {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  color: #000000;
-  font-weight: 700;
+.summaryStatContainer {
+  display: flex;
 }

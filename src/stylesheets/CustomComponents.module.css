@@ -41,3 +41,26 @@
   background-color: #CFF0FF;
   border-radius: 0 0 .5rem .5rem;
 }
+
+/************ Summary Stats ***********/
+
+.summaryStatCard {
+  padding: 10% 2%;
+  /* width: fit-content; */
+}
+
+.summaryStatValue {
+  font-size: 3.5rem;
+  color: #F99F1C;
+  font-kerning: none;
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.summaryStatDesc {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #000000;
+  font-size: 2rem;
+}

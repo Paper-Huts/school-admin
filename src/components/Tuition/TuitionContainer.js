@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 
 import Tution from './Tuition'
+import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
+import Header from '../CustomComponents/Header'
 
 class TuitionContainer extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class TuitionContainer extends Component {
 
     this.state = {
       pageInfo: {
-        title: 'School Fees Payment',
+        title: 'School Fees',
         subSections: [
           {
             subheader: 'School Fees Information',
@@ -52,12 +54,15 @@ class TuitionContainer extends Component {
 
   render() {
 
-    const { summaryStats, ...otherPageInfo } = this.state
+    const { summaryStats, period, ...otherPageInfo } = this.state;
+    const { pageInfo } = this.state;
 
     return (
-        <Container fluid>
-            <Tution summaryStats={summaryStats} {...otherPageInfo} />
-        </Container>
+      <Container fluid>
+        <Header header={pageInfo.title} />
+        <CurrentSchoolPeriodBar period={period} />
+        <Tution summaryStats={summaryStats} {...otherPageInfo} />
+      </Container>
     )
   }
 }

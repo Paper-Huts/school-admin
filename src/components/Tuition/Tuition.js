@@ -5,24 +5,13 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import LargeButton from '../CustomComponents/LargeButton'
-import Header from '../../components/CustomComponents/Header'
+import SummaryStatCard from '../CustomComponents/SummaryStats'
 
 const Tuition = ({ summaryStats, pageInfo }) => {
   
   return (
     <div>
       <Container fluid>
-        <Header header={pageInfo.title} />
-        <Row>
-        { summaryStats.map(
-          ({ id, value, title }) =>
-          (<Col className='SummaryStats' key={id}>
-            <h1>{ value }</h1>
-            <h3>{ title }</h3>
-          </Col>)
-        ) }
-        </Row>
-        <br />
         {
           pageInfo.subPages.map(
             ({id, title, path}) =>

@@ -14,7 +14,7 @@ class TuitionContainer extends Component {
         title: 'School Fees',
         subSections: [
           {
-            subheader: 'School Fees Information',
+            subHeader: 'School Fees Information',
             paragraphInfo: [
               {
                 listHeader: 'Nursery & KG',

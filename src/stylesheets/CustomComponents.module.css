@@ -1,3 +1,5 @@
+/********** Main Header *************/
+
 .mainHeader {
   text-transform: uppercase;
   text-align: center;
@@ -5,6 +7,18 @@
   padding: 1rem 3rem;
   border-bottom: 3px solid #00B1FF;
 }
+
+/********** Sub Header *************/
+
+.subHeader {
+  text-transform: uppercase;
+  text-align: left;
+  margin: 5rem 2rem 2rem;
+  padding: 1rem 3rem;
+  border-bottom: 3px solid #00B1FF;
+}
+
+/********** Large Button *************/
 
 .largeButton {
   height: 20vh;

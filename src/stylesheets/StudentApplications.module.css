@@ -19,3 +19,10 @@
   align-items: center;
   text-align: center;
 }
+
+/************* Page SubSection *************/
+
+.subSection {
+  padding: 0.5rem 5rem;
+  align-items: center;
+}

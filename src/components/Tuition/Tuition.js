@@ -4,25 +4,35 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import LargeButton from '../CustomComponents/LargeButton'
-import SummaryStatCard from '../CustomComponents/SummaryStats'
+import styles from '../../stylesheets/StudentApplications.module.css'
 
-const Tuition = ({ summaryStats, pageInfo }) => {
-  
+import SubHeader from '../CustomComponents/SubHeader'
+import LargeButton from '../CustomComponents/LargeButton'
+
+const Tuition = ({ pageInfo }) => {
+
   return (
     <div>
       <Container fluid>
+        <Row className={styles.optionsBar}>
+          {
+            pageInfo.subPages.map(
+              ({ id, title, path }) =>
+                (<Col>
+                  <LargeButton key={id} path={path} label={title} />
+                </Col>
+                )
+            )
+          }
+        </Row>
         {
-          pageInfo.subPages.map(
-            ({id, title, path}) =>
-            (<LargeButton key={id} path={path} label={title} />)
+          pageInfo.subSections.map(
+            ({ subHeader, paragraphInfo }) =>
+              (<SubHeader subHeader={subHeader} />)
           )
         }
-        <br />
-        <h3>School Fees Information</h3>
-        <hr />
-        <br />
-        <Row>
+
+        <Row className={styles.subSection}>
           <Col>
             <h4>Nuersery & KG</h4>
             <ul>

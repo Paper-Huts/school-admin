@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import styles from '../../stylesheets/StudentApplications.module.css'
+import styles from '../../stylesheets/CustomComponents.module.css'
 
 const CurrentSchoolPeriodBar = ({ period }) => (
   <Row>

@@ -30,7 +30,7 @@
   background-color: rgba(0,0,0,0.6);
 }
 
-/*********** Student Forms ********************/
+/*********** Student Forms *************/
 /* Tabs */
 .tabs a:active {
   background-color: #CFF0FF !important;
@@ -63,4 +63,22 @@
   margin-bottom: auto;
   color: #000000;
   font-size: 2rem;
+}
+
+/*********** Current School Period Bar *************/
+
+.period {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.periodTitle {
+  font-weight: 500;
+}
+
+.periodValue {
+  font-weight: 400;
 }

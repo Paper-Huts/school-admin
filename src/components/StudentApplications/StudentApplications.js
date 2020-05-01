@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import styles from '../../stylesheets/StudentApplications.module.css'
+import styles from '../../stylesheets/pages.module.css'
 import LargeButton from '../CustomComponents/LargeButton'
 
 const StudentApplications = ({options}) => (

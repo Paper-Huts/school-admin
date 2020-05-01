@@ -1,10 +1,24 @@
+/********** Main Header *************/
+
 .mainHeader {
   text-transform: uppercase;
   text-align: center;
-  margin: 5rem 2rem 2rem;
+  margin: 2.5rem 1rem 1rem;
   padding: 1rem 3rem;
   border-bottom: 3px solid #00B1FF;
 }
+
+/********** Sub Header *************/
+
+.subHeader {
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0.2rem 0rem;
+  padding: 0.2rem 2rem;
+  border-bottom: 3px solid #00B1FF;
+}
+
+/********** Large Button *************/
 
 .largeButton {
   height: 20vh;
@@ -26,6 +40,65 @@
   text-decoration: none;
 }
 
-.links a:hover, a:visited {
+.links a:visited {
   background-color: rgba(0,0,0,0.6);
+}
+
+/*********** Student Forms *************/
+/* Tabs */
+.tabs a:active {
+  background-color: #CFF0FF !important;
+}
+
+.studentInfoForm {
+  height: 60vh;
+  background-color: #CFF0FF;
+  border-radius: 0 0 .5rem .5rem;
+}
+
+/************ Summary Stats ***********/
+
+.summaryStatCard {
+  padding: 10% 2%;
+  /* width: fit-content; */
+}
+
+.summaryStatValue {
+  font-size: 3.5rem;
+  color: #F99F1C;
+  font-kerning: none;
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.summaryStatDesc {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #000000;
+  font-size: 2rem;
+}
+
+/*********** Current School Period Bar *************/
+
+.period {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.periodTitle {
+  font-weight: 500;
+}
+
+.periodValue {
+  font-weight: 400;
+}
+
+/*********** Data Table *************/
+
+.dataTable{
+  font-size: medium;
 }

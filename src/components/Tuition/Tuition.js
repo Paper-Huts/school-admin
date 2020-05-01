@@ -1,42 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const Tuition = ({ summaryStats }) => {
-  
+import styles from '../../stylesheets/pages.module.css'
+
+import SubHeader from '../CustomComponents/SubHeader'
+import LargeButton from '../CustomComponents/LargeButton'
+
+const Tuition = ({ pageInfo }) => {
+
   return (
-    <div>
-      <Container>
-        <h1>School Fees Payment</h1>
-        <hr />
-        <br />
-        <Row>
-        { summaryStats.map(
-          ({ id, value, title }) =>
-          (<Col className='SummaryStats' key={id}>
-            <h1>{ value }</h1>
-            <h3>{ title }</h3>
-          </Col>)
-        ) }
+    <div className={styles.pageBody}>
+      <Container fluid>
+        <Row className={styles.optionsBar}>
+          {
+            pageInfo.subPages.map(
+              ({ id, title, path }) =>
+                (<Col>
+                  <LargeButton key={id} path={path} label={title} />
+                </Col>
+                )
+            )
+          }
         </Row>
-        <br />
-        <Row>
-          <Col>
-            <Link to='/tuition/payment' >
-              <Button variant="secondary">Pay School Fees</Button>
-            </Link>
-          </Col>
-          <Col><Button variant="secondary">Payment History</Button></Col>
-        </Row>
-        <br />
-        <h3>School Fees Information</h3>
-        <hr />
-        <br />
-        <Row>
+        {
+          pageInfo.subSections.map(
+            ({ subHeader, paragraphInfo }) =>
+              (<SubHeader subHeader={subHeader} />)
+          )
+        }
+
+        <Row className={styles.subSection}>
           <Col>
             <h4>Nuersery & KG</h4>
             <ul>

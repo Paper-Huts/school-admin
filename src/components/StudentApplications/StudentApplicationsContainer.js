@@ -11,8 +11,8 @@ class StudentApplicationsContainer extends Component {
     this.state = {
       header: 'Student Applications',
       options: [
-        {id: 0, title: 'New Student', path: '/new_student'},
-        {id: 1, title: 'Update Student Info', path: '/update_student_info'}
+        {id: 0, title: 'New Student Application', path: '/applications/new_student'},
+        {id: 1, title: 'Update Student Info', path: '/applications/update_student'}
       ],
       data: {
         period: [

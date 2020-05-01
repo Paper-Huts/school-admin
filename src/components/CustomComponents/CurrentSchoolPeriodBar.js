@@ -1,8 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import styles from '../../stylesheets/pages.module.css'
+import styles from '../../stylesheets/CustomComponents.module.css'
 
-const ApplicationPeriodBar = ({ period }) => (
+const CurrentSchoolPeriodBar = ({ period }) => (
   <Row>
     {period.map(periodItem => (
       <Col md={4} className={styles.period} key={periodItem.id}>
@@ -17,4 +17,4 @@ const ApplicationPeriodBar = ({ period }) => (
   </Row>
 )
 
-export default ApplicationPeriodBar
+export default CurrentSchoolPeriodBar

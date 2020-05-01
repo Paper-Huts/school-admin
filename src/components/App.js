@@ -8,8 +8,12 @@ import StudentApplicationsContainer from '../components/StudentApplications/Stud
 import styles from '../stylesheets/App.module.css'
 import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
+import NewStudent from './StudentApplications/NewStudent/NewStudent'
+import UpdateStudent from './StudentApplications/UpdateStudent/UpdateStudent'
 
 import TuitionPayment from '../components/Tuition/TuitionPayment/TuitionPayment'
+import TuitionPaymentHistory from '../components/Tuition/TuitionPaymentHistory/TuitionPaymentHistory'
+import PayStudentFees from '../components/Tuition/TuitionPayment/PayStudentFees'
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
               <Route exact path='/applications' component={StudentApplicationsContainer} />
               <Route exact path='/tuition' component={TuitionContainer} />
               <Route exact path='/help' component={Help} />
-              <Route path='/tuition/payment' component={TuitionPayment} />
+              <Route exact path='/tuition/payment' component={TuitionPayment} />
+              <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
+              <Route path='/tuition/payment/:studentId' component={PayStudentFees} />
+              <Route exact path='/applications/new_student' component={NewStudent} />
+              <Route exact path='/applications/update_student' component={UpdateStudent} />
             </Switch>
           </Col>
         </Row>

@@ -9,13 +9,12 @@ import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 
 const PayStudentFees = ({ period }) => {
-
-  let { studentId } = useParams()
+  let { studentId } = useParams();
 
   return (
     <Container fluid>
+      <Header header="Pay School Fees" />
       <div className={styles.pageBody}>
-        <Header header="Pay School Fees" />
         {/* <CurrentSchoolPerdiodBar period={period} /> */}
         <SubHeader subHeader={studentId} />
         <div>

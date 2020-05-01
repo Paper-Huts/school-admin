@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import styles from '../../stylesheets/StudentApplications.module.css'
+import styles from '../../stylesheets/pages.module.css'
 
 import SubHeader from '../CustomComponents/SubHeader'
 import LargeButton from '../CustomComponents/LargeButton'
@@ -12,7 +12,7 @@ import LargeButton from '../CustomComponents/LargeButton'
 const Tuition = ({ pageInfo }) => {
 
   return (
-    <div>
+    <div className={styles.pageBody}>
       <Container fluid>
         <Row className={styles.optionsBar}>
           {

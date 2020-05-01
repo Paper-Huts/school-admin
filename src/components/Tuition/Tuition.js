@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import LargerButton from '../CustomComponents/LargeButton'
+import LargeButton from '../CustomComponents/LargeButton'
 import Header from '../../components/CustomComponents/Header'
 
 const Tuition = ({ summaryStats, pageInfo }) => {
@@ -26,7 +26,7 @@ const Tuition = ({ summaryStats, pageInfo }) => {
         {
           pageInfo.subPages.map(
             ({id, title, path}) =>
-            (<LargerButton key={id} path={path} label={title} />)
+            (<LargeButton key={id} path={path} label={title} />)
           )
         }
         <br />

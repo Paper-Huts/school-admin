@@ -23,6 +23,13 @@
 /************* Page SubSection *************/
 
 .subSection {
+  padding: 0.5rem 2rem;
+  align-items: center;
+}
+
+
+/************* Page Body Container *************/
+.pageBody {
   padding: 0.5rem 5rem;
   align-items: center;
 }

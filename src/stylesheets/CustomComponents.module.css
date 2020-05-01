@@ -3,7 +3,7 @@
 .mainHeader {
   text-transform: uppercase;
   text-align: center;
-  margin: 5rem 2rem 2rem;
+  margin: 2.5rem 1rem 1rem;
   padding: 1rem 3rem;
   border-bottom: 3px solid #00B1FF;
 }
@@ -13,8 +13,8 @@
 .subHeader {
   text-transform: uppercase;
   text-align: left;
-  margin: 5rem 2rem 2rem;
-  padding: 1rem 3rem;
+  margin: 0.2rem 0rem;
+  padding: 0.2rem 2rem;
   border-bottom: 3px solid #00B1FF;
 }
 
@@ -95,4 +95,10 @@
 
 .periodValue {
   font-weight: 400;
+}
+
+/*********** Data Table *************/
+
+.dataTable{
+  font-size: medium;
 }

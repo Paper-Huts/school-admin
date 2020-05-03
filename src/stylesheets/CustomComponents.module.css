@@ -51,9 +51,9 @@
 }
 
 .studentInfoForm {
+  padding-top: 2%;
   height: 60vh;
-  background-color: #CFF0FF;
-  border-radius: 0 0 .5rem .5rem;
+  background-color: rgba(12, 110, 223, 0.1);
 }
 
 /************ Summary Stats ***********/

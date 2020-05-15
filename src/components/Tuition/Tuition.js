@@ -1,36 +1,28 @@
-import React from 'react'
+import React from "react";
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-import styles from '../../stylesheets/pages.module.css'
+import styles from "../../stylesheets/pages.module.css";
 
-import SubHeader from '../CustomComponents/SubHeader'
-import LargeButton from '../CustomComponents/LargeButton'
+import SubHeader from "../CustomComponents/SubHeader";
+import LargeButton from "../CustomComponents/LargeButton";
 
 const Tuition = ({ pageInfo }) => {
-
   return (
     <div className={styles.pageBody}>
       <Container fluid>
         <Row className={styles.optionsBar}>
-          {
-            pageInfo.subPages.map(
-              ({ id, title, path }) =>
-                (<Col>
-                  <LargeButton key={id} path={path} label={title} />
-                </Col>
-                )
-            )
-          }
+          {pageInfo.subPages.map(({ id, title, path }) => (
+            <Col>
+              <LargeButton key={id} path={path} label={title} />
+            </Col>
+          ))}
         </Row>
-        {
-          pageInfo.subSections.map(
-            ({ subHeader, paragraphInfo }) =>
-              (<SubHeader subHeader={subHeader} />)
-          )
-        }
+        {pageInfo.subSections.map(({ subHeader, paragraphInfo }) => (
+          <SubHeader subHeader={subHeader} />
+        ))}
 
         <Row className={styles.subSection}>
           <Col>
@@ -53,6 +45,6 @@ const Tuition = ({ pageInfo }) => {
       </Container>
     </div>
   );
-}
+};
 
 export default Tuition;

@@ -31,7 +31,7 @@ function App() {
               <Route exact path='/help' component={Help} />
               <Route exact path='/tuition/payment' component={TuitionPayment} />
               <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
-              <Route path='/tuition/payment/:studentId' component={PayStudentFees} />
+              <Route path='/tuition/payment/:studentName' component={PayStudentFees} />
               <Route exact path='/applications/new_student' component={NewStudent} />
               <Route exact path='/applications/update_student' component={UpdateStudent} />
             </Switch>

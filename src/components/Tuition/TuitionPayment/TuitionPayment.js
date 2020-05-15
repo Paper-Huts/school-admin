@@ -7,7 +7,7 @@ import Header from "../../CustomComponents/Header";
 import SearchBar from "../../CustomComponents/Search/SearchBar";
 import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
-import DataTable from '../../CustomComponents/DataTable'
+import StudentListTable from '../../CustomComponents/StudentListTable'
 
 import StudentNameList from "../../../tests/MOCK_DATA_Student_Names.json";
 
@@ -63,7 +63,7 @@ class TuitionPayment extends Component {
           <SubHeader subHeader="Student List" />
           <Row>
             <Col>
-            <DataTable headerList={tableHeaderList} data={filteredData} btnActions={btnActions} />
+            <StudentListTable headerList={tableHeaderList} data={filteredData} btnActions={btnActions} />
             </Col>
           </Row>
         </div>

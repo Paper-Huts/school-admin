@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/noble-dbms-app/precache-manifest.a2e30c0d8449bd0d93e724d9043bb7e0.js"
+  "/noble-dbms-app/precache-manifest.83a7752b8b5a814cad3411ac32aa9335.js"
 );
 
 self.addEventListener('message', (event) => {

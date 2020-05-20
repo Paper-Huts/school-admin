@@ -15,6 +15,7 @@ import UpdateStudent from './StudentApplications/UpdateStudent/UpdateStudent'
 import TuitionPayment from '../components/Tuition/TuitionPayment/TuitionPayment'
 import TuitionPaymentHistory from '../components/Tuition/TuitionPaymentHistory/TuitionPaymentHistory'
 import PayStudentFees from '../components/Tuition/TuitionPayment/PayStudentFees'
+import AuthPages from './AuthPages/AuthPages'
 
 class App extends Component {
   constructor() {
@@ -56,6 +57,7 @@ class App extends Component {
                 <Route path='/tuition/payment/:studentId' component={PayStudentFees} />
                 <Route exact path='/applications/new_student' component={NewStudent} />
                 <Route exact path='/applications/update_student' component={UpdateStudent} />
+                <Route exact path='/login' component={AuthPages} />
               </Switch>
             </Col>
           </Row>

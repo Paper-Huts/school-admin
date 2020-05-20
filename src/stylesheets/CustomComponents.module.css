@@ -18,6 +18,16 @@
   border-bottom: 3px solid #00B1FF;
 }
 
+/********** Mini Header **************/
+.miniHeader {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5rem 1rem 3rem;
+  padding: 1rem 3rem;
+  border-bottom: 3px solid #00B1FF;
+
+}
+
 /********** Large Button *************/
 
 .largeButton {

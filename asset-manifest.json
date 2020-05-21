@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/noble-dbms-app/static/css/main.abeb9a3d.chunk.css",
-    "main.js": "/noble-dbms-app/static/js/main.f567c8f0.chunk.js",
-    "main.js.map": "/noble-dbms-app/static/js/main.f567c8f0.chunk.js.map",
+    "main.js": "/noble-dbms-app/static/js/main.99be40f2.chunk.js",
+    "main.js.map": "/noble-dbms-app/static/js/main.99be40f2.chunk.js.map",
     "runtime-main.js": "/noble-dbms-app/static/js/runtime-main.c70a1245.js",
     "runtime-main.js.map": "/noble-dbms-app/static/js/runtime-main.c70a1245.js.map",
     "static/css/2.de424728.chunk.css": "/noble-dbms-app/static/css/2.de424728.chunk.css",
     "static/js/2.10cf5f34.chunk.js": "/noble-dbms-app/static/js/2.10cf5f34.chunk.js",
     "static/js/2.10cf5f34.chunk.js.map": "/noble-dbms-app/static/js/2.10cf5f34.chunk.js.map",
     "index.html": "/noble-dbms-app/index.html",
-    "precache-manifest.585d3084e87baf496df9cacddf536cae.js": "/noble-dbms-app/precache-manifest.585d3084e87baf496df9cacddf536cae.js",
+    "precache-manifest.5ad9a2f7d8182cc604a098ca52c026bb.js": "/noble-dbms-app/precache-manifest.5ad9a2f7d8182cc604a098ca52c026bb.js",
     "service-worker.js": "/noble-dbms-app/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/noble-dbms-app/static/css/2.de424728.chunk.css.map",
     "static/css/main.abeb9a3d.chunk.css.map": "/noble-dbms-app/static/css/main.abeb9a3d.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.de424728.chunk.css",
     "static/js/2.10cf5f34.chunk.js",
     "static/css/main.abeb9a3d.chunk.css",
-    "static/js/main.f567c8f0.chunk.js"
+    "static/js/main.99be40f2.chunk.js"
   ]
 }

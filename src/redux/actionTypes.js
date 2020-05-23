@@ -1,0 +1,7 @@
+const ADD_STAFF = 'ADD_STAFF'
+const UPDATE_STAFF = 'UPDATE_STAFF'
+
+export {
+  ADD_STAFF,
+  UPDATE_STAFF
+}

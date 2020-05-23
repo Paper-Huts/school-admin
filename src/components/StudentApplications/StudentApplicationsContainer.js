@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ApplicationPeriodBar from './ApplicationPeriodBar'
 import StudentApplications from './StudentApplications'
 import Header from '../CustomComponents/Header'

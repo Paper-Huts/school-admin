@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import styles from '../../stylesheets/Landing.module.css'
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 import Header from '../CustomComponents/Header'
 import SummaryStatCard from '../CustomComponents/SummaryStats'

@@ -9,6 +9,7 @@ import StudentApplicationsContainer from '../components/StudentApplications/Stud
 import styles from '../stylesheets/App.module.css'
 import TuitionContainer from '../components/Tuition/TuitionContainer'
 import Help from '../components/Help/Help'
+import StaffContainer from '../components/Staff/StaffContainer'
 import NewStudent from './StudentApplications/NewStudent/NewStudent'
 import UpdateStudent from './StudentApplications/UpdateStudent/UpdateStudent'
 
@@ -52,6 +53,7 @@ class App extends Component {
                 <Route exact path='/applications' component={StudentApplicationsContainer} />
                 <Route exact path='/tuition' component={TuitionContainer} />
                 <Route exact path='/help' component={Help} />
+                <Route exact path='/staff' component={StaffContainer} />
                 <Route exact path='/tuition/payment' component={TuitionPayment} />
                 <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
                 <Route path='/tuition/payment/:studentId' component={PayStudentFees} />

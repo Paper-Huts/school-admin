@@ -32,7 +32,7 @@ class StudentFormContainer extends Component {
   }
 
   render() {
-    const {defaultTab, tabs} = this.state
+    const {defaultTab} = this.state
 
     return (
       <Container>

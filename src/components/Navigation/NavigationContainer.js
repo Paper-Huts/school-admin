@@ -9,7 +9,7 @@ class NavigationContainer extends Component {
       navItems: [
         { id: 1, title: 'Student Applications', path: '/applications'},
         { id: 2, title: 'School Fees', path: '/tuition'},
-        { id: 3, title: 'Help', path: '/help'}
+        { id: 3, title: 'Staff', path: '/staff'}
       ]
     }
   }

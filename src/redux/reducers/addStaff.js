@@ -13,8 +13,9 @@ const addStaff = (state=[], action) => {
           title: action.title
         }
       ])
+    default: 
+      return state
   }
 }
 
 export default addStaff
-

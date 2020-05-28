@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import * as reducers from './redux/reducers'
 
 import './index.css';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-let store = createStore(reducers)
+let store = createStore(combineReducers({reducers}))
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,6 +1,6 @@
 import { ADD_STAFF } from "../actionTypes"
 
-const addStaff = (state, action) => {
+const addStaff = (state=[], action) => {
   switch(action.type) {
     case ADD_STAFF:
       return Object.assign({}, state, [
@@ -17,3 +17,4 @@ const addStaff = (state, action) => {
 }
 
 export default addStaff
+

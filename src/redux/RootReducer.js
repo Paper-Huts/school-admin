@@ -4,16 +4,18 @@ import storage from 'redux-persist/lib/storage'
 
 import userReducer from './User/UserReducer'
 import navigationReducer from './Navigation/NavigationReducer'
+import schoolStatsReducer from './SchoolStats/SchoolStatsReducer'
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['navigation']
+  whitelist: ['navigation', 'schoolStats']
 }
 
 const rootReducer = combineReducers({
   user: userReducer,
-  navigation: navigationReducer
+  navigation: navigationReducer,
+  schoolStats: schoolStatsReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

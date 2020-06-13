@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './redux/reducers'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import './index.css';
-import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-let store = createStore(rootReducer)
+import App from './App';
+import { store, persistor } from './redux/Store'
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <App />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
       </React.StrictMode>
     </Router>
   </Provider>,

@@ -1,9 +1,15 @@
 import React from 'react'
-import styles from '../../stylesheets/Navigation.module.css'
 import { Link } from 'react-router-dom'
 import { Nav, Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
-const Navigation = ({ navItems, navBrand }) => (
+import { auth } from '../../firebase/firebase.utils'
+import { selectCurrentUser } from '../../redux/User/UserSelectors'
+import styles from '../../stylesheets/Navigation.module.css'
+
+
+const Navigation = ({ navItems, navBrand, currentUser }) => (
   <Nav variant='pills' defaultActiveKey="/" className="flex-column">
     <Nav.Item>
       <Nav.Link as={Link} to={navBrand.path} key={navBrand.id}>
@@ -16,8 +22,16 @@ const Navigation = ({ navItems, navBrand }) => (
         <Nav.Link as={Link} to={path}>{title}</Nav.Link>
       </Nav.Item>
     ))}
-    <Button variant='secondary' className='mt-5' as={Link} to='/login'>Login</Button>
+    {
+      currentUser ?
+      <Button variant='secondary' className='mt-5' onClick={() => auth.signOut()}>Logout</Button> :
+      <Button variant='secondary' className='mt-5' as={Link} to='/login'>Login</Button>
+    }
   </Nav>
 )
 
-export default Navigation
+const mapStateToProps = createStructuredSelector ({
+  currentUser: selectCurrentUser
+})
+
+export default connect(mapStateToProps)(Navigation)

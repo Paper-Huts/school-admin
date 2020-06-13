@@ -1,9 +1,13 @@
 import React, { Fragment, Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect';
 
-import { auth } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import styles from './stylesheets/App.module.css'
+import { setCurrentUser } from './redux/User/UserActions'
+import { selectCurrentUser } from './redux/User/UserSelectors';
 
 import NavigationContainer from './components/Navigation/NavigationContainer'
 import LandingContainer from './components/Landing/LandingContainer'
@@ -19,19 +23,25 @@ import PayStudentFees from './components/Tuition/TuitionPayment/PayStudentFees'
 import AuthPages from './components/AuthPages/AuthPages'
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      currentUser: null
-    }
-  }
-
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
+
+    const { setCurrentUser } = this.props
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth) {
+        const userRef = await createUserProfileDocument(userAuth)
+
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+        })
+      } else {
+        setCurrentUser(userAuth)
+      }
     })
   }
 
@@ -69,4 +79,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

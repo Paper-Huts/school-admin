@@ -107,7 +107,11 @@ const PersonalInformation = ({ items }) => (
     </Container>
     <Row>
       <Col md={{offset: 9, span: 3}}>
-        <Button className='btn-block' variant='outline-primary'>Next</Button>
+        <Button className='btn-block' 
+          variant='outline-primary' 
+          href='#'
+          data-rb-event-key='guardianInformation'
+          role='tab'>Next</Button>
       </Col>
     </Row>
   </Fragment>

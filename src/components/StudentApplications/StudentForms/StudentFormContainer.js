@@ -3,6 +3,7 @@ import { Container, Tabs, Tab } from 'react-bootstrap'
 import PersonalInformation from './PersonalInformation'
 import styles from '../../../stylesheets/CustomComponents.module.css'
 import GuardianInformation from './GuardianInformation'
+import RegistrationInformation from './RegistrationInformation'
 
 class StudentFormContainer extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class StudentFormContainer extends Component {
   }
 
   render() {
-    const {defaultTab, tabs} = this.state
+    const {defaultTab} = this.state
 
     return (
       <Container>
@@ -41,6 +42,9 @@ class StudentFormContainer extends Component {
           </Tab>
           <Tab eventKey='guardianInformation' title='guardianInformation'>
             <GuardianInformation />
+          </Tab>
+          <Tab eventKey='registrationInformation' title='registrationInformation'>
+            <RegistrationInformation />
           </Tab>
         </Tabs>
       </Container>

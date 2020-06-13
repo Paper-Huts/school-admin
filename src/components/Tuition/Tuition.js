@@ -1,50 +1,53 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { selectTuitionByGradeLevel } from "./../../redux/Tuition/TuitionSelector";
 
+import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
 
 import SubHeader from "../CustomComponents/SubHeader";
 import LargeButton from "../CustomComponents/LargeButton";
 
-const Tuition = ({ pageInfo }) => {
+import { pageData } from "../../tests/data/TuitionPageData";
+
+const Tuition = ({ tuitionByGradeLevel }) => {
+
+  const { subPages } = pageData;
+
   return (
     <div className={styles.pageBody}>
       <Container fluid>
         <Row className={styles.optionsBar}>
-          {pageInfo.subPages.map(({ id, title, path }) => (
-            <Col>
-              <LargeButton key={id} path={path} label={title} />
+          {subPages.map(({ id, title, path }) => (
+            <Col key={id}>
+              <LargeButton path={path} label={title} />
             </Col>
           ))}
         </Row>
-        {pageInfo.subSections.map(({ subHeader, paragraphInfo }) => (
-          <SubHeader subHeader={subHeader} />
-        ))}
-
+        <SubHeader subHeader="School Fees Information" />
         <Row className={styles.subSection}>
-          <Col>
-            <h4>Nuersery & KG</h4>
-            <ul>
-              <li>Tuition - GHC 200</li>
-              <li>Book & Stationery - GHC 50</li>
-              <li>Toiletries - GHC 50</li>
-            </ul>
-          </Col>
-          <Col>
-            <h4>Primary School</h4>
-            <ul>
-              <li>Tuition - GHC 250</li>
-              <li>Book & Stationery - GHC 70</li>
-              <li>Toiletries - GHC 20</li>
-            </ul>
-          </Col>
+          {tuitionByGradeLevel.map((tuition) => (
+            <Col key={tuition.id} md={6} xs={12}>
+              <h4>{tuition.gradeLevel}</h4>
+              <ul>
+                <li>Tuition - GHC {tuition.costOfTuition}</li>
+                <li>
+                  Book & Stationery - GHC {tuition.costOfBooksAndStationery}
+                </li>
+                <li>Misc Items - GHC {tuition.costOfMiscItems}</li>
+              </ul>
+            </Col>
+          ))}
         </Row>
       </Container>
     </div>
   );
 };
 
-export default Tuition;
+const mapStateToProps = createStructuredSelector({
+  tuitionByGradeLevel: selectTuitionByGradeLevel,
+});
+
+export default connect(mapStateToProps)(Tuition);

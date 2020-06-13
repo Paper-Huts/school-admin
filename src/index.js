@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import App from './App';
+import { store, persistor } from './redux/Store'
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <React.StrictMode>
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </React.StrictMode>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -46,7 +46,6 @@ class SignIn extends Component {
           <Form.Group>
             <Form.Label>E-mail address</Form.Label>
             <Form.Control 
-              controlid='signInEmail'
               name='email'
               type='email' 
               placeholder='Enter email' 
@@ -57,18 +56,17 @@ class SignIn extends Component {
           <Form.Group controlId='signInPassword'>
             <Form.Label>Password</Form.Label>
             <Form.Control
-              controlid='signInPassword' 
               name='password'
               type='password' 
               placeholder='Password' 
               onChange={this.handleChange} 
               value={password} />
           </Form.Group>
+          <ButtonGroup>
+            <Button variant='secondary' type='submit'>Login</Button>
+            <Button onClick={signInWithGoogle}>Login with Google</Button>
+          </ButtonGroup>
         </Form>
-        <ButtonGroup>
-          <Button variant='secondary' type='submit'>Login</Button>
-          <Button onClick={signInWithGoogle}>Login with Google</Button>
-        </ButtonGroup>
       </div>
     )
   }

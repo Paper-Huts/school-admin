@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'
 import userReducer from './User/UserReducer'
 import navigationReducer from './Navigation/NavigationReducer'
 import schoolStatsReducer from './SchoolStats/SchoolStatsReducer'
+import studentsReducer from './Students/StudentsReducer'
 
 const persistConfig = {
   key: 'root',
@@ -15,7 +16,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   navigation: navigationReducer,
-  schoolStats: schoolStatsReducer
+  schoolStats: schoolStatsReducer,
+  students: studentsReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

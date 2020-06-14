@@ -101,9 +101,9 @@ class SignUp extends Component {
               onChange={this.handleChange} 
               value={confirmPassword} />
           </Form.Group>
-        </Form>
 
-        <Button variant='secondary' type='submit'>Sign Up</Button>
+          <Button variant='secondary' type='submit'>Sign Up</Button>
+        </Form>
       </div>
     )
   }

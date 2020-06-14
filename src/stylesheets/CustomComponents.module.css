@@ -61,9 +61,12 @@
 }
 
 .studentInfoForm {
-  padding-top: 2%;
+  padding: 5% 10%;
+}
+
+.studentInfoFormContainer {
   height: 60vh;
-  background-color: rgba(12, 110, 223, 0.1);
+  overflow-y: auto;
 }
 
 /************ Summary Stats ***********/

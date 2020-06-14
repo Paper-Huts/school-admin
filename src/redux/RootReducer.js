@@ -6,11 +6,13 @@ import userReducer from './User/UserReducer'
 import navigationReducer from './Navigation/NavigationReducer'
 import tuitionReducer from './Tuition/TuitionReducer'
 import schoolPeriodReducer from './SchoolPeriod/SchoolPeriodReducer'
+import schoolStatsReducer from './SchoolStats/SchoolStatsReducer'
+import studentsReducer from './Students/StudentsReducer'
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['navigation']
+  whitelist: ['navigation', 'schoolStats']
 }
 
 const rootReducer = combineReducers({
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   navigation: navigationReducer,
   tuition: tuitionReducer,
   schoolPeriod: schoolPeriodReducer,
+  schoolStats: schoolStatsReducer,
+  students: studentsReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

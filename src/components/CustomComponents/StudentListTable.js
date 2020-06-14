@@ -13,7 +13,7 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
         <thead>
           <tr>
             {headerList.map((header) => (
-              <th key={header.id}>{header}</th>
+              <th key={header.id}>{header.value}</th>
             ))}
           </tr>
         </thead>
@@ -26,8 +26,8 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
               </td>
               <td>
                 {btnActions.map((btnAction) => (
-                  <Link to={`${url}/${first_name} ${last_name}`}>
-                    <Button size="sm">{btnAction}</Button>
+                  <Link key={btnAction.id} to={`${url}/${first_name} ${last_name}`}>
+                    <Button size="sm">{btnAction.value}</Button>
                   </Link>
                 ))}
               </td>

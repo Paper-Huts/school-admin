@@ -66,7 +66,7 @@ class App extends Component {
                 <Route exact path='/staff' component={StaffContainer} />
                 <Route exact path='/tuition/payment' component={TuitionPayment} />
                 <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
-                <Route path='/tuition/payment/:studentId' component={PayStudentFees} />
+                <Route path='/tuition/payment/:studentName' component={PayStudentFees} />
                 <Route exact path='/applications/new_student' component={NewStudent} />
                 <Route exact path='/applications/update_student' component={UpdateStudent} />
                 <Route exact path='/login' component={AuthPages} />

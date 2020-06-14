@@ -16,11 +16,6 @@ class TuitionPaymentHistory extends Component {
     super();
     this.state = {
       data: [],
-      period: [
-        { id: 0, title: "Academic Year", value: "2019/2020" },
-        { id: 1, title: "Current Term", value: 3 },
-        { id: 2, title: "Date", value: "April 1st, 2020" },
-      ],
       searchField: ""
     };
   }
@@ -34,7 +29,7 @@ class TuitionPaymentHistory extends Component {
   };
 
   render() {
-    const { data, period, searchField } = this.state;
+    const { data, searchField } = this.state;
     const filteredData = data.filter((item) =>
       item.first_name
         .concat(" ", item.last_name, item.id)
@@ -45,7 +40,7 @@ class TuitionPaymentHistory extends Component {
     return (
       <Container fluid>
         <Header header="Payment History" />
-        <CurrentSchoolPeriodBar period={period} />
+        <CurrentSchoolPeriodBar />
         <div className={styles.pageBody}>
           <SearchBar
             placeholder="Search: Student name, payer, id"

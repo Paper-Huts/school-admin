@@ -8,12 +8,12 @@ import Header from "../CustomComponents/Header";
 import { pageData } from "../../tests/data/TuitionPageData";
 
 const TuitionContainer = () => {
-  const { title, period } = pageData;
+  const { title } = pageData;
 
   return (
     <Container fluid>
       <Header header={title} />
-      <CurrentSchoolPeriodBar period={period} />
+      <CurrentSchoolPeriodBar />
       <Tution />
     </Container>
   );

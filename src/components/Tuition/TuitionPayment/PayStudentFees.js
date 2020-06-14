@@ -10,22 +10,12 @@ import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodB
 
 const PayStudentFees = () => {
   const { studentName } = useParams();
-  const today = new Date();
-  const period = [
-    { id: 0, title: "Academic Year", value: "2019/2020" },
-    { id: 1, title: "Current Term", value: 3 },
-    {
-      id: 2,
-      title: "Date",
-      value: `${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`,
-    },
-  ];
 
   return (
     <Container fluid>
       <Header header="Pay School Fees" />
       <div className={styles.pageBody}>
-        <CurrentSchoolPerdiodBar period={period} />
+        <CurrentSchoolPerdiodBar />
         <SubHeader subHeader={studentName} />
         <Form className={styles.subSection}>
           <br />

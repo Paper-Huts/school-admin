@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectTuitionByGradeLevel } from "./../../redux/Tuition/TuitionSelector";
+import { selectTuitionByGradeLevel } from "./../../redux/Tuition/TuitionSelectors";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";

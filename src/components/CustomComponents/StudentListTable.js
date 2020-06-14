@@ -13,7 +13,7 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
         <thead>
           <tr>
             {headerList.map((header) => (
-              <th>{header}</th>
+              <th key={header.id}>{header}</th>
             ))}
           </tr>
         </thead>

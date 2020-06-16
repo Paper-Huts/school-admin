@@ -1,8 +1,8 @@
 {
-  "name": "noble-dbms-app",
+  "name": "school-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://paper-huts.github.io/noble-dbms-app",
+  "homepage": "https://paper-huts.github.io/school-admin",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

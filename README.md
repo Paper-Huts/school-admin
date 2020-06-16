@@ -1,1 +1,1 @@
-# Noble Christian School's Database Management System App
+# Paperhut's School Admin - A School's Database Management System App

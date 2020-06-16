@@ -5,12 +5,12 @@ import { Row } from 'react-bootstrap'
 import Header from '../CustomComponents/Header'
 import SummaryStatCard from '../CustomComponents/SummaryStats'
 
-const Landing = (props) => (
+const Landing = ({ header, summaryStats }) => (
   <Fragment>
-    <Header header={props.header} />
+    <Header header={header} />
     <Row className={styles.summaryStatContainer}>
-      {props.summaryStats.map(stat => (
-        <SummaryStatCard value={stat.value} desc={stat.title} />
+      {summaryStats.map(({ value, title }) => (
+        <SummaryStatCard value={value} desc={title} />
       ))}
     </Row>
   </Fragment>

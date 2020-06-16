@@ -11,34 +11,30 @@ class StudentFormContainer extends Component {
 
     this.state = {
       defaultTab: 'personalInformation',
-      tabs: [
-        {id: 1, title: 'Personal Information', name: 'personalInformation', items: {
-            firstName: {id: 101, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3},
-            middleName: {id: 102, label: 'Middle Name', placeholder: 'Middle Name', type: 'text', col_size: 3},
-            lastName: {id: 103, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3}
-        }},
-        {id: 2, title: 'Guardian Info', name: 'guardianInfo', items: {
-          firstName: {id: 101, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3},
-          middleName: {id: 102, label: 'Middle Name', placeholder: 'Middle Name', type: 'text', col_size: 3},
-          lastName: {id: 103, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3}
-        }},
-        {id: 3, title: 'Registration Info', name: 'registrationInfo', items: {
-          firstName: {id: 101, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3},
-          middleName: {id: 102, label: 'Middle Name', placeholder: 'Middle Name', type: 'text', col_size: 3},
-          lastName: {id: 103, label: 'First Name', placeholder: 'First Name', type: 'text', col_size: 3}
-        }}
-      ]
+      personalInformation: {
+        title: 'personalInformation',
+        formItems: {
+          firstName: '',
+          lastName: ''
+        }
+      }
     }
   }
 
+  handleChange = e => {    
+    const { value, name } = e.target
+
+    this.setState({ [name]: value })
+  }
+
   render() {
-    const {defaultTab} = this.state
+    const {defaultTab, personalInformation: { formItems }} = this.state
 
     return (
       <Container>
-        <Tabs defaultActiveKey={defaultTab} className={styles.tabs + ' nav-justified'}>
+        <Tabs defaultActiveKey={defaultTab} className={styles.tabs + ' nav-justified'} variant='pills'>
           <Tab eventKey='personalInformation' title='personalInformation'>
-            <PersonalInformation />
+            <PersonalInformation formItems={formItems} handleChange={this.handleChange} />
           </Tab>
           <Tab eventKey='guardianInformation' title='guardianInformation'>
             <GuardianInformation />

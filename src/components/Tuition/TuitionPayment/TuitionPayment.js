@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../../stylesheets/pages.module.css";
@@ -9,20 +11,17 @@ import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import StudentListTable from '../../CustomComponents/StudentListTable'
 
-import StudentNameList from "../../../tests/MOCK_DATA_Student_Names.json";
 import { TuitionPaymentTableHeaderData } from "../../../tests/data/TuitionPaymentData";
+
+import { selectStudentList } from "../../../redux/Students/StudentSelectors";
 
 class TuitionPayment extends Component {
   constructor(props) {
     super();
     this.state = {
-      data: [],
+      data: props.studentList,
       searchField: "",
     };
-  }
-
-  componentDidMount() {
-    this.setState({ data: StudentNameList });
   }
 
   handleChange = (e) => {
@@ -62,4 +61,8 @@ class TuitionPayment extends Component {
   }
 }
 
-export default TuitionPayment;
+const mapStateToProps = createStructuredSelector({
+  studentList: selectStudentList
+});
+
+export default connect(mapStateToProps)(TuitionPayment);

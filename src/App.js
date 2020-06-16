@@ -17,9 +17,6 @@ import Help from './components/Help/Help'
 import StaffContainer from './components/Staff/StaffContainer'
 import NewStudent from './components/StudentApplications/NewStudent/NewStudent'
 import UpdateStudent from './components/StudentApplications/UpdateStudent/UpdateStudent'
-import TuitionPayment from './components/Tuition/TuitionPayment/TuitionPayment'
-import TuitionPaymentHistory from './components/Tuition/TuitionPaymentHistory/TuitionPaymentHistory'
-import PayStudentFees from './components/Tuition/TuitionPayment/PayStudentFees'
 import AuthPages from './components/AuthPages/AuthPages'
 
 class App extends Component {
@@ -61,12 +58,9 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={LandingContainer} />
                 <Route exact path='/applications' component={StudentApplicationsContainer} />
-                <Route exact path='/tuition' component={TuitionContainer} />
+                <Route path='/tuition' component={TuitionContainer} />
                 <Route exact path='/help' component={Help} />
                 <Route exact path='/staff' component={StaffContainer} />
-                <Route exact path='/tuition/payment' component={TuitionPayment} />
-                <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
-                <Route path='/tuition/payment/:studentName' component={PayStudentFees} />
                 <Route exact path='/applications/new_student' component={NewStudent} />
                 <Route exact path='/applications/update_student' component={UpdateStudent} />
                 <Route exact path='/login' component={AuthPages} />

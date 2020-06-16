@@ -1,4 +1,4 @@
-import { StudentActionTypes } from './StudentsActions'
+import { StudentActionTypes } from './StudentsTypes'
 
 const INITIAL_STATE = {
   studentApplicants: [
@@ -25,7 +25,7 @@ const INITIAL_STATE = {
 
 const studentsReducer = (state=INITIAL_STATE, action) => {
   switch(action.type) {
-    case 'ADD_STUDENT_APPLICANT':
+    case StudentActionTypes.ADD_STUDENT_APPLICANT:
       return {
         ...state,
         studentApplicants: [...state.studentApplicants, 

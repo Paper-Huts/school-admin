@@ -105,7 +105,7 @@ class PersonalInformation extends Component {
             <Form.Group as={Row} controlId='studentApplicantGender'>
               <Form.Label column sm='2'>Gender</Form.Label>
               <Col sm='10'>
-                <fieldset name='gender'>
+                <fieldset name='gender' value={gender}>
                   <Form.Check inline label='Male' type='radio' />
                   <Form.Check inline label='Female' type='radio' />
                 </fieldset>

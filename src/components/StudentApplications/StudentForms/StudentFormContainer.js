@@ -21,25 +21,19 @@ class StudentFormContainer extends Component {
     }
   }
 
-  handleChange = e => {    
-    const { value, name } = e.target
-
-    this.setState({ [name]: value })
-  }
-
   render() {
     const {defaultTab, personalInformation: { formItems }} = this.state
 
     return (
       <Container>
         <Tabs defaultActiveKey={defaultTab} className={styles.tabs + ' nav-justified'} variant='pills'>
-          <Tab eventKey='personalInformation' title='personalInformation'>
+          <Tab eventKey='personalInformation' title='Personal Information'>
             <PersonalInformation formItems={formItems} handleChange={this.handleChange} />
           </Tab>
-          <Tab eventKey='guardianInformation' title='guardianInformation'>
+          <Tab eventKey='guardianInformation' title='Guardian Information'>
             <GuardianInformation />
           </Tab>
-          <Tab eventKey='registrationInformation' title='registrationInformation'>
+          <Tab eventKey='registrationInformation' title='Registration Information'>
             <RegistrationInformation />
           </Tab>
         </Tabs>

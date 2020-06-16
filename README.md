@@ -1,1 +1,1 @@
-# Noble Christian School's Database Management System App
+# A School Administration Management System App

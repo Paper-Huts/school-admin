@@ -13,7 +13,7 @@ import StudentListTable from '../../CustomComponents/StudentListTable'
 
 import { TuitionPaymentTableHeaderData } from "../../../tests/data/TuitionPaymentData";
 
-import { selectStudentList } from "../../../redux/Students/StudentSelectors";
+import { selectStudentListForTable } from "../../../redux/Students/StudentSelectors";
 
 class TuitionPayment extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class TuitionPayment extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  studentList: selectStudentList
+  studentList: selectStudentListForTable
 });
 
 export default connect(mapStateToProps)(TuitionPayment);

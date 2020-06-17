@@ -9,7 +9,7 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
 
   return (
     <div className={styles.dataTable}>
-      <Table striped hover size="sm">
+      <Table responsive striped hover size="sm">
         <thead>
           <tr>
             {headerList.map((header) => (
@@ -18,7 +18,7 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map(({ id, first_name, last_name }) => (
+          {data.map(({ id, first_name, last_name, uid }) => (
             <tr key={id}>
               <td>{id}</td>
               <td>
@@ -26,7 +26,7 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
               </td>
               <td>
                 {btnActions.map((btnAction) => (
-                  <Link key={btnAction.id} to={`${url}/${first_name} ${last_name}`}>
+                  <Link key={btnAction.id} to={`${url}/${uid}`}>
                     <Button size="sm">{btnAction.value}</Button>
                   </Link>
                 ))}

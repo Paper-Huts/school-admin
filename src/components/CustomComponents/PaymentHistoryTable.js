@@ -6,12 +6,11 @@ import styles from "../../stylesheets/CustomComponents.module.css";
 const PaymentHistoryTable = ({ data }) => {
   return (
     <div className={styles.datatable}>
-      <Table striped hover size="sm">
+      <Table responsive="sm" striped hover size="sm">
         <thead>
           <tr>
             <th>Date</th>
             <th>Period</th>
-            <th>Student ID</th>
             <th>Student Name</th>
             <th>Paid By</th>
             <th>Amount Paid (GHS)</th>
@@ -33,7 +32,6 @@ const PaymentHistoryTable = ({ data }) => {
               <tr key={id}>
                 <td>{date}</td>
                 <td>{period}</td>
-                <td>{id}</td>
                 <td>
                   {first_name} {last_name}
                 </td>

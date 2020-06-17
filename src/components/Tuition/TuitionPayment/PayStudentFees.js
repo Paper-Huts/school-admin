@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import styles from "../../../stylesheets/pages.module.css";
@@ -8,15 +8,20 @@ import Header from "../../CustomComponents/Header";
 import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 
-const PayStudentFees = () => {
-  const { studentName } = useParams();
+import { selectStudent } from "./../../../redux/Students/StudentSelectors";
+
+const PayStudentFees = ({student, match}) => {
+  console.log(student);
+  console.log(match.params.studentUid);
+
+  const { first_name, last_name } = student;
 
   return (
     <Container fluid>
       <Header header="Pay School Fees" />
       <div className={styles.pageBody}>
         <CurrentSchoolPerdiodBar />
-        <SubHeader subHeader={studentName} />
+        <SubHeader subHeader={`${first_name} ${last_name}`} />
         <Form className={styles.subSection}>
           <br />
           <Row>
@@ -65,11 +70,15 @@ const PayStudentFees = () => {
           </Button>
         </Form>
         <div>
-          <SubHeader subHeader={`${studentName} - Payment History`} />
+          <SubHeader subHeader={`${first_name} ${last_name} - Payment History`} />
         </div>
       </div>
     </Container>
   );
 };
 
-export default PayStudentFees;
+const mapStateToProps = (state, ownProps) => ({
+  student: selectStudent(ownProps.match.params.studentUid)(state),
+});
+
+export default connect(mapStateToProps)(PayStudentFees);

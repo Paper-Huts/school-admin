@@ -9,5 +9,15 @@ export const selectStudentApplicants = createSelector(
 
 export const selectStudentList = createSelector(
   [selectStudents],
-  students => Object.keys(students.studentList).map(studentUID => students.studentList[studentUID])
+  students => students.studentList
+);
+
+export const selectStudent = studentUid => createSelector(
+  [selectStudentList],
+  studentList => studentList[studentUid]
+);
+
+export const selectStudentListForTable = createSelector(
+  [selectStudentList],
+  studentList => Object.keys(studentList).map(studentUid => studentList[studentUid])
 );

@@ -1,48 +1,19 @@
 import { TuitionActionTypes } from './TuitionTypes'
+import TUITION_DATA from './TuitionData'
 
-const INITIAL_STATE = {
-  tuitionByGradeLevel: [
-    {
-      "id": 0,
-      "schoolPeriodId": "",
-      "gradeLevel": "Nursery 1",
-      "costOfTuition": 200,
-      "costOfBooksAndStationery": 50,
-      "costOfMiscItems":20,
-      "totalTuition": 270,
-      "createdAt": "",
-      "createdBy": "",
-      "timestamp": ""
-    },
-    {
-      "id": 1,
-      "schoolPeriodId": "",
-      "gradeLevel": "Nursery 2",
-      "costOfTuition": 200,
-      "costOfBooksAndStationery": 50,
-      "costOfMiscItems":20,
-      "totalTuition": 270,
-      "createdAt": "",
-      "createdBy": "",
-      "timestamp": ""
-    },
-    {
-      "id": 3,
-      "schoolPeriodId": "",
-      "gradeLevel": "Primary 1",
-      "costOfTuition": 250,
-      "costOfBooksAndStationery": 50,
-      "costOfMiscItems":20,
-      "totalTuition": 320,
-      "createdAt": "",
-      "createdBy": "",
-      "timestamp": ""
-    },
-  ]
-}
+const INITIAL_STATE = TUITION_DATA
 
 const tuitionReducer = (state = INITIAL_STATE, action) => {
   switch (TuitionActionTypes) {
+    case TuitionActionTypes.PAY_STUDENT_TUITION:
+      return {
+        ...state,
+        tuitionPaymentHistory: [
+          ...state.tuitionPaymentHistory,
+          action.payload
+        ]
+      }
+
     default:
       return state
   }

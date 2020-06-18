@@ -10,11 +10,25 @@ import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodB
 
 import { selectStudent } from "./../../../redux/Students/StudentSelectors";
 
-const PayStudentFees = ({student, match}) => {
-  console.log(student);
-  console.log(match.params.studentUid);
+const PayStudentFees = ({ student, match }) => {
+  const { first_name, last_name, studentUid } = student;
 
-  const { first_name, last_name } = student;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    let timestamp = new Date()
+
+    //creates a tuition payment transaction record
+    // const studentTuitionPayment = {
+    //   id: timestamp.getTime().toString(),
+    //   studentUid,
+    //   date: timestamp.toDateString(),
+    //   payer_name: "Sigfrid Stratley",
+    //   amount_paid,
+    //   balance_due,
+    //   schoolPeriodId,
+    // };
+  };
 
   return (
     <Container fluid>
@@ -69,8 +83,11 @@ const PayStudentFees = ({student, match}) => {
             Pay Fees
           </Button>
         </Form>
+        <br />
         <div>
-          <SubHeader subHeader={`${first_name} ${last_name} - Payment History`} />
+          <SubHeader
+            subHeader={`${first_name} ${last_name} - Payment History`}
+          />
         </div>
       </div>
     </Container>

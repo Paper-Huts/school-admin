@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import styles from '../../stylesheets/pages.module.css'
 import LargeButton from '../CustomComponents/LargeButton'
 
-const StudentApplications = ({options}) => (
+const Admissions = ({options}) => (
   <Container fluid>
     <Row className={styles.optionsBar}>
       {options.map(({id, title, path}) => 
@@ -15,4 +15,4 @@ const StudentApplications = ({options}) => (
   </Container>
 )
 
-export default StudentApplications
+export default Admissions

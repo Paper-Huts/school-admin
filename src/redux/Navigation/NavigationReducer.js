@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
   navBrand: { id: 0, title: 'School Admin', path: '/'},
   navItems: [
-    { id: 1, title: 'Student Applications', path: '/applications'},
-    { id: 2, title: 'School Fees', path: '/tuition'},
+    { id: 1, title: 'Admissions', path: '/admissions'},
+    { id: 2, title: 'Tuitions', path: '/tuition'},
     { id: 3, title: 'Staff', path: '/staff'}
   ]
 }

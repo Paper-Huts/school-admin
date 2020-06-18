@@ -28,6 +28,10 @@ class PersonalInformation extends Component {
     }
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+  }
+
   handleChange = e => {    
     const { value, name } = e.target
 
@@ -37,12 +41,14 @@ class PersonalInformation extends Component {
   render() {
     const { firstName, lastName, otherNames, address, dateOfBirth, 
       gender, hometown, nationality, religiousAffiliation, nameOfFormerSchool, 
-      disabilityStatus, disabilityInformation, createdBy, createdAt } = this.state
+      disabilityStatus, disabilityInformation } = this.state
     return (
       <Fragment>
         <Container className={styles.studentInfoFormContainer}>
           <Form className={styles.studentInfoForm}>
-            <Form.Group as={Row} controlId='studentApplicantFirstName'>
+            <legend>Personal Information</legend>
+            <hr className='mb-5' />
+            <Form.Group as={Row} controlId='personalInfoFirstName'>
               <Form.Label column sm='2'>First Name</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -54,7 +60,7 @@ class PersonalInformation extends Component {
                   value={firstName} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantLastName'>
+            <Form.Group as={Row} controlId='personalInfoLastName'>
               <Form.Label column sm='2'>Last Name</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -66,7 +72,7 @@ class PersonalInformation extends Component {
                   value={lastName} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantotherNames'>
+            <Form.Group as={Row} controlId='personalInfootherNames'>
               <Form.Label column sm='2'>Other Names</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -78,7 +84,7 @@ class PersonalInformation extends Component {
                   value={otherNames} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantAddress'>
+            <Form.Group as={Row} controlId='personalInfoAddress'>
               <Form.Label column sm='2'>Address</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -90,7 +96,7 @@ class PersonalInformation extends Component {
                   value={address} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantDateOfBirth'>
+            <Form.Group as={Row} controlId='personalInfoDateOfBirth'>
               <Form.Label column sm='2'>Date of Birth</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -102,16 +108,16 @@ class PersonalInformation extends Component {
                   value={dateOfBirth} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantGender'>
+            <Form.Group as={Row} controlId='personalInfoGender'>
               <Form.Label column sm='2'>Gender</Form.Label>
               <Col sm='10'>
-                <fieldset name='gender'>
+                <fieldset name='gender' value={gender}>
                   <Form.Check inline label='Male' type='radio' />
                   <Form.Check inline label='Female' type='radio' />
                 </fieldset>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantHometown'>
+            <Form.Group as={Row} controlId='personalInfoHometown'>
               <Form.Label column sm='2'>Hometown</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -123,7 +129,7 @@ class PersonalInformation extends Component {
                   value={hometown} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantNationality'>
+            <Form.Group as={Row} controlId='personalInfoNationality'>
               <Form.Label column sm='2'>Nationality</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -137,7 +143,7 @@ class PersonalInformation extends Component {
                 </Form.Control>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantReligiousAffiliation'>
+            <Form.Group as={Row} controlId='personalInfoReligiousAffiliation'>
               <Form.Label column sm='2'>Religious Affiliation</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -148,14 +154,15 @@ class PersonalInformation extends Component {
                   onChange={this.handleChange}
                   value={religiousAffiliation} >
                   <option>Christian</option>
-                  <option>Christian/Catholic</option>
+                  <option>Christian (Catholic)</option>
+                  <option>Muslim</option>
                   <option>Budhist</option>
                   <option>Hindu</option>
                   <option>Other</option>
                 </Form.Control>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantNameOfFormerSchool'>
+            <Form.Group as={Row} controlId='personalInfoNameOfFormerSchool'>
               <Form.Label column sm='2'>Name of Former School</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -167,7 +174,7 @@ class PersonalInformation extends Component {
                   value={nameOfFormerSchool} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantDisabilityStatus'>
+            <Form.Group as={Row} controlId='personalInfoDisabilityStatus'>
               <Form.Label column sm='2'>Disability Status</Form.Label>
               <Col sm='10'>
                 <fieldset>
@@ -176,7 +183,7 @@ class PersonalInformation extends Component {
                 </fieldset>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId='studentApplicantDisabilityInformation'>
+            <Form.Group as={Row} controlId='personalInfoDisabilityInformation'>
               <Form.Label column sm='2'>Disability Information</Form.Label>
               <Col sm='10'>
                 <Form.Control 
@@ -192,6 +199,7 @@ class PersonalInformation extends Component {
               variant='outline-primary' 
               href='#'
               data-rb-event-key='guardianInformation'
+              onSubmit={this.handleSubmit}
               role='tab'>
                 Next
             </Button>

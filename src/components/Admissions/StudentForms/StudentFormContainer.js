@@ -52,8 +52,6 @@ class StudentFormContainer extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    alert('submit something')
-
     this.props.addStudentApplicant(this.state)
   }
 

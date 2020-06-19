@@ -41,7 +41,7 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
         </Form.Group>
         <Form.Row>
           <Col>
-            <Button as={Col} className='btn-block' 
+            <Button className='btn-block' 
               variant='outline-primary' 
               href='#'
               data-rb-event-key='registrationInformation'
@@ -51,12 +51,9 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
             </Button>
           </Col>
           <Col>
-            <Button as={Col} className='btn-block' 
+            <Button className='btn-block' 
               variant='primary' 
-              href='#'
-              data-rb-event-key='registrationInformation'
-              onSubmit={handleSubmit}
-              role='tab'>
+              type='submit'>
                 Submit
             </Button>
           </Col>

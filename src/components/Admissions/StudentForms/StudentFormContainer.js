@@ -52,6 +52,8 @@ class StudentFormContainer extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
+    alert('submit something')
+
     this.props.addStudentApplicant(this.state)
   }
 
@@ -80,16 +82,16 @@ class StudentFormContainer extends Component {
         <CurrentSchoolPeriodBar />
         <Container>
           <Form onSubmit={this.handleSubmit}>
-            <Tabs defaultActiveKey='personalInformation' className={styles.tabs + ' nav-justified'} variant='pills'>
-                <Tab eventKey='personalInformation' title='Personal Information'>
-                  <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
-                </Tab>
-                <Tab eventKey='guardianInformation' title='Guardian Information'>
-                  <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
-                </Tab>
-                <Tab eventKey='registrationInformation' title='Registration Information'>
-                  <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} handleSubmit={this.handleSubmit} />
-                </Tab>
+            <Tabs defaultActiveKey='personalInformation' className={styles.tabs + ' nav-justified'} variant='pills' transition={false}>
+              <Tab eventKey='personalInformation' title='Personal Information'>
+                <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
+              </Tab>
+              <Tab eventKey='guardianInformation' title='Guardian Information'>
+                <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
+              </Tab>
+              <Tab eventKey='registrationInformation' title='Registration Information'>
+                <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev}  />
+              </Tab>
             </Tabs>
           </Form>
         </Container>

@@ -1,5 +1,16 @@
 const TUITION_DATA = {
-  tuitionPaymentHistory: [],
+  tuitionPaymentRecords: [
+    {
+    id: 0,
+    studentUid: "",
+    date: "timestamp.toDateString()",
+    paidBy: "",
+    paymentAmount: 0,
+    tuitionOwed: 0,
+    schoolPeriodId: "",
+    receiptNumber: "",
+  },
+  ],
   tuitionByGrade: {
     n1: {
       id: 0,

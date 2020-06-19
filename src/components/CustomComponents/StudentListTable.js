@@ -18,11 +18,11 @@ const StudentListTable = ({ data, headerList, btnActions }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map(({ id, first_name, last_name, uid }) => (
+          {data.map(({ id, firstName, lastName, uid }) => (
             <tr key={id}>
               <td>{id}</td>
               <td>
-                {first_name} {last_name}
+                {firstName} {lastName}
               </td>
               <td>
                 {btnActions.map((btnAction) => (

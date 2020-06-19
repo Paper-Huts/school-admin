@@ -9,7 +9,7 @@ import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import StudentTuitionPaymentHistoryTable from "../../CustomComponents/StudentTuitionPaymentHistoryTable";
 
-import { selectStudent } from "./../../../redux/Students/StudentSelectors";
+import { selectStudent } from "./../../../redux/Students/StudentsSelectors";
 import { selectSchoolPeriods, selectCurrentSchoolPeriod } from "./../../../redux/SchoolPeriod/SchoolPeriodSelectors";
 
 import { payStudentTuition } from "../../../redux/Tuition/TuitionActions";

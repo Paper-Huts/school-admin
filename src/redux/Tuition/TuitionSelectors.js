@@ -12,13 +12,13 @@ export const selectTuitionByGradeForList = createSelector(
   tuitionByGrade => Object.keys(tuitionByGrade).map(grade => tuitionByGrade[grade])
 );
 
-export const selectTuitionPaymentHistory = createSelector(
+export const selectTuitionPaymentRecords = createSelector(
   [selectTuition],
-  tuition => tuition.tuitionPaymentHistory
+  tuition => tuition.tuitionPaymentRecords
 );
 
 //returns the list of payment history records given a particular student record
-export const selectStudentTuitionPaymentHistory = studentUid => createSelector(
-  [selectTuitionPaymentHistory],
-  tuitionPaymentHistory => tuitionPaymentHistory.filter(record => record.studentUid === studentUid)
+export const selectStudentTuitionPaymentRecords = studentUid => createSelector(
+  [selectTuitionPaymentRecords],
+  tuitionPaymentRecords => tuitionPaymentRecords.filter(record => record.studentUid === studentUid)
 );

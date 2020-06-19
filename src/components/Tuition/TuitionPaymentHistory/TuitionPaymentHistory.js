@@ -15,13 +15,9 @@ class TuitionPaymentHistory extends Component {
   constructor(props) {
     super();
     this.state = {
-      data: [],
+      data: PaymentHistory,
       searchField: ""
     };
-  }
-
-  componentDidMount() {
-    this.setState({ data: PaymentHistory });
   }
 
   handleChange = (e) => {
@@ -32,7 +28,7 @@ class TuitionPaymentHistory extends Component {
     const { data, searchField } = this.state;
     const filteredData = data.filter((item) =>
       item.first_name
-        .concat(" ", item.last_name, item.id)
+        .concat(" ", item.last_name, item.uid)
         .toLowerCase()
         .includes(searchField.toLowerCase())
     );

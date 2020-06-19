@@ -31,8 +31,8 @@ class TuitionPayment extends Component {
   render() {
     const { data, searchField } = this.state;
     const filteredData = data.filter((item) =>
-      item.first_name
-        .concat(" ", item.last_name)
+      item.firstName
+        .concat(" ", item.lastName)
         .toLowerCase()
         .includes(searchField.toLowerCase())
     );

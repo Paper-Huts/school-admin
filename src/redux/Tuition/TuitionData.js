@@ -1,15 +1,15 @@
 const TUITION_DATA = {
   tuitionPaymentRecords: [
     {
-    id: 0,
-    studentUid: "",
-    date: "timestamp.toDateString()",
-    paidBy: "",
-    paymentAmount: 0,
-    tuitionOwed: 0,
-    schoolPeriodId: "",
-    receiptNumber: "",
-  },
+      id: 0,
+      studentUid: "",
+      date: "",
+      paidBy: "",
+      paymentAmount: 0,
+      tuitionOwed: 0,
+      schoolPeriodId: "",
+      receiptNumber: "",
+    }
   ],
   tuitionByGrade: {
     n1: {
@@ -19,11 +19,11 @@ const TUITION_DATA = {
       grade: "n1",
       costOfTuition: 200,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 270,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     n2: {
       id: 1,
@@ -32,11 +32,11 @@ const TUITION_DATA = {
       grade: "n2",
       costOfTuition: 200,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 270,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     kg1: {
       id: 2,
@@ -45,11 +45,11 @@ const TUITION_DATA = {
       grade: "kg1",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 320,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     kg2: {
       id: 3,
@@ -58,11 +58,11 @@ const TUITION_DATA = {
       grade: "kg2",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 320,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     p1: {
       id: 4,
@@ -71,11 +71,11 @@ const TUITION_DATA = {
       grade: "p1",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 320,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     p2: {
       id: 5,
@@ -84,11 +84,11 @@ const TUITION_DATA = {
       grade: "p2",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 320,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
     p3: {
       id: 6,
@@ -97,13 +97,13 @@ const TUITION_DATA = {
       grade: "p3",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
-      costOfMiscItems:20,
+      costOfMiscItems: 20,
       totalTuition: 320,
       createdAt: "",
       createdBy: "",
-      timestamp: ""
+      timestamp: "",
     },
-  }
+  },
 };
 
 export default TUITION_DATA;

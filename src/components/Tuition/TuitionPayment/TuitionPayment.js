@@ -13,7 +13,7 @@ import StudentListTable from '../../CustomComponents/StudentListTable'
 
 import { TuitionPaymentTableHeaderData } from "../../../tests/data/TuitionPaymentData";
 
-import { selectStudentListForTable } from "../../../redux/Students/StudentSelectors";
+import { selectStudentListForTable } from "../../../redux/Students/StudentsSelectors";
 
 class TuitionPayment extends Component {
   constructor(props) {

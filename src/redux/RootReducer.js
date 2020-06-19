@@ -12,7 +12,7 @@ import studentsReducer from './Students/StudentsReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['navigation', 'schoolStats']
+  whitelist: ['navigation', 'schoolStats', 'tuition']
 }
 
 const rootReducer = combineReducers({

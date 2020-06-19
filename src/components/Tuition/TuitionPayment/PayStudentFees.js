@@ -17,7 +17,7 @@ import { selectStudentTuitionPaymentRecords } from "../../../redux/Tuition/Tuiti
 
 class PayStudentFees extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       paymentAmount: "",
       tuitionOwed: props.student.tuitionOwed,
@@ -67,6 +67,8 @@ class PayStudentFees extends React.Component {
     };
 
     payStudentTuition(studentTuitionPayment);
+
+    alert(`Paid ${paymentAmount} successfully!`);
 
   };
 

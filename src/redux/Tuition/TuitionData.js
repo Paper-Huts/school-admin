@@ -1,7 +1,4 @@
-import { TuitionActionTypes } from "./TuitionTypes";
-import TUITION_DATA from "./TuitionData";
-
-const INITIAL_STATE = {
+const TUITION_DATA = {
   tuitionPaymentRecords: [
     {
       id: 0,
@@ -12,7 +9,7 @@ const INITIAL_STATE = {
       tuitionOwed: 0,
       schoolPeriodId: "",
       receiptNumber: "",
-    },
+    }
   ],
   tuitionByGrade: {
     n1: {
@@ -109,17 +106,4 @@ const INITIAL_STATE = {
   },
 };
 
-const tuitionReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case TuitionActionTypes.PAY_STUDENT_TUITION:
-      return {
-        ...state,
-        tuitionPaymentRecords: [...state.tuitionPaymentRecords, action.payload],
-      };
-
-    default:
-      return state;
-  }
-};
-
-export default tuitionReducer;
+export default TUITION_DATA;

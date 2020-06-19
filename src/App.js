@@ -61,14 +61,16 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={LandingContainer} />
                 <Route exact path='/admissions' component={AdmissionsContainer} />
-                <Route exact path='/tuition' component={TuitionContainer} />
                 <Route exact path='/help' component={Help} />
                 <Route exact path='/staff' component={StaffContainer} />
                 <Route exact path='/tuition/payment' component={TuitionPayment} />
                 <Route exact path='/tuition/payment-history' component={TuitionPaymentHistory} />
                 <Route path='/tuition/payment/:studentName' component={PayStudentFees} />
                 <Route exact path='/admissions/new_student' component={NewStudent} />
-                <Route exact path='/admissions/update_student' component={UpdateStudent} />
+                <Route exact path='/admissions/update_student' component={UpdateStudent} />\
+                <Route path='/tuition' component={TuitionContainer} />
+                <Route exact path='/help' component={Help} />
+                <Route exact path='/staff' component={StaffContainer} />
                 <Route exact path='/login' component={AuthPages} />
               </Switch>
             </Col>

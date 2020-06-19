@@ -3,7 +3,8 @@ import { Table } from "react-bootstrap";
 
 import styles from "../../stylesheets/CustomComponents.module.css";
 
-const PaymentHistoryTable = ({ data }) => {
+const StudentTuitionPaymentHistoryTable = ({ data }) => {
+
   return (
     <div className={styles.datatable}>
       <Table responsive="sm" striped hover size="sm">
@@ -11,33 +12,30 @@ const PaymentHistoryTable = ({ data }) => {
           <tr>
             <th>Date</th>
             <th>Period</th>
-            <th>Student Name</th>
             <th>Paid By</th>
             <th>Amount Paid (GHS)</th>
-            <th>Balance Due (GHS)</th>
+            <th>Balance Owed (GHS)</th>
+            <th>Reciept Number</th>
           </tr>
         </thead>
         <tbody>
           {data.map(
             ({
               id,
-              first_name,
-              last_name,
               date,
-              period,
-              payer_name,
-              amount_paid,
-              balance_due,
+              schoolPeriodId,
+              paidBy,
+              paymentAmount,
+              tuitionOwed,
+              receiptNumber
             }) => (
               <tr key={id}>
                 <td>{date}</td>
-                <td>{period}</td>
-                <td>
-                  {first_name} {last_name}
-                </td>
-                <td>{payer_name}</td>
-                <td>{amount_paid}</td>
-                <td>{balance_due}</td>
+                <td>{schoolPeriodId}</td>
+                <td>{paidBy}</td>
+                <td>{paymentAmount}</td>
+                <td>{tuitionOwed}</td>
+                <td>{receiptNumber}</td>
               </tr>
             )
           )}
@@ -45,6 +43,6 @@ const PaymentHistoryTable = ({ data }) => {
       </Table>
     </div>
   );
-};
+}
 
-export default PaymentHistoryTable;
+export default StudentTuitionPaymentHistoryTable;

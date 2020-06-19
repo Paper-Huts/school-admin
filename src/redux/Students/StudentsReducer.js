@@ -1,4 +1,5 @@
 import { StudentActionTypes } from './StudentsTypes'
+import { selectCurrentUser } from '../User/UserSelectors'
 
 const INITIAL_STATE = {
   studentApplicants: [
@@ -12,13 +13,27 @@ const INITIAL_STATE = {
       hometown: '',
       nationality: '',
       religiousAffiliation: '',
-      formerSchool: '',
-      disabilityStatus: null,
-      disabilityInfo: '',
-      dateCreated: null,
-      dateUpdated: null,
-      createdBy: null,
-      updatedBy: null
+      nameOfFormerSchool: '',
+      disabilityStatus: false,
+      disabilityInformation: '',
+      g1FirstName: '',
+      g1LastName: '',
+      g1OtherNames: '',
+      g1Relationship: '',
+      g1Occupation: '',
+      g1Address: '',
+      g1PhoneNumber: '',
+      g1AltPhoneNumber: '',
+      g1CanPickUpFromSchool: '',
+      g1PrimaryGuardian: true,
+      nameOfProxyWhoSubmittedApplication: '',
+      dateOfApplicationSubmission: '',
+      endorserFirstName: '',
+      endorserLastName: '',
+      endorserOtherNames: '',
+      dateSigned: '',
+      createdBy: selectCurrentUser,
+      createdAt: ''
     }
   ]
 }

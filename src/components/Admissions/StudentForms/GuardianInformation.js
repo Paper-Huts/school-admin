@@ -1,190 +1,168 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Row, Col, Form, Container, Button } from 'react-bootstrap'
 import styles from '../../../stylesheets/CustomComponents.module.css'
 
-class GuardianInformation extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      firstName: '',
-      lastName: '',
-      otherNames: '',
-      relationship: '',
-      occupation: '',
-      address: '',
-      phoneNumber: '',
-      altPhoneNumber: '',
-      canPickUpFromSchool: '',
-      primaryGuardian: true
-    }
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-  }
-
-  handleChange = e => {    
-    const { value, name } = e.target
-
-    this.setState({ [name]: value })
-  }
-
-  render() {
-    const {firstName, lastName, otherNames, relationship, occupation, address, 
-      phoneNumber, altPhoneNumber, canPickUpFromSchool, primaryGuardian} = this.state
-    
-    return (
-      <Container className={styles.studentInfoFormContainer}>
-        <Form className={styles.studentInfoForm}>
-          <legend>Guardian #1</legend>
-          <hr className='mb-5' />
-          <Form.Group as={Row} controlId='guardianInfoFirstName'>
-            <Form.Label column sm='2'>First Name</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='firstName'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={firstName} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoLastName'>
-            <Form.Label column sm='2'>Last Name</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='lastName'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={lastName} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfootherNames'>
-            <Form.Label column sm='2'>Other Names</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='otherNames'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={otherNames} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoRelationship'>
-            <Form.Label column sm='2'>Relationship</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='relationship'
-                as='select'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={relationship} >
-                <option>Father</option>
-                <option>Mother</option>
-                <option>Brother</option>
-                <option>Sister</option>
-                <option>Other</option>
-              </Form.Control>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoOccupation'>
-            <Form.Label column sm='2'>Occupation</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='occupation'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={occupation} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoAddress'>
-            <Form.Label column sm='2'>Address</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='address'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={address} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoPhoneNumber'>
-            <Form.Label column sm='2'>Phone Number</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='phoneNumber'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={phoneNumber} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoAltPhoneNumber'>
-            <Form.Label column sm='2'>Alternative Phone Number</Form.Label>
-            <Col sm='10'>
-              <Form.Control 
-                name='altPhoneNumber'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={this.handleChange}
-                value={altPhoneNumber} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoCanPickUp'>
-            <Form.Label column sm='2'>Can pick up child (from School)?</Form.Label>
-            <Col sm='10'>
-              <fieldset>
-                <Form.Check size="sm" inline label='Yes' type='radio' name='canPickUpFromSchool' />
-                <Form.Check size="sm" inline label='No' type='radio' name='canPickUpFromSchool' />
-              </fieldset>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId='guardianInfoPrimaryGuardian'>
-            <Form.Label column sm='2'>Primary Guardian?</Form.Label>
-            <Col sm='10'>
-              <fieldset>
-                <Form.Check size="sm" inline label='Yes' type='radio' name='primaryGuardian' />
-                <Form.Check size="sm" inline label='No' type='radio' name='primaryGuardian' />
-              </fieldset>
-            </Col>
-          </Form.Group>
-          <Form.Row>
-            <Col>
-              <Button className='btn-block' 
-                variant='outline-primary' 
-                href='#'
-                data-rb-event-key='guardianInformation'
-                onSubmit={this.handleSubmit}
-                role='tab'>
-                  Previous
-              </Button>
-            </Col>
-            <Col>
-              <Button as={Col} className='btn-block' 
-                variant='outline-primary' 
-                href='#'
-                data-rb-event-key='guardianInformation'
-                onSubmit={this.handleSubmit}
-                role='tab'>
-                  Next
-              </Button>
-            </Col>
-          </Form.Row>
-        </Form>
-      </Container>
-    )
-  }
+const GuardianInformation = ({ formItems, handleChange, saveInfo, goToPrev, goToNext }) => {    
+  return (
+    <Container className={styles.studentInfoFormContainer}>
+      <div className={styles.studentInfoForm}>
+        <legend>Guardian #1</legend>
+        <hr className='mb-5' />
+        <Form.Group as={Row} controlId='guardianInfoFirstName'>
+          <Form.Label column sm='2'>First Name</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1FirstName'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1FirstName} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoLastName'>
+          <Form.Label column sm='2'>Last Name</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1LastName'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1LastName} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfootherNames'>
+          <Form.Label column sm='2'>Other Names</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1OtherNames'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1OtherNames} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoRelationship'>
+          <Form.Label column sm='2'>Relationship</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1Relationship'
+              as='select'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1Relationship} >
+              <option>Father</option>
+              <option>Mother</option>
+              <option>Brother</option>
+              <option>Sister</option>
+              <option>Other</option>
+            </Form.Control>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoOccupation'>
+          <Form.Label column sm='2'>Occupation</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1Occupation'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1Occupation} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoAddress'>
+          <Form.Label column sm='2'>Address</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1Address'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1Address} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoPhoneNumber'>
+          <Form.Label column sm='2'>Phone Number</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1PhoneNumber'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1PhoneNumber} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoAltPhoneNumber'>
+          <Form.Label column sm='2'>Alternative Phone Number</Form.Label>
+          <Col sm='10'>
+            <Form.Control 
+              name='g1AltPhoneNumber'
+              type='text'
+              placeholder=''
+              size="sm"
+              onChange={handleChange}
+              value={formItems.g1AltPhoneNumber} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoCanPickUp'>
+          <Form.Label column sm='2'>Can pick up child (from School)?</Form.Label>
+          <Col sm='10'>
+            <fieldset>
+              <Form.Check size="sm" inline label='Yes' type='radio' name='g1CanPickUpFromSchool' />
+              <Form.Check size="sm" inline label='No' type='radio' name='g1CanPickUpFromSchool' />
+            </fieldset>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId='guardianInfoPrimaryGuardian'>
+          <Form.Label column sm='2'>Primary Guardian?</Form.Label>
+          <Col sm='10'>
+            <fieldset>
+              <Form.Check size="sm" inline label='Yes' type='radio' name='g1PrimaryGuardian' />
+              <Form.Check size="sm" inline label='No' type='radio' name='g1PrimaryGuardian' />
+            </fieldset>
+          </Col>
+        </Form.Group>
+        <Form.Row>
+          <Col>
+            <Button className='btn-block' 
+              variant='outline-primary' 
+              href='#'
+              data-rb-event-key='personalInformation'
+              onSubmit={goToPrev}
+              role='tab'>
+                Previous
+            </Button>
+          </Col>
+          <Col>
+            <Button as={Col} className='btn-block' 
+              variant='outline-primary' 
+              href='#'
+              data-rb-event-key='registrationInformation'
+              onSubmit={saveInfo}
+              role='tab'>
+                Save
+            </Button>
+          </Col>
+          <Col>
+            <Button as={Col} className='btn-block' 
+              variant='outline-primary' 
+              href='#'
+              data-rb-event-key='registrationInformation'
+              onSubmit={goToNext}
+              role='tab'>
+                Next
+            </Button>
+          </Col>
+        </Form.Row>
+      </div>
+    </Container>
+  )
 }
 
 export default GuardianInformation

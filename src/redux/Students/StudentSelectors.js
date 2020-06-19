@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 const selectStudents = state => state.students
 
-export const selectStudentApplicants = createStructuredSelector(
+export const selectStudentApplicants = createSelector(
   [selectStudents],
-  students => studentApplicants
+  students => students.studentApplicants
 )

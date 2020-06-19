@@ -1,6 +1,6 @@
 import { StudentActionTypes } from './StudentsTypes'
 
-const addStudentApplicant = student => ({
+export const addStudentApplicant = student => ({
   type: StudentActionTypes.ADD_STUDENT_APPLICANT,
   payload: student
 })

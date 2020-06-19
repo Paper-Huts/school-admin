@@ -11,12 +11,12 @@ import { selectCurrentUser } from './redux/User/UserSelectors';
 
 import NavigationContainer from './components/Navigation/NavigationContainer'
 import LandingContainer from './components/Landing/LandingContainer'
-import StudentApplicationsContainer from './components/StudentApplications/StudentApplicationsContainer'
+import AdmissionsContainer from './components/Admissions/AdmissionsContainer'
 import TuitionContainer from './components/Tuition/TuitionContainer'
 import Help from './components/Help/Help'
 import StaffContainer from './components/Staff/StaffContainer'
-import NewStudent from './components/StudentApplications/NewStudent/NewStudent'
-import UpdateStudent from './components/StudentApplications/UpdateStudent/UpdateStudent'
+import NewStudent from './components/Admissions/NewStudent/NewStudent'
+import UpdateStudent from './components/Admissions/UpdateStudent/UpdateStudent'
 import AuthPages from './components/AuthPages/AuthPages'
 
 class App extends Component {
@@ -57,12 +57,12 @@ class App extends Component {
             <Col>
               <Switch>
                 <Route exact path='/' component={LandingContainer} />
-                <Route exact path='/applications' component={StudentApplicationsContainer} />
+                <Route exact path='/admissions' component={AdmissionsContainer} />
                 <Route path='/tuition' component={TuitionContainer} />
                 <Route exact path='/help' component={Help} />
                 <Route exact path='/staff' component={StaffContainer} />
-                <Route exact path='/applications/new_student' component={NewStudent} />
-                <Route exact path='/applications/update_student' component={UpdateStudent} />
+                <Route exact path='/admissions/new_student' component={NewStudent} />
+                <Route exact path='/admissions/update_student' component={UpdateStudent} />
                 <Route exact path='/login' component={AuthPages} />
               </Switch>
             </Col>

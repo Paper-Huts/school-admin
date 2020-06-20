@@ -9,8 +9,8 @@ const Landing = ({ header, summaryStats }) => (
   <Fragment>
     <Header header={header} />
     <Row className={styles.summaryStatContainer}>
-      {summaryStats.map(({ value, title }) => (
-        <SummaryStatCard value={value} desc={title} />
+      {summaryStats.map(({ id, value, title }) => (
+        <SummaryStatCard key={id} value={value} desc={title} />
       ))}
     </Row>
   </Fragment>

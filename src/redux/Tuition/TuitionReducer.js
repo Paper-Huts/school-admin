@@ -1,5 +1,4 @@
 import { TuitionActionTypes } from "./TuitionTypes";
-import TUITION_DATA from "./TuitionData";
 
 const INITIAL_STATE = {
   tuitionPaymentRecords: [

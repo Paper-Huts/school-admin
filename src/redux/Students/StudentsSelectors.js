@@ -21,3 +21,8 @@ export const selectStudentListForTable = createSelector(
   [selectStudentList],
   studentList => Object.keys(studentList).map(studentUid => studentList[studentUid])
 );
+
+export const selectStudentTuitionOwed = studentUid => createSelector(
+  [selectStudentList],
+  studentList => studentList[studentUid].tuitionOwed
+);

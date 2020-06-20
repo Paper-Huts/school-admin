@@ -9,50 +9,46 @@ import SubHeader from "../../CustomComponents/SubHeader";
 import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import StudentTuitionPaymentHistoryTable from "../../CustomComponents/StudentTuitionPaymentHistoryTable";
 
-import { selectStudent } from "./../../../redux/Students/StudentsSelectors";
+import { selectStudent, selectStudentTuitionOwed } from "./../../../redux/Students/StudentsSelectors";
 import { selectSchoolPeriods, selectCurrentSchoolPeriod } from "./../../../redux/SchoolPeriod/SchoolPeriodSelectors";
+import { selectStudentTuitionPaymentRecords } from "../../../redux/Tuition/TuitionSelectors";
 
 import { payStudentTuition } from "../../../redux/Tuition/TuitionActions";
-import { selectStudentTuitionPaymentRecords } from "../../../redux/Tuition/TuitionSelectors";
+import { updateStudentTuitionOwed } from "../../../redux/Students/StudentsActions";
 
 class PayStudentFees extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      paymentAmount: "",
-      tuitionOwed: props.student.tuitionOwed,
+      paymentAmount: 0,
+      tuitionOwed: props.studentTuitionOwed,
       academicYear: props.currentSchoolPeriod.academicYear,
       academicTerm: props.currentSchoolPeriod.academicTerm,
       paidBy: "",
       receiptNumber: "",
     };
+    this.tuitionOwed = React.createRef();
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     let timestamp = new Date();
-    const { match, schoolPeriods, payStudentTuition } = this.props;
+    const { match, schoolPeriods, payStudentTuition, updateStudentTuitionOwed } = this.props;
     const {
       paymentAmount,
-      tuitionOwed,
       academicYear,
       academicTerm,
       paidBy,
       receiptNumber,
     } = this.state;
 
-    //console.log("List of school Periods:", schoolPeriods);
-
-    //alert(`You chose ${academicYear} and ${academicTerm}`);
-
+    //selects school period id from list of school periods
     const selectedSchoolPeriod = schoolPeriods.find(
       (schoolPeriod) =>
         schoolPeriod.academicYear === academicYear &&
         schoolPeriod.academicTerm === parseInt(academicTerm)
     );
-
-    //console.log("This is the school period: ",selectedSchoolPeriod);
 
     //creates a tuition payment transaction record
     let studentTuitionPayment = {
@@ -60,16 +56,21 @@ class PayStudentFees extends React.Component {
       studentUid: match.params.studentUid,
       date: timestamp.toDateString(),
       paidBy,
-      paymentAmount,
-      tuitionOwed,
+      paymentAmount: paymentAmount,
+      tuitionOwed: this.tuitionOwed.current.value,
       schoolPeriodId: selectedSchoolPeriod.schoolPeriodId,
       receiptNumber,
     };
 
     payStudentTuition(studentTuitionPayment);
 
-    alert(`Paid ${paymentAmount} successfully!`);
+    updateStudentTuitionOwed( match.params.studentUid, parseFloat(this.tuitionOwed.current.value));
 
+    this.setState({
+      paymentAmount: 0,
+      receiptNumber: "",
+      tuitionOwed: this.tuitionOwed.current.value
+    });
   };
 
   handleChange = (event) => {
@@ -85,10 +86,13 @@ class PayStudentFees extends React.Component {
       paymentAmount,
       tuitionOwed,
       paidBy,
+      academicTerm,
+      academicYear,
       receiptNumber,
     } = this.state;
 
-    let tuitionOwedAfterPayment = tuitionOwed - paymentAmount;
+    //compute new tuition owed
+    const tuitionOwedAfterPayment = tuitionOwed - paymentAmount;
 
     return (
       <Container fluid>
@@ -116,6 +120,7 @@ class PayStudentFees extends React.Component {
                   plaintext
                   readOnly
                   value={tuitionOwedAfterPayment}
+                  ref={this.tuitionOwed}
                 />
               </Form.Group>
             </Row>
@@ -128,7 +133,7 @@ class PayStudentFees extends React.Component {
                   custom
                   name="academicYear"
                   onChange={this.handleChange}
-                  defaultValue="2019/2020"
+                  defaultValue={academicYear}
                 >
                   <option value="2019/2020">2019/2020</option>
                   <option value="2018/2019">2018/2019</option>
@@ -142,7 +147,7 @@ class PayStudentFees extends React.Component {
                   custom
                   name="academicTerm"
                   onChange={this.handleChange}
-                  defaultValue={3}
+                  defaultValue={academicTerm}
                 >
                   <option value={3}>Three</option>
                   <option value={2}>Two</option>
@@ -201,13 +206,15 @@ class PayStudentFees extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   student: selectStudent(ownProps.match.params.studentUid)(state),
+  studentTuitionOwed: selectStudentTuitionOwed(ownProps.match.params.studentUid)(state),
   schoolPeriods: selectSchoolPeriods(state),
   currentSchoolPeriod: selectCurrentSchoolPeriod(state),
   tuitionPaymentHistory: selectStudentTuitionPaymentRecords(ownProps.match.params.studentUid)(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  payStudentTuition: tuitionPayment => dispatch(payStudentTuition(tuitionPayment))
+  payStudentTuition: tuitionPayment => dispatch(payStudentTuition(tuitionPayment)),
+  updateStudentTuitionOwed: (studentUid, amount) => dispatch(updateStudentTuitionOwed(studentUid, amount))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PayStudentFees);

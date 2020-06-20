@@ -1,4 +1,5 @@
 import { StudentActionTypes } from "./StudentsTypes";
+import { updateStudentTuitionOwed } from "./StudentUtils";
 
 const INITIAL_STATE = {
   studentApplicants: [
@@ -125,6 +126,12 @@ const studentsReducer = (state = INITIAL_STATE, action) => {
           { ...action.payload, date_created: "today" },
         ],
       };
+
+    case StudentActionTypes.UPDATE_STUDENT_TUITION_OWED:
+      return {
+        ...state,
+        studentList: updateStudentTuitionOwed(state.studentList, action.payload.studentUid, action.payload.tuitionOwedAfterPayment)
+      }
 
     default:
       return state;

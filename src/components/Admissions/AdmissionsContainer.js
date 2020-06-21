@@ -31,14 +31,14 @@ class AdmissionsContainer extends Component {
         <Admissions options={options} />
         <SubHeader subHeader="Admissions Statistics" />
         <Row>
-          {/* {
+          {
             this.props.admissionStats.map(item => (
               <div>
                 <Col>{item.title}</Col>
                 <Col>{item.value}</Col>
               </div>
             ))
-          } */}
+          }
         </Row>
       </Container>
     )

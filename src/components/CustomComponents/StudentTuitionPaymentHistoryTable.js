@@ -11,7 +11,8 @@ const StudentTuitionPaymentHistoryTable = ({ data }) => {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Period</th>
+            <th>Academic Year</th>
+            <th>Term</th>
             <th>Paid By</th>
             <th>Amount Paid (GHS)</th>
             <th>Balance Owed (GHS)</th>
@@ -23,7 +24,8 @@ const StudentTuitionPaymentHistoryTable = ({ data }) => {
             ({
               id,
               date,
-              schoolPeriodId,
+              academicYear,
+              academicTerm,
               paidBy,
               paymentAmount,
               tuitionOwed,
@@ -31,7 +33,8 @@ const StudentTuitionPaymentHistoryTable = ({ data }) => {
             }) => (
               <tr key={id}>
                 <td>{date}</td>
-                <td>{schoolPeriodId}</td>
+                <td>{academicYear}</td>
+                <td>{academicTerm}</td>
                 <td>{paidBy}</td>
                 <td>{paymentAmount}</td>
                 <td>{tuitionOwed}</td>

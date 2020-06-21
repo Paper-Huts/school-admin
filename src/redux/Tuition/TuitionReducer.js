@@ -10,6 +10,8 @@ const INITIAL_STATE = {
       paymentAmount: 0,
       tuitionOwed: 0,
       schoolPeriodId: "",
+      academicYear: "",
+      academicTerm: 0,
       receiptNumber: "",
     },
   ],
@@ -113,7 +115,7 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
     case TuitionActionTypes.PAY_STUDENT_TUITION:
       return {
         ...state,
-        tuitionPaymentRecords: [...state.tuitionPaymentRecords, action.payload],
+        tuitionPaymentRecords: [ action.payload, ...state.tuitionPaymentRecords],
       };
 
     default:

@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import Header from '../CustomComponents/Header'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
+import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
+import SubHeader from '../CustomComponents/SubHeader'
 import Admissions from './Admissions'
 
 class AdmissionsContainer extends Component {
@@ -24,9 +29,24 @@ class AdmissionsContainer extends Component {
         <Header header={header} />
         <CurrentSchoolPeriodBar />
         <Admissions options={options} />
+        <SubHeader subHeader="Admissions Statistics" />
+        <Row>
+          {/* {
+            this.props.admissionStats.map(item => (
+              <div>
+                <Col>{item.title}</Col>
+                <Col>{item.value}</Col>
+              </div>
+            ))
+          } */}
+        </Row>
       </Container>
     )
   }
 }
 
-export default AdmissionsContainer
+const mapStateToProps = createStructuredSelector({
+  admissionStats: selectAdmissionStats
+})
+
+export default connect(mapStateToProps)(AdmissionsContainer)

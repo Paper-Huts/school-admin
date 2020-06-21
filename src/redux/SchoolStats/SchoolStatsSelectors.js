@@ -6,3 +6,8 @@ export const selectSummaryStats = createSelector(
   [selectSchoolStats],
   schoolStats => schoolStats.summaryStats
 )
+
+export const selectAdmissionStats = createSelector(
+  [selectSchoolStats],
+  schoolStats => schoolStats.admissionStats
+)

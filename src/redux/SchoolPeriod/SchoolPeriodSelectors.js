@@ -16,3 +16,8 @@ export const selectSchoolPeriodByYearAndTerm = (year, term) => createSelector(
   [selectSchoolPeriods],
   schoolPeriods => schoolPeriods.find(schoolPeriod => schoolPeriod.academicYear === year && schoolPeriod.academicTerm === term)
 );
+
+export const selectSchoolPeriodById = searchId => createSelector(
+  [selectSchoolPeriods],
+  schoolPeriods => schoolPeriods.find(period => period.schoolPeriodId === searchId)
+);

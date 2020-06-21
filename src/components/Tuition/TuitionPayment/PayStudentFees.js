@@ -59,6 +59,8 @@ class PayStudentFees extends React.Component {
       paymentAmount: paymentAmount,
       tuitionOwed: this.tuitionOwed.current.value,
       schoolPeriodId: selectedSchoolPeriod.schoolPeriodId,
+      academicTerm,
+      academicYear,
       receiptNumber,
     };
 

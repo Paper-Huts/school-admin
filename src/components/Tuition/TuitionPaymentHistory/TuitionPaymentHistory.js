@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -6,16 +8,16 @@ import styles from "../../../stylesheets/pages.module.css";
 
 import Header from "../../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
-import PaymentHistoryTable from "../../CustomComponents/PaymentHistoryTable";
 import SearchBar from "../../CustomComponents/Search/SearchBar";
+import StudentTuitionPaymentHistoryTable from "../../CustomComponents/StudentTuitionPaymentHistoryTable";
 
-import PaymentHistory from "../../../tests/MOCK_DATA_Payment_History.json";
+import { selectTuitionPaymentRecords } from "../../../redux/Tuition/TuitionSelectors";
 
 class TuitionPaymentHistory extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      data: PaymentHistory,
+      data: props.paymentRecords,
       searchField: ""
     };
   }
@@ -27,8 +29,8 @@ class TuitionPaymentHistory extends Component {
   render() {
     const { data, searchField } = this.state;
     const filteredData = data.filter((item) =>
-      item.first_name
-        .concat(" ", item.last_name, item.uid)
+      item.studentUid
+        .concat(" ", item.paidBy, item.receiptNumber)
         .toLowerCase()
         .includes(searchField.toLowerCase())
     );
@@ -45,7 +47,7 @@ class TuitionPaymentHistory extends Component {
           />
           <Row>
             <Col>
-              <PaymentHistoryTable data={filteredData} />
+              <StudentTuitionPaymentHistoryTable data={filteredData} />
             </Col>
           </Row>
         </div>
@@ -54,4 +56,8 @@ class TuitionPaymentHistory extends Component {
   }
 }
 
-export default TuitionPaymentHistory;
+const mapStateToProps = createStructuredSelector({
+  paymentRecords: selectTuitionPaymentRecords
+});
+
+export default connect(mapStateToProps)(TuitionPaymentHistory);

@@ -8,11 +8,12 @@ import tuitionReducer from './Tuition/TuitionReducer'
 import schoolPeriodReducer from './SchoolPeriod/SchoolPeriodReducer'
 import schoolStatsReducer from './SchoolStats/SchoolStatsReducer'
 import studentsReducer from './Students/StudentsReducer'
+import staffReducer from './Staff/StaffReducer'
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['navigation', 'schoolStats', 'tuition', 'students']
+  whitelist: ['schoolStats', 'tuition', 'students']
 }
 
 const rootReducer = combineReducers({
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   tuition: tuitionReducer,
   schoolPeriod: schoolPeriodReducer,
   schoolStats: schoolStatsReducer,
-  students: studentsReducer
+  students: studentsReducer,
+  staff: staffReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

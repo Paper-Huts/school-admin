@@ -6,3 +6,5 @@ const religions = [
   { id: '123qvsfdh4f', name: 'No Religion/Atheist/Agnostic' },
   { id: '123q3beytjf', name: 'Other' }
 ]
+
+export default religions

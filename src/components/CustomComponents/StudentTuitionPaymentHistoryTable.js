@@ -3,7 +3,8 @@ import { Table } from "react-bootstrap";
 
 import styles from "../../stylesheets/CustomComponents.module.css";
 
-const StudentTuitionPaymentHistoryTable = ({ data }) => {
+const StudentTuitionPaymentHistoryTable = ({ data, displayStudentNames }) => {
+  console.log(data);
 
   return (
     <div className={styles.datatable}>
@@ -13,6 +14,11 @@ const StudentTuitionPaymentHistoryTable = ({ data }) => {
             <th>Date</th>
             <th>Academic Year</th>
             <th>Term</th>
+            {
+              displayStudentNames ?
+              <th>Student Name</th>
+              : null
+            }
             <th>Paid By</th>
             <th>Amount Paid (GHS)</th>
             <th>Balance Owed (GHS)</th>
@@ -29,12 +35,19 @@ const StudentTuitionPaymentHistoryTable = ({ data }) => {
               paidBy,
               paymentAmount,
               tuitionOwed,
-              receiptNumber
+              receiptNumber,
+              firstName,
+              lastName
             }) => (
               <tr key={id}>
                 <td>{date}</td>
                 <td>{academicYear}</td>
                 <td>{academicTerm}</td>
+                {
+                  displayStudentNames ?
+                  <td>{firstName} {lastName}</td>
+                  : null
+                }
                 <td>{paidBy}</td>
                 <td>{paymentAmount}</td>
                 <td>{tuitionOwed}</td>

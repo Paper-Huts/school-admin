@@ -1,17 +1,30 @@
 import React from 'react'
 import Header from '../../CustomComponents/Header'
 import { Container } from 'react-bootstrap'
-import SearchContainer from '../../CustomComponents/Search/SearchContainer'
-import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
-const UpdateStudent = ({data}) => (
+import { selectStudentApplicants, selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
+
+import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
+import SearchList from '../../CustomComponents/Search/SearchList'
+import SearchBar from '../../CustomComponents/Search/SearchBar'
+
+const UpdateStudent = ({ studentApplicants }) => (
   <Container fluid>
     <Header header='Update Student Info' />
     <CurrentSchoolPeriodBar />
-    <SearchContainer
+    <SearchBar
       placeholder='Search Student Applicants'
+    />
+    <SearchList
+      data={studentApplicants}
     />
   </Container>
 )
 
-export default UpdateStudent
+const mapStateToProps = createStructuredSelector({
+  studentApplicants: selectStudentApplicants
+})
+
+export default connect(mapStateToProps)(UpdateStudent)

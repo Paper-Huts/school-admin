@@ -19,6 +19,7 @@ const UpdateStudent = ({ studentApplicants }) => (
     />
     <SearchList
       data={studentApplicants}
+      buttonList={[{label: 'Update'}, {label: 'Delete'}]}
     />
   </Container>
 )

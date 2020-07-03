@@ -9,7 +9,7 @@ const SearchList = ({ data, includeList, buttonList }) => {
   return (
     <Row>
       <Col>
-        <Table striped bordered hover size='sm'>
+        <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
               {console.log(Object.values(data), buttonList)}

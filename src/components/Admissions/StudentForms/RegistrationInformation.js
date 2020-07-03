@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 
 import styles from '../../../stylesheets/CustomComponents.module.css'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInfo }) => {
   const { nameOfProxyWhoSubmittedApplication, dateOfApplicationSubmission } = formItems
@@ -26,13 +28,15 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
         <Form.Group as={Row} controlId='registrationInfoFirstName'>
           <Form.Label column sm='4'>When was the Application Submitted?</Form.Label>
           <Col sm='8'>
-            <Form.Control 
+            {/* <Form.Control 
               name='dateOfApplicationSubmission'
               type='text'
               placeholder=''
               size="sm"
               onChange={handleChange}
-              value={dateOfApplicationSubmission} />
+              as={ReactDatePicker}
+              selected={dateOfApplicationSubmission} /> */}
+              <DatePicker selected={dateOfApplicationSubmission} onChange={handleChange} as={Form.Control} size='sm' />
           </Col>
         </Form.Group>
         <hr />

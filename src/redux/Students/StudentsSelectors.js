@@ -7,11 +7,6 @@ export const selectStudentApplicants = createSelector(
   students => students.studentApplicants
 );
 
-export const selectStudentApplicantsArray = createSelector(
-  [selectStudentApplicants],
-  studentApplicants => Object.keys(studentApplicants.map(applicantID => studentApplicants[applicantID]))
-)
-
 export const selectStudentList = createSelector(
   [selectStudents],
   students => students.studentList

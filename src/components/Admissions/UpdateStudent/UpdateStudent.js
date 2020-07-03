@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { selectStudentApplicants, selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
+import { selectStudentApplicants } from '../../../redux/Students/StudentsSelectors'
 
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import SearchList from '../../CustomComponents/Search/SearchList'

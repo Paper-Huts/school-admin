@@ -12,10 +12,10 @@ const studentsReducer = (state = INITIAL_STATE, action) => {
     case StudentActionTypes.ADD_STUDENT_APPLICANT:
       return {
         ...state,
-        studentApplicants: [
+        studentApplicants: {
           ...state.studentApplicants,
-          { ...action.payload, date_created: "today" },
-        ],
+          qweqweqwL: {...action.payload, date_created: "today"},
+        },
       };
 
     case StudentActionTypes.UPDATE_STUDENT_TUITION_OWED:

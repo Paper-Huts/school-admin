@@ -19,7 +19,7 @@ class StudentFormContainer extends Component {
       lastName: '',
       otherNames: '',
       address: '',
-      dateOfBirth: null,
+      dateOfBirth: '',
       gender: '',
       hometown: '',
       nationality: '',

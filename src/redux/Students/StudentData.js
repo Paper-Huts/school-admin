@@ -1,6 +1,6 @@
 export const students = {
-  studentApplicants: [
-    {
+  studentApplicants: {
+    asdawqweqwfq: {
       id: 1,
       firstName: "Edwin",
       lastName: "Agbenyega",
@@ -19,7 +19,7 @@ export const students = {
       createdBy: "Edwin Agbenyega",
       updatedBy: null,
     }
-  ],
+  },
   studentList: {
     mlanglois: {
       id: 1,

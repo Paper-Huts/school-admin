@@ -9,5 +9,5 @@ export const selectSummaryStats = createSelector(
 
 export const selectAdmissionStats = createSelector(
   [selectSchoolStats],
-  schoolStats => Object.keys(schoolStats.admissionStats).map(stat => schoolStats.admissionStats[stat])
+  schoolStats => schoolStats ? Object.keys(schoolStats.admissionStats).map(stat => schoolStats.admissionStats[stat]) : []
 )

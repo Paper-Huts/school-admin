@@ -4,10 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
+import { addStudentApplicant } from '../../redux/Students/StudentsActions'
 import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
 import SubHeader from '../CustomComponents/SubHeader'
 import Admissions from './Admissions'
+import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
 class AdmissionsContainer extends Component {
   constructor(props) {
@@ -22,8 +24,21 @@ class AdmissionsContainer extends Component {
     }
   }
 
+  unsubscribeFromSnapshot = null
+
+  componentDidMount() {
+    const { addStudentApplicant } = this.props
+    const studentApplicantsRef = firestore.collection('studentApplicants')
+
+    this.unsubscribeFromSnapshot = studentApplicantsRef.onSnapshot(async snapshot => {
+      const studentApplicant = convertCollectionsSnapshotToMap(snapshot)
+      addStudentApplicant(studentApplicant)
+    })
+  }
+
   render() {
     const { header, options } = this.state
+
     return (
       <Container fluid>
         <Header header={header} />
@@ -49,4 +64,8 @@ const mapStateToProps = createStructuredSelector({
   admissionStats: selectAdmissionStats
 })
 
-export default connect(mapStateToProps)(AdmissionsContainer)
+const mapDispatchToProps = dispatch => ({
+  addStudentApplicant: studentApplicant => dispatch(addStudentApplicant(studentApplicant))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdmissionsContainer)

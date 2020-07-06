@@ -13,7 +13,7 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
       <div className={styles.studentInfoForm}>
         <legend>Submission Details</legend>
         <hr className='mb-5' />
-        <Form.Group as={Row} controlId='registrationInfoFirstName'>
+        <Form.Group as={Row} controlId='registrationInfoNameOfProxyWhoSubmittedApplication'>
           <Form.Label column sm='4'>Name of Person Who Submitted the Original Application</Form.Label>
           <Col sm='8'>
             <Form.Control 
@@ -25,7 +25,7 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
               value={nameOfProxyWhoSubmittedApplication} />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} controlId='registrationInfoFirstName'>
+        <Form.Group as={Row} controlId='registrationDate'>
           <Form.Label column sm='4'>When was the Application Submitted?</Form.Label>
           <Col sm='8'>
             {/* <Form.Control 
@@ -40,7 +40,7 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
           </Col>
         </Form.Group>
         <hr />
-        <Form.Group controlId='guardianInfoOccupation'>
+        <Form.Group controlId='registrationInfoCheckbox'>
           <Form.Check type='checkbox' label='As the person responsible for typing in the data, I confirm that the data is accurate to the best of my ability' />
         </Form.Group>
         <Form.Row>

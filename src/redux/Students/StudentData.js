@@ -14,8 +14,8 @@ export const students = {
       formerSchool: "University of New Mexico",
       disabilityStatus: "Not Disabled",
       disabilityInfo: "",
-      dateCreated: "06/29/2020",
-      dateUpdated: null,
+      createdAt: "06/29/2020",
+      updatedAt: null,
       createdBy: "Edwin Agbenyega",
       updatedBy: null,
     }

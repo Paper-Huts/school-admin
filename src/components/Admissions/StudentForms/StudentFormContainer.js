@@ -39,10 +39,6 @@ class StudentFormContainer extends Component {
       g1PrimaryGuardian: true,
       nameOfProxyWhoSubmittedApplication: '',
       dateOfApplicationSubmission: new Date(),
-      endorserFirstName: '',
-      endorserLastName: '',
-      endorserOtherNames: '',
-      dateSigned: new Date(),
       createdBy: props.currentUser,
       createdAt: new Date()
     }

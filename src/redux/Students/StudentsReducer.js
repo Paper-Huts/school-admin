@@ -3,7 +3,7 @@ import { updateStudentTuitionOwed } from "./StudentUtils";
 import { students } from './StudentData'
 
 const INITIAL_STATE = {
-  studentApplicants: students.studentApplicants,
+  studentApplicants: null,
   studentList: students.studentList
 };
 
@@ -12,10 +12,7 @@ const studentsReducer = (state = INITIAL_STATE, action) => {
     case StudentActionTypes.ADD_STUDENT_APPLICANT:
       return {
         ...state,
-        studentApplicants: {
-          ...state.studentApplicants,
-          qweqweqwL: {...action.payload, date_created: "today"},
-        },
+        studentApplicants: action.payload
       };
 
     case StudentActionTypes.UPDATE_STUDENT_TUITION_OWED:

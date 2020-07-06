@@ -27,8 +27,7 @@ const UpdateStudent = ({ studentApplicants }) => {
       <SearchList
         data={studentApplicants}
         actions={actionList}
-        include={['firstName', 'lastName', 'otherNames']}
-        // exclude={['firstName', 'address']}
+        include={['firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
       />
     </Container>
   )

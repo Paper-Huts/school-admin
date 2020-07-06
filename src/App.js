@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import styles from './stylesheets/App.module.css'
 import { setCurrentUser } from './redux/User/UserActions'
-import { selectCurrentUser } from './redux/User/UserSelectors';
+import { selectCurrentUser } from './redux/User/UserSelectors'
 
 import NavigationContainer from './components/Navigation/NavigationContainer'
 import LandingContainer from './components/Landing/LandingContainer'

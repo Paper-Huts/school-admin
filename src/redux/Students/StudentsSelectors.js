@@ -8,7 +8,7 @@ export const selectStudentApplicants = createSelector(
 );
 export const selectStudentApplicantsArray = createSelector(
   [selectStudentApplicants],
-  studentApplicants => Object.keys(studentApplicants).map(applicantId => studentApplicants[applicantId])
+  studentApplicants => studentApplicants ? Object.keys(studentApplicants).map(applicantId => studentApplicants[applicantId]) : []
 );
 
 export const selectStudentList = createSelector(

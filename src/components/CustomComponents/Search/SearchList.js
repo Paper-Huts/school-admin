@@ -16,12 +16,13 @@ const SearchList = ({ data, include, exclude, actions }) => {
     return filteredList
   }
 
-  const arrayToMap = filterData(data, include, exclude)
-  const headerList = Object.keys(arrayToMap[0])
+  const arrayToMap = data ? filterData(data, include, exclude).slice(0,10) : null
+  const headerList = arrayToMap ? Object.keys(arrayToMap[0]) : null
 
   return (
     <Row>
       <Col>
+        { data ? (
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
@@ -59,8 +60,9 @@ const SearchList = ({ data, include, exclude, actions }) => {
               </tr>
             ))
           }
-          </tbody>      
+          </tbody>  
         </Table>
+        ) : <h6>No Students have applied yet</h6>}   
       </Col>
     </Row>
   )

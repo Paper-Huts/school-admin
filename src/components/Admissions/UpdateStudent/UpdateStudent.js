@@ -9,12 +9,17 @@ import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSe
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import SearchList from '../../CustomComponents/Search/SearchList'
 import SearchBar from '../../CustomComponents/Search/SearchBar'
+import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
 
-const UpdateStudent = ({ studentApplicants }) => {
+const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
+
+  const handleDelete = studentApplicant => {
+    return removeStudentApplicant(studentApplicant)
+  }
 
   const actionList = {
     update: { label: 'Update' },
-    delete: { label: 'Delete' }
+    delete: { label: 'Delete', onClick: handleDelete }
   }
 
   return (
@@ -36,4 +41,8 @@ const mapStateToProps = createStructuredSelector({
   studentApplicants: selectStudentApplicantsArray
 })
 
-export default connect(mapStateToProps)(UpdateStudent)
+const mapDispatchToProps = dispatch => ({
+  removeStudentApplicant: studentApplicant => dispatch(removeStudentApplicant(studentApplicant))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudent)

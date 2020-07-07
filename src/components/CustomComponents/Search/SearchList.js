@@ -52,7 +52,7 @@ const SearchList = ({ data, include, exclude, actions }) => {
                   actions ? 
                   Object.entries(actions).map(([key, value]) => (
                     <td key={key}>
-                      <Button>{_.startCase(value.label)}</Button>
+                      <Button onClick={value.onClick}>{_.startCase(value.label)}</Button>
                     </td>
                   )) :
                   null

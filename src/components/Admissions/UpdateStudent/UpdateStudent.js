@@ -4,11 +4,12 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { selectStudentApplicantsArray, removeStudentApplicant } from '../../../redux/Students/StudentsSelectors'
+import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
 
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import SearchList from '../../CustomComponents/Search/SearchList'
 import SearchBar from '../../CustomComponents/Search/SearchBar'
+import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
 
 const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
 
@@ -19,7 +20,7 @@ const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
 
   const actionList = {
     update: { label: 'Update' },
-    delete: { label: 'Delete', handleClick: (a,b) => handleDelete(a,b) }
+    delete: { label: 'Delete', onClick: handleDelete }
   }
 
   return (

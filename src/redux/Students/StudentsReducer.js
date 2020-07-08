@@ -1,5 +1,5 @@
 import { StudentActionTypes } from "./StudentsTypes";
-import { updateStudentTuitionOwed } from "./StudentUtils";
+import { updateStudentTuitionOwed, removeStudentApplicant } from "./StudentUtils";
 import { students } from './StudentData'
 
 const INITIAL_STATE = {
@@ -14,6 +14,12 @@ const studentsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         studentApplicants: action.payload
       };
+
+    case StudentActionTypes.DELETE_STUDENT_APPLICANT:
+      return {
+        ...state,
+        studentApplicants: removeStudentApplicant(state.studentApplicants, action.payload.id)
+      }
 
     case StudentActionTypes.UPDATE_STUDENT_TUITION_OWED:
       return {

@@ -12,13 +12,19 @@ import SearchBar from "../../CustomComponents/Search/SearchBar";
 import StudentTuitionPaymentHistoryTable from "../../CustomComponents/StudentTuitionPaymentHistoryTable";
 
 import { selectTuitionPaymentRecords } from "../../../redux/Tuition/TuitionSelectors";
+import { selectStudentList } from "../../../redux/Students/StudentsSelectors";
 
 class TuitionPaymentHistory extends Component {
   constructor(props) {
     super(props);
+    const { paymentRecords, studentList } = props;
+    console.log("students: ", studentList);
     this.state = {
-      data: props.paymentRecords,
-      searchField: ""
+      data: paymentRecords.map((record) => {
+        const student = studentList[record.studentUid];
+        return { ...student, ...record };
+      }),
+      searchField: "",
     };
   }
 
@@ -30,7 +36,7 @@ class TuitionPaymentHistory extends Component {
     const { data, searchField } = this.state;
     const filteredData = data.filter((item) =>
       item.studentUid
-        .concat(" ", item.paidBy, item.receiptNumber)
+        .concat(" ", item.paidBy, item.receiptNumber, item.firstName, item.lastName)
         .toLowerCase()
         .includes(searchField.toLowerCase())
     );
@@ -47,7 +53,10 @@ class TuitionPaymentHistory extends Component {
           />
           <Row>
             <Col>
-              <StudentTuitionPaymentHistoryTable data={filteredData} />
+              <StudentTuitionPaymentHistoryTable
+                data={filteredData}
+                displayStudentNames={true}
+              />
             </Col>
           </Row>
         </div>
@@ -57,7 +66,8 @@ class TuitionPaymentHistory extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  paymentRecords: selectTuitionPaymentRecords
+  paymentRecords: selectTuitionPaymentRecords,
+  studentList: selectStudentList,
 });
 
 export default connect(mapStateToProps)(TuitionPaymentHistory);

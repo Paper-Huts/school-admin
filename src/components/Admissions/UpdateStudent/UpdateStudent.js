@@ -4,17 +4,22 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
+import { selectStudentApplicantsArray, removeStudentApplicant } from '../../../redux/Students/StudentsSelectors'
 
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import SearchList from '../../CustomComponents/Search/SearchList'
 import SearchBar from '../../CustomComponents/Search/SearchBar'
 
-const UpdateStudent = ({ studentApplicants }) => {
+const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
+
+  const handleDelete = (e, student) => {
+    console.log(e, 'haha'*20, student)
+    // return removeStudentApplicant(studentApplicants, student)
+  }
 
   const actionList = {
     update: { label: 'Update' },
-    delete: { label: 'Delete' }
+    delete: { label: 'Delete', handleClick: (a,b) => handleDelete(a,b) }
   }
 
   return (
@@ -27,7 +32,7 @@ const UpdateStudent = ({ studentApplicants }) => {
       <SearchList
         data={studentApplicants}
         actions={actionList}
-        include={['firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
+        include={['id', 'firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
       />
     </Container>
   )
@@ -36,4 +41,8 @@ const mapStateToProps = createStructuredSelector({
   studentApplicants: selectStudentApplicantsArray
 })
 
-export default connect(mapStateToProps)(UpdateStudent)
+const mapDispatchToProps = dispatch => ({
+  removeStudentApplicant: ({studentApplicants, studentApplicant}) => dispatch(removeStudentApplicant(studentApplicants, studentApplicant))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudent)

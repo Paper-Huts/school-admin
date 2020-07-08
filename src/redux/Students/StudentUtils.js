@@ -19,3 +19,7 @@ export const updateStudentTuitionOwed = (
     ...studentList,
   };
 };
+
+export const removeStudentApplicant = ({studentApplicants, studentApplicant}) => {
+  return studentApplicants.filter(student => student.id !== studentApplicant.id)
+}

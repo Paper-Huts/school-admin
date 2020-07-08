@@ -9,7 +9,7 @@ const SearchList = ({ data, include, exclude, actions }) => {
     if (includeList) {
       filteredList = _.map(list, _.partialRight(_.pick, includeList))
     }
-    console.log('Filtered List: ', filteredList)
+    // console.log('Filtered List: ', filteredList)
     if (excludeList) {
       filteredList = _.map(filteredList, _.partialRight(_.omit, excludeList))
     }
@@ -26,7 +26,6 @@ const SearchList = ({ data, include, exclude, actions }) => {
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
-              {console.log(Object.values(data), actions)}
               {
                 headerList.map((header, idx) => (
                   <th key={idx}>{_.startCase(header)}</th>
@@ -52,7 +51,8 @@ const SearchList = ({ data, include, exclude, actions }) => {
                   actions ? 
                   Object.entries(actions).map(([key, value]) => (
                     <td key={key}>
-                      <Button>{_.startCase(value.label)}</Button>
+                      {console.log(row)}
+                      <Button size='sm' onClick={(e, row) => value.handleClick(e, row)}>{_.startCase(value.label)}</Button>
                     </td>
                   )) :
                   null

@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
-import styles from './stylesheets/App.module.css'
 import { setCurrentUser } from './redux/User/UserActions'
 import { selectCurrentUser } from './redux/User/UserSelectors'
 
@@ -49,25 +48,19 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Container fluid>
-          <Row>
-            <Col md={2} className={styles.sideNav}>
-              <NavigationContainer />
-            </Col>
-            <Col>
-              <Switch>
-                <Route exact path='/' component={LandingContainer} />
-                <Route exact path='/admissions' component={AdmissionsContainer} />
-                <Route path='/tuition' component={TuitionContainer} />
-                <Route exact path='/help' component={Help} />
-                <Route exact path='/staff' component={StaffContainer} />
-                <Route exact path='/admissions/new_student' component={NewStudent} />
-                <Route exact path='/admissions/update_student' component={UpdateStudent} />
-                <Route exact path='/login' component={AuthPages} />
-              </Switch>
-            </Col>
-          </Row>
-        </Container>
+        <NavigationContainer />
+        <Switch>
+          <Container fluid>
+            <Route exact path='/' component={LandingContainer} />
+            <Route exact path='/admissions' component={AdmissionsContainer} />
+            <Route path='/tuition' component={TuitionContainer} />
+            <Route exact path='/help' component={Help} />
+            <Route exact path='/staff' component={StaffContainer} />
+            <Route exact path='/admissions/new_student' component={NewStudent} />
+            <Route exact path='/admissions/update_student' component={UpdateStudent} />
+            <Route exact path='/login' component={AuthPages} />
+          </Container>
+        </Switch>
       </Fragment>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect';
 
@@ -46,6 +46,9 @@ class App extends Component {
   }
 
   render() {
+
+    const { currentUser } = this.props
+
     return (
       <Fragment>
         <NavigationContainer />
@@ -58,7 +61,7 @@ class App extends Component {
             <Route exact path='/staff' component={StaffContainer} />
             <Route exact path='/admissions/new_student' component={NewStudent} />
             <Route exact path='/admissions/update_student' component={UpdateStudent} />
-            <Route exact path='/login' component={AuthPages} />
+            <Route exact path='/login' render={() => currentUser ? (<Redirect to='/' />) : (<AuthPages />)} />
           </Container>
         </Switch>
       </Fragment>

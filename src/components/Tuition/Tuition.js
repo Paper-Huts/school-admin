@@ -7,14 +7,13 @@ import { selectTuitionByGradeForList } from "./../../redux/Tuition/TuitionSelect
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
 
-import SubHeader from "../CustomComponents/SubHeader";
 import LargeButton from "../CustomComponents/LargeButton";
 import Header from "../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../CustomComponents/CurrentSchoolPeriodBar";
 
 import { pageData } from "../../tests/data/TuitionPageData";
 
-const Tuition = ({ tuitionByGradeLevel }) => {
+const Tuition = () => {
   const { subPages, title } = pageData;
 
   return (

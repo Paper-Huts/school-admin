@@ -38,13 +38,9 @@ class StudentFormContainer extends Component {
       g1CanPickUpFromSchool: '',
       g1PrimaryGuardian: true,
       nameOfProxyWhoSubmittedApplication: '',
-      dateOfApplicationSubmission: '',
-      endorserFirstName: '',
-      endorserLastName: '',
-      endorserOtherNames: '',
-      dateSigned: '',
+      dateOfApplicationSubmission: new Date(),
       createdBy: props.currentUser,
-      createdAt: ''
+      createdAt: new Date()
     }
   }
 

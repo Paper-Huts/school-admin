@@ -4,5 +4,10 @@ const selectSchoolStats = state => state.schoolStats
 
 export const selectSummaryStats = createSelector(
   [selectSchoolStats],
-  schoolStats => schoolStats.summaryStats
+  schoolStats => Object.keys(schoolStats.summaryStats).map(stat => schoolStats.summaryStats[stat])
+)
+
+export const selectAdmissionStats = createSelector(
+  [selectSchoolStats],
+  schoolStats => schoolStats ? Object.keys(schoolStats.admissionStats).map(stat => schoolStats.admissionStats[stat]) : []
 )

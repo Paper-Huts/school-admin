@@ -1,13 +1,49 @@
 import React from 'react'
 import Header from '../../CustomComponents/Header'
 import { Container } from 'react-bootstrap'
-// import SearchContainer from '../../CustomComponents/Search/SearchContainer'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
-const UpdateStudent = ({data}) => (
-  <Container fluid>
-    <Header header='Update Student Info' />
-    {/* <SearchContainer /> */}
-  </Container>
-)
+import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
 
-export default UpdateStudent
+import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
+import SearchList from '../../CustomComponents/Search/SearchList'
+import SearchBar from '../../CustomComponents/Search/SearchBar'
+import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
+
+const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
+
+  const handleDelete = (e, student) => {
+    console.log(e, 'haha'*20, student)
+    // return removeStudentApplicant(studentApplicants, student)
+  }
+
+  const actionList = {
+    update: { label: 'Update' },
+    delete: { label: 'Delete', onClick: handleDelete }
+  }
+
+  return (
+    <Container fluid>
+      <Header header='Update Student Info' />
+      <CurrentSchoolPeriodBar />
+      <SearchBar
+        placeholder='Search Student Applicants'
+      />
+      <SearchList
+        data={studentApplicants}
+        actions={actionList}
+        include={['id', 'firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
+      />
+    </Container>
+  )
+}
+const mapStateToProps = createStructuredSelector({
+  studentApplicants: selectStudentApplicantsArray
+})
+
+const mapDispatchToProps = dispatch => ({
+  removeStudentApplicant: ({studentApplicants, studentApplicant}) => dispatch(removeStudentApplicant(studentApplicants, studentApplicant))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudent)

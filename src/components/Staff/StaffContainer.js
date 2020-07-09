@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 
 import Header from '../CustomComponents/Header'
 import TableList from '../CustomComponents/TableList'
+import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
 
 class StaffContainer extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ class StaffContainer extends Component {
     return (
       <Container>
         <Header header={header} />
-        <TableList staff={staff} />
+        <CurrentSchoolPeriodBar />
+        {/* <TableList staff={staff} /> */}
       </Container>
     )
   }

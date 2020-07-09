@@ -1,8 +1,13 @@
 import { StudentActionTypes } from './StudentsTypes'
 
-export const addStudentApplicant = student => ({
+export const addStudentApplicant = studentApplicant => ({
   type: StudentActionTypes.ADD_STUDENT_APPLICANT,
-  payload: student
+  payload: studentApplicant
+})
+
+export const deleteStudentApplicant = studentApplicant => ({
+  type: StudentActionTypes.DELETE_STUDENT_APPLICANT,
+  payload: studentApplicant.id
 })
 
 export const updateStudentTuitionOwed = (studentUid, tuitionOwedAfterPayment) => ({

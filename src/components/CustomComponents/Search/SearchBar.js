@@ -5,9 +5,9 @@ const SearchBar = ({ placeholder, controlId, handleChange }) => (
   <Row>
     <Col>   
       <Form>
-          <Form.Group controlId={controlId}>
-              <Form.Control size="lg" type="text" placeholder={placeholder} onChange={handleChange} />
-          </Form.Group>
+        <Form.Group controlId={controlId}>
+          <Form.Control size="lg" type="text" placeholder={placeholder} onChange={handleChange} />
+        </Form.Group>
       </Form>
     </Col> 
   </Row>

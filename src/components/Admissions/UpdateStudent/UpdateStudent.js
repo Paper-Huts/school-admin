@@ -13,8 +13,9 @@ import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
 
 const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
 
-  const handleDelete = studentApplicant => {
-    return removeStudentApplicant(studentApplicant)
+  const handleDelete = (e, student) => {
+    console.log(e, 'haha'*20, student)
+    // return removeStudentApplicant(studentApplicants, student)
   }
 
   const actionList = {
@@ -32,7 +33,7 @@ const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
       <SearchList
         data={studentApplicants}
         actions={actionList}
-        include={['firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
+        include={['id', 'firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
       />
     </Container>
   )
@@ -42,7 +43,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  removeStudentApplicant: studentApplicant => dispatch(removeStudentApplicant(studentApplicant))
+  removeStudentApplicant: ({studentApplicants, studentApplicant}) => dispatch(removeStudentApplicant(studentApplicants, studentApplicant))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudent)

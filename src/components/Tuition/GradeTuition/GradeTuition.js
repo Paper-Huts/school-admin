@@ -12,7 +12,7 @@ import styles from "../../../stylesheets/CustomComponents.module.css";
 
 const GradeTuition = ({tuitionByGradeLevel}) => {
   return(
-    <Container>
+    <Container fluid>
       <Header header="Tuition Update" />
       <CurrentSchoolPeriodBar />
         <Row className={styles.subSection}>

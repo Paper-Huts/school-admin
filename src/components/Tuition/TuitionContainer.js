@@ -15,7 +15,7 @@ const TuitionContainer = ({match}) => {
       <Route exact path={`${match.path}`} component={Tuition} />
       <Route exact path={`${match.path}/payment`} component={TuitionPayment} />
       <Route exact path={`${match.path}/payment-history`} component={TuitionPaymentHistory} />
-      <Route exact path={`${match.path}/grade-tuition`} component={GradeTuition} />
+      <Route exact path={`${match.path}/tuition-mgmt`} component={GradeTuition} />
       <Route path={`${match.path}/payment/:studentUid`} component={PayStudentFees} />
     </Container>
   );

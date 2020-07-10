@@ -1,4 +1,5 @@
 import { TuitionActionTypes } from "./TuitionTypes";
+import { addTuitionForGrade } from "./TuitionUtils";
 
 const INITIAL_STATE = {
   tuitionPaymentRecords: [
@@ -117,6 +118,9 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
         ...state,
         tuitionPaymentRecords: [ action.payload, ...state.tuitionPaymentRecords],
       };
+
+    case TuitionActionTypes.ADD_TUITION:
+      return addTuitionForGrade(action.payload, state.tuitionByGrade)
 
     default:
       return state;

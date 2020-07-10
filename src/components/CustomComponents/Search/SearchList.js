@@ -17,12 +17,12 @@ const SearchList = ({ data, include, exclude, actions }) => {
   }
 
   const arrayToMap = data ? filterData(data, include, exclude).slice(0,10) : null
-  const headerList = arrayToMap ? Object.keys(arrayToMap[0]) : null
+  const headerList = arrayToMap.exists ? Object.keys(arrayToMap[0]) : null
 
   return (
     <Row>
       <Col>
-        { data ? (
+        { data.exissts ? (
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>

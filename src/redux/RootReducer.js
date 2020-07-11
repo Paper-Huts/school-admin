@@ -8,6 +8,7 @@ import tuitionReducer from './Tuition/TuitionReducer'
 import schoolPeriodReducer from './SchoolPeriod/SchoolPeriodReducer'
 import schoolStatsReducer from './SchoolStats/SchoolStatsReducer'
 import studentsReducer from './Students/StudentsReducer'
+import gradeLevelsReducer from './GradeLevels/GradeLevelsReducer'
 
 const persistConfig = {
   key: 'root',
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   tuition: tuitionReducer,
   schoolPeriod: schoolPeriodReducer,
   schoolStats: schoolStatsReducer,
-  students: studentsReducer
+  students: studentsReducer,
+  grades: gradeLevelsReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

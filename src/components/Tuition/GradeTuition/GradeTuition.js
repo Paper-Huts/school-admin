@@ -25,7 +25,7 @@ const GradeTuition = ({ tuitionByGradeLevel }) => {
           <Row className={styles.subSection}>
             {tuitionByGradeLevel.map((tuition) => (
               <Col key={tuition.id} md={6} xs={12}>
-                <h5>{tuition.name}</h5>
+                <h5>{tuition.gradeLevelName}</h5>
                 <ul>
                   <li>Tuition - GHC {tuition.costOfTuition}</li>
                   <li>

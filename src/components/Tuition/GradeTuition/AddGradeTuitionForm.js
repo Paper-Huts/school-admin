@@ -1,8 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { Form, Row, Button, Col } from "react-bootstrap";
 
+import { selectGradeLevelsForList } from "./../../../redux/GradeLevels/GradeLevelsSelectors";
+import { addTuition } from "./../../../redux/Tuition/TuitionActions";
+
 class AddTuitionForm extends React.Component {
+  state = {
+    gradeName: "",
+    costOfTuition: 0,
+    costOfBooksAndStationery: 0,
+    costOfMiscItems: 0,
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -15,7 +27,13 @@ class AddTuitionForm extends React.Component {
           <Row>
             <Form.Group as={Col} controlId="formGradeName">
               <Form.Label>Grade Name</Form.Label>
-              <Form.Control type="text" name="gradeName" />
+              <Form.Control as="select" name="gradeName" custom>
+                {this.props.gradeLevels.map((gradeLevel) => (
+                  <option key={gradeLevel.id} value={gradeLevel.gradeCode}>
+                    {gradeLevel.name}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
           </Row>
           <Row>
@@ -38,12 +56,19 @@ class AddTuitionForm extends React.Component {
               </Form.Group>
             </Col>
           </Row>
-          <Button>Cancel</Button>{"         "}
-          <Button>Add Tuition</Button>
+          <Button type="submit" block>Add Tuition</Button>
         </Form>
       </div>
     );
   }
 }
 
-export default AddTuitionForm;
+const mapStateToProps = createStructuredSelector({
+  gradeLevels: selectGradeLevelsForList,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addTuition: (newTuition) => dispatch(addTuition(newTuition)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTuitionForm);

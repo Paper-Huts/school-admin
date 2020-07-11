@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect'
 import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
 
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
-import SearchList from '../../CustomComponents/Search/SearchList'
+import TableList from '../../CustomComponents/Lists/TableList'
 import SearchBar from '../../CustomComponents/Search/SearchBar'
 import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
 
@@ -30,7 +30,7 @@ const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
       <SearchBar
         placeholder='Search Student Applicants'
       />
-      <SearchList
+      <TableList
         data={studentApplicants}
         actions={actionList}
         include={['id', 'firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}

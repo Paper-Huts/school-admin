@@ -8,6 +8,10 @@
   border-bottom: 3px solid #00B1FF;
 }
 
+.mainHeader h3 {
+  font-size: 1.5rem;
+}
+
 /********** Sub Header *************/
 
 .subHeader {
@@ -40,7 +44,7 @@
 }
 
 .optionsBar {
-  margin: 1rem 0;
+  margin: 3rem 0;
   align-items: center;
   text-align: center;
 }
@@ -99,11 +103,11 @@
 /*********** Current School Period Bar *************/
 
 .period {
-  font-size: 1.3em;
+  font-size: 1rem;
   text-transform: uppercase;
   text-align: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .periodTitle {

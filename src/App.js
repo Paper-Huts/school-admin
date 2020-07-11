@@ -52,18 +52,18 @@ class App extends Component {
     return (
       <Fragment>
         <NavigationContainer />
-        <Switch>
-          <Container fluid>
-            <Route exact path='/' component={LandingContainer} />
-            <Route exact path='/admissions' component={AdmissionsContainer} />
-            <Route path='/tuition' component={TuitionContainer} />
-            <Route exact path='/help' component={Help} />
-            <Route exact path='/staff' component={StaffContainer} />
-            <Route exact path='/admissions/new_student' component={NewStudent} />
-            <Route exact path='/admissions/update_student' component={UpdateStudent} />
-            <Route exact path='/login' render={() => currentUser ? (<Redirect to='/' />) : (<AuthPages />)} />
-          </Container>
-        </Switch>
+        <Container fluid>
+          <Switch>
+              <Route exact path='/' component={LandingContainer} />
+              <Route exact path='/admissions' component={AdmissionsContainer} />
+              <Route path='/tuition' component={TuitionContainer} />
+              <Route exact path='/help' component={Help} />
+              <Route exact path='/staff' component={StaffContainer} />
+              <Route exact path='/admissions/new_student' component={NewStudent} />
+              <Route exact path='/admissions/update_student' component={UpdateStudent} />
+              <Route exact path='/login' render={() => currentUser ? (<Redirect to='/' />) : (<AuthPages />)} />
+          </Switch>
+        </Container>
       </Fragment>
     )
   }

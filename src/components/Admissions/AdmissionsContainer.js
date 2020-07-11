@@ -7,7 +7,6 @@ import { createStructuredSelector } from 'reselect'
 import { addStudentApplicant } from '../../redux/Students/StudentsActions'
 import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
-import SubHeader from '../CustomComponents/SubHeader'
 import Admissions from './Admissions'
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
@@ -44,17 +43,6 @@ class AdmissionsContainer extends Component {
         <Header header={header} />
         <CurrentSchoolPeriodBar />
         <Admissions options={options} />
-        <SubHeader subHeader="Admissions Statistics" />
-        <Row>
-          {
-            this.props.admissionStats.map(({id, title, value}) => (
-              <div key={id}>
-                <Col>{title}</Col>
-                <Col>{value}</Col>
-              </div>
-            ))
-          }
-        </Row>
       </Container>
     )
   }

@@ -32,13 +32,17 @@
 
 .largeButton {
   height: 20vh;
-  width: 25vw;
+  width: 70%;
   color: rgba(0,0,0,0.9);
   text-transform: uppercase;
   font-size: 1.3rem;
   font-weight: 400;
-  border: 2px solid rgba(0,0,0,0.6);
-  border-radius: 5px;
+}
+
+.optionsBar {
+  margin: 1rem 0;
+  align-items: center;
+  text-align: center;
 }
 
 .links a {

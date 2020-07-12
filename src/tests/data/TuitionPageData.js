@@ -9,17 +9,17 @@ export const pageData = {
   subPages: [
     {
       id: 1,
-      title: "Student Tuition Payment",
+      title: "Pay Tuition",
       path: "/tuition/payment",
     },
     {
       id: 2,
-      title: "Tuition Payment History",
+      title: "Payment History",
       path: "/tuition/payment-history",
     },
     {
       id: 3,
-      title: "Tuition Management",
+      title: "Management Tuition",
       path: "/tuition/tuition-mgmt",
     },
   ],

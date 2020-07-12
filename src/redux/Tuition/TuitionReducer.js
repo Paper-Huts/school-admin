@@ -16,9 +16,9 @@ const INITIAL_STATE = {
       receiptNumber: "",
     },
   ],
-  tuitionListByGradeLevel: {
-    n1: {
-      id: 0,
+  tuitionByGradeLevel: {
+    n1sp20192020t2: {
+      id: "n1sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Nursery 1",
       gradeLevelCode: "n1",
@@ -30,8 +30,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    n2: {
-      id: 1,
+    n2sp20192020t2: {
+      id: "n2sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Nursery 2",
       gradeLevelCode: "n2",
@@ -43,8 +43,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    kg1: {
-      id: 2,
+    kg1sp20192020t2: {
+      id: "kg1sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Kindergarten 1",
       gradeLevelCode: "kg1",
@@ -56,8 +56,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    kg2: {
-      id: 3,
+    kg2sp20192020t2: {
+      id: "kg2sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Kindergarten 2",
       gradeLevelCode: "kg2",
@@ -69,8 +69,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    p1: {
-      id: 4,
+    p1sp20192020t2: {
+      id: "p1sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Primary 1",
       gradeLevelCode: "p1",
@@ -82,8 +82,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    p2: {
-      id: 5,
+    p2sp20192020t2: {
+      id: "p2sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Primary 2",
       gradeLevelCode: "p2",
@@ -95,8 +95,8 @@ const INITIAL_STATE = {
       createdBy: "",
       timestamp: "",
     },
-    p3: {
-      id: 6,
+    p3sp20192020t2: {
+      id: "p3sp20192020t2",
       schoolPeriodId: "sp20192020t2",
       gradeLevelName: "Primary 3",
       gradeLevelCode: "p3",
@@ -104,6 +104,19 @@ const INITIAL_STATE = {
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
       totalTuition: 320,
+      createdAt: "",
+      createdBy: "",
+      timestamp: "",
+    },
+    p2sp20192020t3: {
+      id: "p2sp20192020t3",
+      schoolPeriodId: "sp20192020t3",
+      gradeLevelName: "Primary 2",
+      gradeLevelCode: "p2",
+      costOfTuition: 350,
+      costOfBooksAndStationery: 50,
+      costOfMiscItems: 20,
+      totalTuition: 420,
       createdAt: "",
       createdBy: "",
       timestamp: "",
@@ -120,7 +133,7 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
       };
 
     case TuitionActionTypes.ADD_TUITION:
-      return addTuitionForGrade(action.payload, state.tuitionListByGradeLevel)
+      return addTuitionForGrade(action.payload, state.tuitionByGradeLevel)
 
     default:
       return state;

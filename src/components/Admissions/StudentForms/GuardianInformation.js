@@ -4,7 +4,7 @@ import styles from '../../../stylesheets/CustomComponents.module.css'
 
 const GuardianInformation = ({ formItems, handleChange, saveInfo, goToPrev, goToNext }) => {    
   return (
-    <Container className={styles.studentInfoFormContainer}>
+    <Container fluid className={styles.studentInfoFormContainer}>
       <div className={styles.studentInfoForm}>
         <legend>Guardian #1</legend>
         <hr className='mb-5' />

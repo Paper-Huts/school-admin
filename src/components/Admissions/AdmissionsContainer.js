@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Header from '../CustomComponents/Header'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import { addStudentApplicant } from '../../redux/Students/StudentsActions'
 import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
+import Header from '../CustomComponents/Header'
 import Admissions from './Admissions'
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
@@ -47,7 +47,7 @@ class AdmissionsContainer extends Component {
     )
   }
 }
-
+ 
 const mapStateToProps = createStructuredSelector({
   admissionStats: selectAdmissionStats
 })

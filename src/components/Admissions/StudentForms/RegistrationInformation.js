@@ -9,7 +9,7 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
   const { nameOfProxyWhoSubmittedApplication, dateOfApplicationSubmission } = formItems
   
   return (
-    <Container className={styles.studentInfoFormContainer}>
+    <Container fluid className={styles.studentInfoFormContainer}>
       <div className={styles.studentInfoForm}>
         <legend>Submission Details</legend>
         <hr className='mb-5' />

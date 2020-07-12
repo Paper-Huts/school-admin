@@ -16,7 +16,7 @@ const INITIAL_STATE = {
       receiptNumber: "",
     },
   ],
-  tuitionByGrade: {
+  tuitionListByGradeLevel: {
     n1: {
       id: 0,
       schoolPeriodId: "sp20192020t2",
@@ -120,7 +120,7 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
       };
 
     case TuitionActionTypes.ADD_TUITION:
-      return addTuitionForGrade(action.payload, state.tuitionByGrade)
+      return addTuitionForGrade(action.payload, state.tuitionListByGradeLevel)
 
     default:
       return state;

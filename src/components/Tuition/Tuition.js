@@ -1,8 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-
-import { selectTuitionByGradeForList } from "./../../redux/Tuition/TuitionSelectors";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
@@ -33,8 +29,4 @@ const Tuition = () => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  tuitionByGradeLevel: selectTuitionByGradeForList,
-});
-
-export default connect(mapStateToProps)(Tuition);
+export default Tuition;

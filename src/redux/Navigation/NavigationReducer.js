@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   navItems: [
     { id: 1, title: 'Admissions', path: '/admissions'},
     { id: 2, title: 'Tuition', path: '/tuition'},
-    { id: 3, title: 'Staff', path: '/staff'}
+    { id: 3, title: 'Teachers', path: '/teachers'}
   ]
 }
 

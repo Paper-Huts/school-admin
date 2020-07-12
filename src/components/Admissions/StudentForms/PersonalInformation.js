@@ -73,9 +73,10 @@ const PersonalInformation = ({ formItems, handleChange }) => {
           <Form.Group as={Row} controlId='personalInfoGender'>
             <Form.Label column sm='3'>Gender</Form.Label>
             <Col sm='9'>
-              <fieldset value={formItems.gender}>
-                <Form.Check size='sm' inline label='Male' type='radio' name='gender' />
-                <Form.Check size='sm' inline label='Female' type='radio' name='gender' />
+              <fieldset onChange={handleChange}>
+                <Form.Check size='sm' inline label='Male' type='radio' name='gender' value={formItems.gender} />
+                <Form.Check size='sm' inline label='Female' type='radio' name='gender' value={formItems.gender} />
+                <Form.Check size='sm' inline label='Unknown' type='radio' name='gender' value={formItems.gender} />
               </fieldset>
             </Col>
           </Form.Group>

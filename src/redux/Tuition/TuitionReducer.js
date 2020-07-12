@@ -1,4 +1,5 @@
 import { TuitionActionTypes } from "./TuitionTypes";
+import { addTuitionForGrade } from "./TuitionUtils";
 
 const INITIAL_STATE = {
   tuitionPaymentRecords: [
@@ -15,12 +16,12 @@ const INITIAL_STATE = {
       receiptNumber: "",
     },
   ],
-  tuitionByGrade: {
+  tuitionListByGradeLevel: {
     n1: {
       id: 0,
       schoolPeriodId: "sp20192020t2",
-      name: "Nursery 1",
-      grade: "n1",
+      gradeLevelName: "Nursery 1",
+      gradeLevelCode: "n1",
       costOfTuition: 200,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -32,8 +33,8 @@ const INITIAL_STATE = {
     n2: {
       id: 1,
       schoolPeriodId: "sp20192020t2",
-      name: "Nursery 2",
-      grade: "n2",
+      gradeLevelName: "Nursery 2",
+      gradeLevelCode: "n2",
       costOfTuition: 200,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -45,8 +46,8 @@ const INITIAL_STATE = {
     kg1: {
       id: 2,
       schoolPeriodId: "sp20192020t2",
-      name: "Kindergarten 1",
-      grade: "kg1",
+      gradeLevelName: "Kindergarten 1",
+      gradeLevelCode: "kg1",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -58,8 +59,8 @@ const INITIAL_STATE = {
     kg2: {
       id: 3,
       schoolPeriodId: "sp20192020t2",
-      name: "Kindergarten 2",
-      grade: "kg2",
+      gradeLevelName: "Kindergarten 2",
+      gradeLevelCode: "kg2",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -71,8 +72,8 @@ const INITIAL_STATE = {
     p1: {
       id: 4,
       schoolPeriodId: "sp20192020t2",
-      name: "Primary 1",
-      grade: "p1",
+      gradeLevelName: "Primary 1",
+      gradeLevelCode: "p1",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -84,8 +85,8 @@ const INITIAL_STATE = {
     p2: {
       id: 5,
       schoolPeriodId: "sp20192020t2",
-      name: "Primary 2",
-      grade: "p2",
+      gradeLevelName: "Primary 2",
+      gradeLevelCode: "p2",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -97,8 +98,8 @@ const INITIAL_STATE = {
     p3: {
       id: 6,
       schoolPeriodId: "sp20192020t2",
-      name: "Primary 3",
-      grade: "p3",
+      gradeLevelName: "Primary 3",
+      gradeLevelCode: "p3",
       costOfTuition: 250,
       costOfBooksAndStationery: 50,
       costOfMiscItems: 20,
@@ -117,6 +118,9 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
         ...state,
         tuitionPaymentRecords: [ action.payload, ...state.tuitionPaymentRecords],
       };
+
+    case TuitionActionTypes.ADD_TUITION:
+      return addTuitionForGrade(action.payload, state.tuitionListByGradeLevel)
 
     default:
       return state;

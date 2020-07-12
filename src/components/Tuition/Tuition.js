@@ -1,20 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-
-import { selectTuitionByGradeForList } from "./../../redux/Tuition/TuitionSelectors";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
 
-import SubHeader from "../CustomComponents/SubHeader";
 import LargeButton from "../CustomComponents/LargeButton";
 import Header from "../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../CustomComponents/CurrentSchoolPeriodBar";
 
 import { pageData } from "../../tests/data/TuitionPageData";
 
-const Tuition = ({ tuitionByGradeLevel }) => {
+const Tuition = () => {
   const { subPages, title } = pageData;
 
   return (
@@ -29,28 +24,9 @@ const Tuition = ({ tuitionByGradeLevel }) => {
             </Col>
           ))}
         </Row>
-        <SubHeader subHeader="School Fees Information" />
-        <Row className={styles.subSection}>
-          {tuitionByGradeLevel.map((tuition) => (
-            <Col key={tuition.id} md={6} xs={12}>
-              <h4>{tuition.gradeLevel}</h4>
-              <ul>
-                <li>Tuition - GHC {tuition.costOfTuition}</li>
-                <li>
-                  Book & Stationery - GHC {tuition.costOfBooksAndStationery}
-                </li>
-                <li>Misc Items - GHC {tuition.costOfMiscItems}</li>
-              </ul>
-            </Col>
-          ))}
-        </Row>
       </Container>
     </div>
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  tuitionByGradeLevel: selectTuitionByGradeForList,
-});
-
-export default connect(mapStateToProps)(Tuition);
+export default Tuition;

@@ -2,16 +2,18 @@ import { createSelector } from 'reselect';
 
 const selectTuition = state => state.tuition;
 
-export const selectTuitionByGrade = createSelector(
+export const selectTuitionListByGradeLevel = createSelector(
   [selectTuition],
-  tuition => tuition.tuitionByGrade
+  tuition => tuition.tuitionListByGradeLevel
 );
 
-export const selectTuitionByGradeForList = createSelector(
-  [selectTuitionByGrade],
-  tuitionByGrade => Object.keys(tuitionByGrade).map(grade => tuitionByGrade[grade])
+
+export const selectTuitionListByGradeLevelForList = createSelector(
+  [selectTuitionListByGradeLevel],
+  tuitionListByGradeLevel => Object.keys(tuitionListByGradeLevel).map(grade => tuitionListByGradeLevel[grade])
 );
 
+//returns the list of all tuition payment history records
 export const selectTuitionPaymentRecords = createSelector(
   [selectTuition],
   tuition => tuition.tuitionPaymentRecords

@@ -7,11 +7,14 @@ import Header from "../../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import AddTuitionForm from "./AddGradeTuitionForm";
 
-import { selectTuitionByGradeForList } from "../../../redux/Tuition/TuitionSelectors";
+import { selectTuitionListByGradeLevelForList } from "../../../redux/Tuition/TuitionSelectors";
 
 import styles from "../../../stylesheets/CustomComponents.module.css";
 
-const GradeTuition = ({ tuitionByGradeLevel }) => {
+const GradeTuition = ({ tuitionListByGradeLevel }) => {
+
+  console.log("tuition list: ", tuitionListByGradeLevel);
+
   return (
     <Container fluid>
       <Header header="Tuition Update" />
@@ -23,7 +26,7 @@ const GradeTuition = ({ tuitionByGradeLevel }) => {
         <Col md={6} xs={12}>
           <h3>Tuition for Current School Year</h3>
           <Row className={styles.subSection}>
-            {tuitionByGradeLevel.map((tuition) => (
+            {tuitionListByGradeLevel.map((tuition) => (
               <Col key={tuition.id} md={6} xs={12}>
                 <h5>{tuition.gradeLevelName}</h5>
                 <ul>
@@ -43,7 +46,7 @@ const GradeTuition = ({ tuitionByGradeLevel }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  tuitionByGradeLevel: selectTuitionByGradeForList,
+  tuitionListByGradeLevel: selectTuitionListByGradeLevelForList,
 });
 
 export default connect(mapStateToProps)(GradeTuition);

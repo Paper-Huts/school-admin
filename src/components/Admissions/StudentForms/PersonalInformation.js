@@ -1,15 +1,15 @@
 import React from 'react'
-import { Col, Form, Container, Button, Row, ButtonGroup } from 'react-bootstrap'
+import { Col, Form, Container, Row } from 'react-bootstrap'
 
-import styles from '../../../stylesheets/CustomComponents.module.css'
+import styles from '../../../stylesheets/Admissions.module.css'
 
-const PersonalInformation = ({ formItems, handleChange, saveInfo, goToNext }) => {
+const PersonalInformation = ({ formItems, handleChange }) => {
   return (
     <Container fluid>
       <legend>Personal Information</legend>
       <hr className='mb-5' />
       <Row>
-        <Col sm={12} lg={6} style={{padding: '0 5%'}}>
+        <Col sm={12} lg={6} className={styles.formSection}>
           <Form.Group as={Row} controlId='personalInfoFirstName'>
             <Form.Label column sm='3'>First Name</Form.Label>
             <Col sm='9'>
@@ -34,7 +34,7 @@ const PersonalInformation = ({ formItems, handleChange, saveInfo, goToNext }) =>
                 value={formItems.lastName} />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} controlId='personalInfootherNames'>
+          <Form.Group as={Row} controlId='personalInfoOtherNames'>
             <Form.Label column sm='3'>Other Names</Form.Label>
             <Col sm='9'>
               <Form.Control 
@@ -92,7 +92,7 @@ const PersonalInformation = ({ formItems, handleChange, saveInfo, goToNext }) =>
             </Col>
           </Form.Group>
         </Col>
-        <Col sm={12} lg={6} style={{padding: '0 5%'}}>
+        <Col sm={12} lg={6} className={styles.formSection}>
           <Form.Group as={Row} controlId='personalInfoNationality'>
             <Form.Label column sm='3'>Nationality</Form.Label>
             <Col sm='9'>
@@ -161,24 +161,6 @@ const PersonalInformation = ({ formItems, handleChange, saveInfo, goToNext }) =>
           </Form.Group>
         </Col>
       </Row>
-      {/* <ButtonGroup>
-        <Button 
-          variant='secondary' 
-          href='#'
-          data-rb-event-key='registrationInformation'
-          onSubmit={saveInfo}
-          role='tab'>
-            Save
-        </Button>
-        <Button
-          variant='secondary' 
-          href='#'
-          data-rb-event-key='registrationInformation'
-          onSubmit={goToNext}
-          role='tab'>
-            Next
-        </Button>
-      </ButtonGroup> */}
     </Container>
   )
 }

@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Tabs, Tab, Form, Row, Col, Nav } from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Container, Tab, Form, Row, Col, Nav } from 'react-bootstrap'
 import _ from 'lodash'
 
 import styles from '../../../stylesheets/Admissions.module.css'

@@ -23,7 +23,7 @@ class StudentFormContainer extends Component {
       dateOfBirth: '',
       gender: '',
       hometown: '',
-      nationality: '',
+      countryOfOrigin: '',
       religiousAffiliation: '',
       nameOfFormerSchool: '',
       disabilityStatus: false,
@@ -50,6 +50,34 @@ class StudentFormContainer extends Component {
     e.preventDefault()
 
     this.props.addStudentApplicant(this.state)
+    this.setState({
+      firstName: '',
+      lastName: '',
+      otherNames: '',
+      address: '',
+      dateOfBirth: '',
+      gender: '',
+      hometown: '',
+      countryOfOrigin: '',
+      religiousAffiliation: '',
+      nameOfFormerSchool: '',
+      disabilityStatus: false,
+      disabilityInformation: '',
+      g1FirstName: '',
+      g1LastName: '',
+      g1OtherNames: '',
+      g1Relationship: '',
+      g1Occupation: '',
+      g1Address: '',
+      g1PhoneNumber: '',
+      g1AltPhoneNumber: '',
+      g1CanPickUpFromSchool: '',
+      g1PrimaryGuardian: true,
+      nameOfProxyWhoSubmittedApplication: '',
+      dateOfApplicationSubmission: new Date(),
+      createdBy: this.props.currentUser,
+      createdAt: new Date()
+    })
   }
 
   handleChange = e => {    
@@ -80,8 +108,8 @@ class StudentFormContainer extends Component {
             <Row>
               <Col sm={12} md={2}>
                 <Nav variant='pills' className='flex-column'>
-                  {['Personal Information', 'Guardian Information', 'Registration Information'].map(navItem => (
-                    <Nav.Item>
+                  {['Personal Information', 'Guardian Information', 'Registration Information'].map((navItem, idx) => (
+                    <Nav.Item key={`${idx}-${_.camelCase(navItem)}`}>
                       <Nav.Link eventKey={_.camelCase(navItem)}>{navItem}</Nav.Link>
                     </Nav.Item>
                   ))}

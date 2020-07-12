@@ -73,9 +73,9 @@ const PersonalInformation = ({ formItems, handleChange }) => {
           <Form.Group as={Row} controlId='personalInfoGender'>
             <Form.Label column sm='3'>Gender</Form.Label>
             <Col sm='9'>
-              <fieldset name='gender' value={formItems.gender}>
-                <Form.Check inline label='Male' type='radio' />
-                <Form.Check inline label='Female' type='radio' />
+              <fieldset value={formItems.gender}>
+                <Form.Check size='sm' inline label='Male' type='radio' name='gender' />
+                <Form.Check size='sm' inline label='Female' type='radio' name='gender' />
               </fieldset>
             </Col>
           </Form.Group>
@@ -94,16 +94,19 @@ const PersonalInformation = ({ formItems, handleChange }) => {
         </Col>
         <Col sm={12} lg={6} className={styles.formSection}>
           <Form.Group as={Row} controlId='personalInfoNationality'>
-            <Form.Label column sm='3'>Nationality</Form.Label>
+            <Form.Label column sm='3'>Country of Origin</Form.Label>
             <Col sm='9'>
               <Form.Control 
-                name='nationality'
+                name='countryOfOrigin'
                 as='select'
                 size="sm"
                 onChange={handleChange}
-                value={formItems.nationality}>
-                <option>Ghanaian</option>
-                <option>Other</option>
+                value={formItems.countryOfOrigin}>
+                  {
+                    ['Ghana', 'Ivory Coast', 'Burkina Faso', 'Togo', 'Nigeria', 'Other'].map((country, idx) => (
+                      <option key={`${country}-${idx}`}>{country}</option>
+                    ))
+                  }
               </Form.Control>
             </Col>
           </Form.Group>

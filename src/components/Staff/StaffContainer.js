@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 
 import Header from '../CustomComponents/Header'
-import TableList from '../CustomComponents/TableList'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
 
 class StaffContainer extends Component {
@@ -22,12 +21,11 @@ class StaffContainer extends Component {
   }
   
   render() {
-    const { header, staff } = this.state
+    const { header } = this.state
     return (
       <Container>
         <Header header={header} />
         <CurrentSchoolPeriodBar />
-        {/* <TableList staff={staff} /> */}
       </Container>
     )
   }

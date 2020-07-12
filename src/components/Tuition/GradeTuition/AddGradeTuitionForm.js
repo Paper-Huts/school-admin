@@ -20,7 +20,7 @@ class AddTuitionForm extends React.Component {
   };
 
   render() {
-    const { gradeName, costOfBooksAndStationery, costOfMiscItems, costOfTuition } = this.state;
+    //const { gradeName, costOfBooksAndStationery, costOfMiscItems, costOfTuition } = this.state;
     return (
       <div>
         <h3>Add New Tuition</h3>

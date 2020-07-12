@@ -18,7 +18,7 @@ class TuitionPaymentHistory extends Component {
   constructor(props) {
     super(props);
     const { paymentRecords, studentList } = props;
-    console.log("students: ", studentList);
+    //console.log("students: ", studentList);
     this.state = {
       data: paymentRecords.map((record) => {
         const student = studentList[record.studentUid];

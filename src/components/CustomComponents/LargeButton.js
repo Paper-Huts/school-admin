@@ -10,7 +10,7 @@ const LargeButton = ({ label, path, searchParam, urlHash, state }) => (
     hash: urlHash,
     state: state
   }} className={styles.links}>
-    <Button variant='outline-secondary' className={styles.largeButton}>
+    <Button variant='outline-secondary' size='lg' className={styles.largeButton}>
       {label}
     </Button>
   </Link>

@@ -1,17 +1,11 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import styles from '../../stylesheets/pages.module.css'
-import LargeButton from '../CustomComponents/LargeButton'
+import { Container } from 'react-bootstrap'
+import OptionsBar from '../CustomComponents/Lists/OptionsBar'
 
-const Admissions = ({options}) => (
+const Admissions = ({ options }) => (
   <Container fluid>
-    <Row className={styles.optionsBar}>
-      {options.map(({id, title, path}) => 
-        <Col key={id}>
-          <LargeButton label={title} path={path} />
-        </Col>
-      )}
-    </Row>
+    {console.log(options)}
+    <OptionsBar options={options} />
   </Container>
 )
 

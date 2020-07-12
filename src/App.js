@@ -1,8 +1,8 @@
-import React, { Fragment, Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React, { Fragment, Component } from 'react'
+import { Container } from 'react-bootstrap'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect';
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/User/UserActions";
@@ -52,26 +52,14 @@ class App extends Component {
         <NavigationContainer />
         <Container fluid>
           <Switch>
-            <Route exact path="/" component={LandingContainer} />
-            <Route exact path="/admissions" component={AdmissionsContainer} />
-            <Route path="/tuition" component={TuitionContainer} />
-            <Route exact path="/help" component={Help} />
-            <Route exact path="/staff" component={StaffContainer} />
-            <Route
-              exact
-              path="/admissions/new_student"
-              component={NewStudent}
-            />
-            <Route
-              exact
-              path="/admissions/update_student"
-              component={UpdateStudent}
-            />
-            <Route
-              exact
-              path="/login"
-              render={() => (currentUser ? <Redirect to="/" /> : <AuthPages />)}
-            />
+              <Route exact path='/' component={LandingContainer} />
+              <Route exact path='/admissions' component={AdmissionsContainer} />
+              <Route path='/tuition' component={TuitionContainer} />
+              <Route exact path='/help' component={Help} />
+              <Route exact path='/staff' component={StaffContainer} />
+              <Route exact path='/admissions/new_student' component={NewStudent} />
+              <Route exact path='/admissions/update_student' component={UpdateStudent} />
+              <Route exact path='/login' render={() => currentUser ? (<Redirect to='/' />) : (<AuthPages />)} />
           </Switch>
         </Container>
       </Fragment>

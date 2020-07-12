@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Tabs, Tab, Form } from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Container, Tab, Form, Row, Col, Nav } from 'react-bootstrap'
+import _ from 'lodash'
 
-import styles from '../../../stylesheets/CustomComponents.module.css'
+import styles from '../../../stylesheets/Admissions.module.css'
 import { addStudentApplicant } from '../../../redux/Students/StudentsActions'
 
 import PersonalInformation from './PersonalInformation'
@@ -22,7 +23,7 @@ class StudentFormContainer extends Component {
       dateOfBirth: '',
       gender: '',
       hometown: '',
-      nationality: '',
+      countryOfOrigin: '',
       religiousAffiliation: '',
       nameOfFormerSchool: '',
       disabilityStatus: false,
@@ -49,6 +50,34 @@ class StudentFormContainer extends Component {
     e.preventDefault()
 
     this.props.addStudentApplicant(this.state)
+    this.setState({
+      firstName: '',
+      lastName: '',
+      otherNames: '',
+      address: '',
+      dateOfBirth: '',
+      gender: '',
+      hometown: '',
+      countryOfOrigin: '',
+      religiousAffiliation: '',
+      nameOfFormerSchool: '',
+      disabilityStatus: false,
+      disabilityInformation: '',
+      g1FirstName: '',
+      g1LastName: '',
+      g1OtherNames: '',
+      g1Relationship: '',
+      g1Occupation: '',
+      g1Address: '',
+      g1PhoneNumber: '',
+      g1AltPhoneNumber: '',
+      g1CanPickUpFromSchool: '',
+      g1PrimaryGuardian: true,
+      nameOfProxyWhoSubmittedApplication: '',
+      dateOfApplicationSubmission: new Date(),
+      createdBy: this.props.currentUser,
+      createdAt: new Date()
+    })
   }
 
   handleChange = e => {    
@@ -72,24 +101,37 @@ class StudentFormContainer extends Component {
   render() {
     const formItems = this.state
     return (
-      <Fragment>
+      <Container fluid>
         <CurrentSchoolPeriodBar />
-        <Container>
-          <Form onSubmit={this.handleSubmit}>
-            <Tabs defaultActiveKey='personalInformation' className={styles.tabs + ' nav-justified'} variant='pills' transition={false}>
-              <Tab eventKey='personalInformation' title='Personal Information'>
-                <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
-              </Tab>
-              <Tab eventKey='guardianInformation' title='Guardian Information'>
-                <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
-              </Tab>
-              <Tab eventKey='registrationInformation' title='Registration Information'>
-                <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev}  />
-              </Tab>
-            </Tabs>
+        <Tab.Container defaultActiveKey='personalInformation'>
+          <Form onSubmit={this.handleSubmit} className={styles.newStudentForm}>
+            <Row>
+              <Col sm={12} md={2}>
+                <Nav variant='pills' className='flex-column'>
+                  {['Personal Information', 'Guardian Information', 'Registration Information'].map((navItem, idx) => (
+                    <Nav.Item key={`${idx}-${_.camelCase(navItem)}`}>
+                      <Nav.Link eventKey={_.camelCase(navItem)}>{navItem}</Nav.Link>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              </Col>
+              <Col sm={12} md={10}>
+                <Tab.Content>
+                  <Tab.Pane eventKey='personalInformation'>
+                    <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey='guardianInformation'>
+                    <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey='registrationInformation'>
+                    <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev}  />
+                  </Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
           </Form>
-        </Container>
-      </Fragment>
+        </Tab.Container>
+      </Container>
     )
   }
 }

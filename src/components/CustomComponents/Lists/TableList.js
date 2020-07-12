@@ -2,34 +2,36 @@ import React from 'react'
 import { Row, Col, Table, Button } from 'react-bootstrap'
 import _ from 'lodash'
 
-const SearchList = ({ data, include, exclude, actions }) => {
+const TableList = ({ data, include, exclude, actions }) => {
 
   const filterData = (list, includeList, excludeList) => {
     let filteredList = Object.values(data)
     if (includeList) {
       filteredList = _.map(list, _.partialRight(_.pick, includeList))
     }
-    // console.log('Filtered List: ', filteredList)
     if (excludeList) {
       filteredList = _.map(filteredList, _.partialRight(_.omit, excludeList))
     }
+    console.log(list)
     return filteredList
   }
 
   const arrayToMap = data ? filterData(data, include, exclude).slice(0,10) : null
-  const headerList = arrayToMap ? Object.keys(arrayToMap[0]) : null
+  const headerList = arrayToMap.length > 0 ? Object.keys(arrayToMap[0]) : null
 
   return (
     <Row>
       <Col>
-        { data ? (
+        { arrayToMap.length > 0 ? (
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
               {
+                headerList ? 
                 headerList.map((header, idx) => (
                   <th key={idx}>{_.startCase(header)}</th>
-                ))
+                )) :
+                null
               }
               {
                 actions ? 
@@ -62,10 +64,10 @@ const SearchList = ({ data, include, exclude, actions }) => {
           }
           </tbody>  
         </Table>
-        ) : <h6>No Students have applied yet</h6>}   
+        ) : <h6>Data not currently available</h6>}   
       </Col>
     </Row>
   )
 }
 
-export default SearchList
+export default TableList

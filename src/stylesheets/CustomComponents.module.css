@@ -36,7 +36,7 @@
 
 .largeButton {
   height: 20vh;
-  width: 50%;
+  width: 60%;
   color: rgba(0,0,0,0.9);
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -125,8 +125,61 @@
 }
 
  /** For different screens **/
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1250px) {
   .largeButton {
     width: 70%;
+    padding: 1rem;
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+/********** Main Header *************/
+
+.mainHeader {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-bottom: 2px solid #00B1FF;
+}
+
+.mainHeader h3 {
+  font-size: 1.2rem;
+}
+
+/********** Sub Header *************/
+
+.subHeader {
+  text-transform: capitalize;
+  text-align: left;
+  margin: 0.2rem 0rem;
+  padding: 0.2rem 0.1rem;
+  border-bottom: 1px solid #00B1FF;
+}
+
+/********** Mini Header **************/
+.miniHeader {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #00B1FF;
+
+}
+  .largeButton {
+    height: 13vh;
+    width: 80%;
+    font-size: medium;
+  }
+
+  .optionsBar {
+    margin: 1rem 0;
+  }
+
+/*********** Current School Period Bar *************/
+
+  .period {
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin-bottom: .3rem;
   }
 }

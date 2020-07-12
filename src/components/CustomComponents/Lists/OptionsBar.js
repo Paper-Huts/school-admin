@@ -8,7 +8,7 @@ import LargeButton from '../LargeButton'
 const OptionsBar = ({ options }) => (
   <Row>
     {options.map(({id, title, path}) => 
-      <Col sm='12' md='6' key={id} className={styles.optionsBar}>
+      <Col sm='12' md={options.length % 2 === 0 ? 6 : 4} key={id} className={styles.optionsBar}>
         <LargeButton label={title} path={path} />
       </Col>
     )}

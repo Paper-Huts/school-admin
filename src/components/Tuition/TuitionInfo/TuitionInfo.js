@@ -15,7 +15,7 @@ import {
   selectCurrentSchoolPeriod,
 } from "../../../redux/SchoolPeriod/SchoolPeriodSelectors";
 
-class GradeTuition extends React.Component {
+class TuitionInfo extends React.Component {
   state = {
     academicYear: this.props.currentSchoolPeriod.academicYear,
     academicTerm: this.props.currentSchoolPeriod.academicTerm,
@@ -62,7 +62,7 @@ class GradeTuition extends React.Component {
 
     return (
       <Container fluid>
-        <Header header="Tuition Update" />
+        <Header header="Tuition Infomation" />
         <CurrentSchoolPeriodBar />
         <Row>
           <Col md={6} xs={12}>
@@ -139,4 +139,4 @@ const mapStateToProps = createStructuredSelector({
 
 //const mapStateToProps = (state)
 
-export default connect(mapStateToProps)(GradeTuition);
+export default connect(mapStateToProps)(TuitionInfo);

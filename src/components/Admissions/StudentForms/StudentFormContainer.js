@@ -10,17 +10,20 @@ import GuardianInformation from './GuardianInformation'
 import RegistrationInformation from './RegistrationInformation'
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import { connect } from 'react-redux'
+import { selectCurrentUser } from '../../../redux/User/UserSelectors'
+import { createStructuredSelector } from 'reselect'
 
 class StudentFormContainer extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      focused: false,
       firstName: '',
       lastName: '',
       otherNames: '',
       address: '',
-      dateOfBirth: '',
+      dateOfBirth: null,
       gender: '',
       hometown: '',
       countryOfOrigin: '',
@@ -39,45 +42,22 @@ class StudentFormContainer extends Component {
       g1CanPickUpFromSchool: '',
       g1PrimaryGuardian: true,
       nameOfProxyWhoSubmittedApplication: '',
-      dateOfApplicationSubmission: new Date(),
-      createdBy: props.currentUser,
-      createdAt: new Date()
+      dateOfApplicationSubmission: null,
+      createdBy: null,
+      createdAt: null
     }
   }
 
   // This function submits all the local state info to the student applicant info in the student reducer
   handleSubmit = e => {
     e.preventDefault()
+    const { addStudentApplicant, currentUser } = this.props
+    let newStudentApplicant = { ...this.state, createdBy: currentUser.displayName, createdAt: new Date() }
+    addStudentApplicant(newStudentApplicant)
+  }
 
-    this.props.addStudentApplicant(this.state)
-    this.setState({
-      firstName: '',
-      lastName: '',
-      otherNames: '',
-      address: '',
-      dateOfBirth: '',
-      gender: '',
-      hometown: '',
-      countryOfOrigin: '',
-      religiousAffiliation: '',
-      nameOfFormerSchool: '',
-      disabilityStatus: false,
-      disabilityInformation: '',
-      g1FirstName: '',
-      g1LastName: '',
-      g1OtherNames: '',
-      g1Relationship: '',
-      g1Occupation: '',
-      g1Address: '',
-      g1PhoneNumber: '',
-      g1AltPhoneNumber: '',
-      g1CanPickUpFromSchool: '',
-      g1PrimaryGuardian: true,
-      nameOfProxyWhoSubmittedApplication: '',
-      dateOfApplicationSubmission: new Date(),
-      createdBy: this.props.currentUser,
-      createdAt: new Date()
-    })
+  handleDateChange = (name, date) => {
+    this.setState({ [name]: date })
   }
 
   handleChange = e => {    
@@ -118,13 +98,13 @@ class StudentFormContainer extends Component {
               <Col sm={12} md={10}>
                 <Tab.Content>
                   <Tab.Pane eventKey='personalInformation'>
-                    <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
+                    <PersonalInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
                   </Tab.Pane>
                   <Tab.Pane eventKey='guardianInformation'>
-                    <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
+                    <GuardianInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
                   </Tab.Pane>
                   <Tab.Pane eventKey='registrationInformation'>
-                    <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev}  />
+                    <RegistrationInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange}  />
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
@@ -136,8 +116,12 @@ class StudentFormContainer extends Component {
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
+
 const mapDispatchToProps = dispatch => ({
   addStudentApplicant: student => dispatch(addStudentApplicant(student))
 }) 
 
-export default connect(null, mapDispatchToProps)(StudentFormContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentFormContainer)

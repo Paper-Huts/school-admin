@@ -5,7 +5,7 @@ import styles from '../../../stylesheets/CustomComponents.module.css'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInfo }) => {
+const RegistrationInformation = ({formItems, handleChange, handleDateChange }) => {
   const { nameOfProxyWhoSubmittedApplication, dateOfApplicationSubmission } = formItems
   
   return (
@@ -29,7 +29,18 @@ const RegistrationInformation = ({formItems, handleChange, handleSubmit, saveInf
           <Form.Group as={Row} controlId='registrationDate'>
             <Form.Label column sm='4'>When was the Application Submitted?</Form.Label>
             <Col sm='8'>
-              <DatePicker selected={dateOfApplicationSubmission} onChange={handleChange} as={Form.Control} size='sm' />
+              <DatePicker 
+                name='dateOfApplicationSubmission'
+                selected={dateOfApplicationSubmission} 
+                onChange={date => handleDateChange('dateOfApplicationSubmission', date)} as={Form.Control} 
+                maxDate={new Date()}
+                minDate={new Date(99,12,8)}
+                showMonthDropdown
+                showYearDropdown
+                isClearable
+                dropdownMode='select'
+                placeholderText='Select Date...'
+                size='sm' />
             </Col>
           </Form.Group>
           <hr />

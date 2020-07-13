@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react'
 import { Container } from 'react-bootstrap'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect'
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/User/UserActions";

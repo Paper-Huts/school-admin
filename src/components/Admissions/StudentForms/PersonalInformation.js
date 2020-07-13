@@ -1,9 +1,11 @@
 import React from 'react'
 import { Col, Form, Container, Row } from 'react-bootstrap'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 import styles from '../../../stylesheets/Admissions.module.css'
 
-const PersonalInformation = ({ formItems, handleChange }) => {
+const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
   return (
     <Container fluid>
       <legend>Personal Information</legend>
@@ -61,21 +63,29 @@ const PersonalInformation = ({ formItems, handleChange }) => {
           <Form.Group as={Row} controlId='personalInfoDateOfBirth'>
             <Form.Label column sm='3'>Date of Birth</Form.Label>
             <Col sm='9'>
-              <Form.Control 
+              <DatePicker 
                 name='dateOfBirth'
-                type='text'
-                placeholder=''
-                size="sm"
-                onChange={handleChange}
-                value={formItems.dateOfBirth} />
+                selected={formItems.dateOfBirth} 
+                onChange={date => handleDateChange('dateOfBirth', date)} as={Form.Control} 
+                maxDate={new Date()}
+                minDate={new Date(99,12,8)}
+                showMonthDropdown
+                showYearDropdown
+                isClearable
+                dropdownMode='select'
+                placeholderText='Select Date...'
+                size='sm' />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoGender'>
             <Form.Label column sm='3'>Gender</Form.Label>
             <Col sm='9'>
-              <fieldset value={formItems.gender}>
-                <Form.Check size='sm' inline label='Male' type='radio' name='gender' />
-                <Form.Check size='sm' inline label='Female' type='radio' name='gender' />
+              <fieldset onChange={handleChange} value={formItems.gender}>
+                {
+                  ['Male', 'Female', 'Other'].map((gender, idx) => (
+                    <Form.Check key={`${gender}-${idx}`} size='sm' inline label={gender} type='radio' name='gender' value={gender} />
+                  ))
+                }
               </fieldset>
             </Col>
           </Form.Group>
@@ -103,8 +113,8 @@ const PersonalInformation = ({ formItems, handleChange }) => {
                 onChange={handleChange}
                 value={formItems.countryOfOrigin}>
                   {
-                    ['Ghana', 'Ivory Coast', 'Burkina Faso', 'Togo', 'Nigeria', 'Other'].map((country, idx) => (
-                      <option key={`${country}-${idx}`}>{country}</option>
+                    ['Select Country...','Ghana', 'Ivory Coast', 'Burkina Faso', 'Togo', 'Nigeria', 'Other'].map((country, idx) => (
+                      <option key={`${country}-${idx}`} value={idx === 0 ? '' : country} >{country}</option>
                     ))
                   }
               </Form.Control>
@@ -120,12 +130,11 @@ const PersonalInformation = ({ formItems, handleChange }) => {
                 size="sm"
                 onChange={handleChange}
                 value={formItems.religiousAffiliation} >
-                <option>Christian</option>
-                <option>Christian (Catholic)</option>
-                <option>Muslim</option>
-                <option>Budhist</option>
-                <option>Hindu</option>
-                <option>Other</option>
+                  {
+                    ['Select Religion...','Christian', 'Christian (Catholic)', 'Muslim', 'Budhist', 'Hindu', 'Other'].map((religion, idx) => (
+                      <option key={`${religion}-${idx}`} value={idx === 0 ? '' : religion} >{religion}</option>
+                    ))
+                  }
               </Form.Control>
             </Col>
           </Form.Group>
@@ -144,9 +153,12 @@ const PersonalInformation = ({ formItems, handleChange }) => {
           <Form.Group as={Row} controlId='personalInfoDisabilityStatus'>
             <Form.Label column sm='3'>Disability Status</Form.Label>
             <Col sm='9'>
-              <fieldset value={formItems.disabilityStatus}>
-                <Form.Check size="sm" inline label='Disabled' type='radio' name='disabilityStatus' />
-                <Form.Check size="sm" inline label='Not Disabled' type='radio' name='disabilityStatus' />
+              <fieldset onChange={handleChange} value={formItems.disabilityStatus}>
+                {
+                  ['Disabled', 'Not Disabled'].map((disabilityStatus, idx) => (
+                    <Form.Check key={`${disabilityStatus}-${idx}`} size='sm' inline label={disabilityStatus} type='radio' name='disabilityStatus' value={disabilityStatus} />
+                  ))
+                }
               </fieldset>
             </Col>
           </Form.Group>
@@ -159,6 +171,7 @@ const PersonalInformation = ({ formItems, handleChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
+                disabled={formItems.disabilityStatus === 'Disabled' ? false : true}
                 value={formItems.disabilityInformation} />
             </Col>
           </Form.Group>

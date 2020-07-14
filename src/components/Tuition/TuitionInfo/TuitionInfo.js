@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Header from "../../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
-import AddTuitionForm from "./AddGradeTuitionForm";
+import AddTuitionForm from "./AddTuitionForm";
 
 import { selectTuitionListByGradeLevel } from "../../../redux/Tuition/TuitionSelectors";
 

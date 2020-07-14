@@ -133,7 +133,10 @@ const tuitionReducer = (state = INITIAL_STATE, action) => {
       };
 
     case TuitionActionTypes.ADD_TUITION:
-      return addTuitionForGrade(action.payload, state.tuitionByGradeLevel)
+      return {
+        ...state,
+        tuitionByGradeLevel: addTuitionForGrade(action.payload, state.tuitionByGradeLevel)
+      }      
 
     default:
       return state;

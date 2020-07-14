@@ -11,7 +11,7 @@ export const selectTuitionByGradeLevel = createSelector(
 //returns a list of tuition & fees for all grade levels
 export const selectTuitionListByGradeLevel = createSelector(
   [selectTuitionByGradeLevel],
-  tuitionByGradeLevel => Object.keys(tuitionByGradeLevel).map(grade => tuitionByGradeLevel[grade])
+  tuitionByGradeLevel => Object.keys(tuitionByGradeLevel).map(tuition => tuitionByGradeLevel[tuition])
 );
 
 //returns the list of all tuition payment history records

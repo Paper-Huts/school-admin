@@ -19,8 +19,8 @@ export const pageData = {
     },
     {
       id: 3,
-      title: "Management Tuition",
-      path: "/tuition/tuition-mgmt",
+      title: "Manage Tuition Information",
+      path: "/tuition/info",
     },
   ],
 };

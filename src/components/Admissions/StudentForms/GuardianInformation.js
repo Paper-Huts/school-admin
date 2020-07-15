@@ -56,11 +56,11 @@ const GuardianInformation = ({ formItems, handleChange, saveInfo, goToPrev, goTo
                 size="sm"
                 onChange={handleChange}
                 value={formItems.g1Relationship} >
-                <option>Father</option>
-                <option>Mother</option>
-                <option>Brother</option>
-                <option>Sister</option>
-                <option>Other</option>
+                {
+                  ['Select Relation...','Father','Mother','Brother','Sister','Aunt','Uncle','Cousin','Other'].map((relation, idx) => (
+                    <option key={`${relation}-${idx}`} value={idx === 0 ? '' : relation} >{relation}</option>
+                  ))
+                }
               </Form.Control>
             </Col>
           </Form.Group>
@@ -117,18 +117,24 @@ const GuardianInformation = ({ formItems, handleChange, saveInfo, goToPrev, goTo
           <Form.Group as={Row} controlId='guardianInfoCanPickUp'>
             <Form.Label column sm='3'>Can pick up child?</Form.Label>
             <Col sm='9'>
-              <fieldset>
-                <Form.Check size="sm" inline label='Yes' type='radio' name='g1CanPickUpFromSchool' />
-                <Form.Check size="sm" inline label='No' type='radio' name='g1CanPickUpFromSchool' />
+              <fieldset onChange={handleChange} value={formItems.g1CanPickUpFromSchool}>
+                {
+                  ['Yes', 'No'].map((canPickUpChild, idx) => (
+                    <Form.Check key={`${canPickUpChild}-${idx}`} size='sm' inline label={canPickUpChild} type='radio' name='g1CanPickUpFromSchool' value={canPickUpChild} />
+                  ))
+                }
               </fieldset>
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='guardianInfoPrimaryGuardian'>
             <Form.Label column sm='3'>Primary Guardian?</Form.Label>
             <Col sm='9'>
-              <fieldset>
-                <Form.Check size="sm" inline label='Yes' type='radio' name='g1PrimaryGuardian' />
-                <Form.Check size="sm" inline label='No' type='radio' name='g1PrimaryGuardian' />
+              <fieldset onChange={handleChange} value={formItems.g1PrimaryGuardian}>
+                {
+                  ['Yes', 'No'].map((g1PrimaryGuardian, idx) => (
+                    <Form.Check key={`${g1PrimaryGuardian}-${idx}`} size='sm' inline label={g1PrimaryGuardian} type='radio' name='g1PrimaryGuardian' value={g1PrimaryGuardian} />
+                  ))
+                }
               </fieldset>
             </Col>
           </Form.Group>

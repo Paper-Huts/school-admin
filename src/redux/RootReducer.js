@@ -13,7 +13,7 @@ import gradeLevelsReducer from './GradeLevels/GradeLevelsReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['navigation', 'schoolStats', 'tuition', 'students']
+  whitelist: ['navigation', 'schoolStats', 'students']
 }
 
 const rootReducer = combineReducers({

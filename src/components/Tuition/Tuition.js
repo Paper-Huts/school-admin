@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
 
-import LargeButton from "../CustomComponents/LargeButton";
 import Header from "../CustomComponents/Header";
 import CurrentSchoolPeriodBar from "../CustomComponents/CurrentSchoolPeriodBar";
+import OptionsBar from '../CustomComponents/Lists/OptionsBar'
 
 import { pageData } from "../../tests/data/TuitionPageData";
 
@@ -17,13 +17,7 @@ const Tuition = () => {
       <Container fluid>
         <Header header={title} />
         <CurrentSchoolPeriodBar />
-        <Row className={styles.optionsBar}>
-          {subPages.map(({ id, title, path }) => (
-            <Col key={id}>
-              <LargeButton path={path} label={title} />
-            </Col>
-          ))}
-        </Row>
+        <OptionsBar options={subPages} />
       </Container>
     </div>
   );

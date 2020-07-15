@@ -20,6 +20,15 @@ class TuitionInfo extends React.Component {
     academicYear: this.props.currentSchoolPeriod.academicYear,
     academicTerm: this.props.currentSchoolPeriod.academicTerm,
     tuitionListBySchoolPeriod: this.props.tuitionList,
+    showTuitionModal: false,
+  };
+
+  handleClose = () => {
+    this.setState({ showTuitionModal: false });
+  };
+
+  handleShow = () => {
+    this.setState({ showTuitionModal: true });
   };
 
   handleSubmit = (event) => {
@@ -58,74 +67,86 @@ class TuitionInfo extends React.Component {
       academicTerm,
       academicYear,
       tuitionListBySchoolPeriod,
+      showTuitionModal,
     } = this.state;
 
     return (
       <Container fluid>
         <Header header="Tuition Infomation" />
         <CurrentSchoolPeriodBar />
-        <Row>
-          <Col md={6} xs={12}>
-            <AddTuitionForm />
-          </Col>
-          <Col md={6} xs={12}>
-            <h3>Tuition</h3>
-            <Form onSubmit={this.handleSubmit}>
-              <Row>
-                <Col>
-                  <Form.Group controlId="formAcademicYear">
-                    <Form.Label>For Acadamic Year</Form.Label>
-                    <Form.Control
-                      as="select"
-                      custom
-                      name="academicYear"
-                      onChange={this.handleChange}
-                      defaultValue={academicYear}
-                    >
-                      <option value="2019/2020">2019/2020</option>
-                      <option value="2018/2019">2018/2019</option>
-                      <option value="2017/2018">2017/2018</option>
-                    </Form.Control>
-                  </Form.Group>
+        <h3>Tuition</h3>
+        <Form onSubmit={this.handleSubmit}>
+          <Row>
+            <Col sm="4">
+              <Form.Group as={Row} controlId="formAcademicYear">
+                <Form.Label column sm="5">
+                  For Acadamic Year:
+                </Form.Label>
+                <Col sm="7">
+                  <Form.Control
+                    as="select"
+                    size="sm"
+                    custom
+                    name="academicYear"
+                    onChange={this.handleChange}
+                    defaultValue={academicYear}
+                  >
+                    <option value="2019/2020">2019/2020</option>
+                    <option value="2018/2019">2018/2019</option>
+                    <option value="2017/2018">2017/2018</option>
+                  </Form.Control>
                 </Col>
-                <Col>
-                  <Form.Group controlId="formTerm">
-                    <Form.Label>For Term</Form.Label>
-                    <Form.Control
-                      as="select"
-                      custom
-                      name="academicTerm"
-                      onChange={this.handleChange}
-                      defaultValue={academicTerm}
-                    >
-                      <option value={3}>Three</option>
-                      <option value={2}>Two</option>
-                      <option value={1}>One</option>
-                    </Form.Control>
-                  </Form.Group>
+              </Form.Group>
+            </Col>
+            <Col sm="4">
+              <Form.Group as={Row} controlId="formTerm">
+                <Form.Label column sm="4">
+                  For Term:
+                </Form.Label>
+                <Col sm="8">
+                  <Form.Control
+                    as="select"
+                    size="sm"
+                    custom
+                    name="academicTerm"
+                    onChange={this.handleChange}
+                    defaultValue={academicTerm}
+                  >
+                    <option value={3}>Three</option>
+                    <option value={2}>Two</option>
+                    <option value={1}>One</option>
+                  </Form.Control>
                 </Col>
-              </Row>
-              <Button type="submit" variant="primary" block>
+              </Form.Group>
+            </Col>
+            <Col sm="2">
+              <Button type="submit" variant="primary" block size="sm">
                 Filter
               </Button>
-            </Form>
-            <br />
-            <Row className={styles.subSection}>
-              {tuitionListBySchoolPeriod.map((tuition) => (
-                <Col key={tuition.id} md={6} xs={12}>
-                  <h5>{tuition.gradeLevelName}</h5>
-                  <ul>
-                    <li>Tuition - GHC {tuition.costOfTuition}</li>
-                    <li>
-                      Book & Stationery - GHC {tuition.costOfBooksAndStationery}
-                    </li>
-                    <li>Misc Items - GHC {tuition.costOfMiscItems}</li>
-                  </ul>
-                </Col>
-              ))}
-            </Row>
-          </Col>
+            </Col>
+            <Col sm="2">
+              <Button onClick={this.handleShow} variant="primary" block size="sm">
+                Add/Edit Tuition
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+        <br />
+        <Row className={styles.subSection}>
+          {tuitionListBySchoolPeriod.map((tuition) => (
+            <Col key={tuition.id} md={6} xs={12}>
+              <h5>{tuition.gradeLevelName}</h5>
+              <ul>
+                <li>Tuition - GHC {tuition.costOfTuition}</li>
+                <li>
+                  Book & Stationery - GHC {tuition.costOfBooksAndStationery}
+                </li>
+                <li>Misc Items - GHC {tuition.costOfMiscItems}</li>
+              </ul>
+            </Col>
+          ))}
         </Row>
+        <AddTuitionForm show={showTuitionModal} onHide={this.handleClose} />
       </Container>
     );
   }

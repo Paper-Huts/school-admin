@@ -12,7 +12,6 @@ const TableList = ({ data, include, exclude, actions }) => {
     if (excludeList) {
       filteredList = _.map(filteredList, _.partialRight(_.omit, excludeList))
     }
-    console.log(list)
     return filteredList
   }
 
@@ -26,6 +25,7 @@ const TableList = ({ data, include, exclude, actions }) => {
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
+              <th>#</th>
               {
                 headerList ? 
                 headerList.map((header, idx) => (
@@ -44,6 +44,7 @@ const TableList = ({ data, include, exclude, actions }) => {
           {
             arrayToMap.map((row, idx) => (
               <tr key={idx}>
+                <td>{idx + 1}</td>
                 {
                   headerList.map((item, idx) => (
                     <td key={idx}>{row[item]}</td>
@@ -53,8 +54,7 @@ const TableList = ({ data, include, exclude, actions }) => {
                   actions ? 
                   Object.entries(actions).map(([key, value]) => (
                     <td key={key}>
-                      {console.log(row)}
-                      <Button size='sm' onClick={(e, row) => value.handleClick(e, row)}>{_.startCase(value.label)}</Button>
+                      <Button size='sm' onClick={(e, row) => value.onClick(e, row)}>{_.startCase(value.label)}</Button>
                     </td>
                   )) :
                   null

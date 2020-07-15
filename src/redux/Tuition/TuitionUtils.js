@@ -1,19 +1,19 @@
-export const addTuitionForGrade = (tuition, tuitionListByGradeLevel) => {
-  const currentTuition = tuitionListByGradeLevel[tuition.grade];
+export const addTuitionForGrade = (tuition, tuitionByGradeLevel) => {
+  const currentTuition = tuitionByGradeLevel[tuition.id];
 
   return currentTuition
-    ? updateTuitionForGrade(tuition, tuitionListByGradeLevel)
+    ? updateTuitionForGrade(tuition, tuitionByGradeLevel)
     : {
-        ...tuitionListByGradeLevel,
-        [tuition.grade]: { tuition },
+        ...tuitionByGradeLevel,
+        [tuition.id]: tuition,
       };
 };
 
-export const updateTuitionForGrade = (tuition, tuitionListByGradeLevel) => {
-  const currentTuition = tuitionListByGradeLevel[tuition.grade];
+export const updateTuitionForGrade = (tuition, tuitionByGradeLevel) => {
+  const currentTuition = tuitionByGradeLevel[tuition.id];
 
   return {
-    ...tuitionListByGradeLevel,
-    [tuition.grade]: Object.assign({}, currentTuition, tuition),
+    ...tuitionByGradeLevel,
+    [tuition.id]: Object.assign({}, currentTuition, tuition),
   };
 };

@@ -4,8 +4,7 @@ import { Table } from "react-bootstrap";
 import styles from "../../stylesheets/CustomComponents.module.css";
 
 const StudentTuitionPaymentHistoryTable = ({ data, displayStudentNames }) => {
-  console.log(data);
-
+  
   return (
     <div className={styles.datatable}>
       <Table responsive="sm" striped hover size="sm">

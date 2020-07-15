@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Tabs, Tab, Form } from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Container, Tab, Form, Row, Col, Nav } from 'react-bootstrap'
+import _ from 'lodash'
 
-import styles from '../../../stylesheets/CustomComponents.module.css'
+import styles from '../../../stylesheets/Admissions.module.css'
 import { addStudentApplicant } from '../../../redux/Students/StudentsActions'
 
 import PersonalInformation from './PersonalInformation'
@@ -9,20 +10,23 @@ import GuardianInformation from './GuardianInformation'
 import RegistrationInformation from './RegistrationInformation'
 import CurrentSchoolPeriodBar from '../../CustomComponents/CurrentSchoolPeriodBar'
 import { connect } from 'react-redux'
+import { selectCurrentUser } from '../../../redux/User/UserSelectors'
+import { createStructuredSelector } from 'reselect'
 
 class StudentFormContainer extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      focused: false,
       firstName: '',
       lastName: '',
       otherNames: '',
       address: '',
-      dateOfBirth: '',
+      dateOfBirth: null,
       gender: '',
       hometown: '',
-      nationality: '',
+      countryOfOrigin: '',
       religiousAffiliation: '',
       nameOfFormerSchool: '',
       disabilityStatus: false,
@@ -38,17 +42,22 @@ class StudentFormContainer extends Component {
       g1CanPickUpFromSchool: '',
       g1PrimaryGuardian: true,
       nameOfProxyWhoSubmittedApplication: '',
-      dateOfApplicationSubmission: new Date(),
-      createdBy: props.currentUser,
-      createdAt: new Date()
+      dateOfApplicationSubmission: null,
+      createdBy: null,
+      createdAt: null
     }
   }
 
   // This function submits all the local state info to the student applicant info in the student reducer
   handleSubmit = e => {
     e.preventDefault()
+    const { addStudentApplicant, currentUser } = this.props
+    let newStudentApplicant = { ...this.state, createdBy: currentUser.displayName, createdAt: new Date() }
+    addStudentApplicant(newStudentApplicant)
+  }
 
-    this.props.addStudentApplicant(this.state)
+  handleDateChange = (name, date) => {
+    this.setState({ [name]: date })
   }
 
   handleChange = e => {    
@@ -72,30 +81,47 @@ class StudentFormContainer extends Component {
   render() {
     const formItems = this.state
     return (
-      <Fragment>
+      <Container fluid>
         <CurrentSchoolPeriodBar />
-        <Container>
-          <Form onSubmit={this.handleSubmit}>
-            <Tabs defaultActiveKey='personalInformation' className={styles.tabs + ' nav-justified'} variant='pills' transition={false}>
-              <Tab eventKey='personalInformation' title='Personal Information'>
-                <PersonalInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToNext={this.goToNext} />
-              </Tab>
-              <Tab eventKey='guardianInformation' title='Guardian Information'>
-                <GuardianInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev} goToNext={this.goToNext} />
-              </Tab>
-              <Tab eventKey='registrationInformation' title='Registration Information'>
-                <RegistrationInformation formItems={formItems} handleChange={this.handleChange} saveInfo={this.saveInfo} goToPrev={this.goToPrev}  />
-              </Tab>
-            </Tabs>
+        <Tab.Container defaultActiveKey='personalInformation'>
+          <Form onSubmit={this.handleSubmit} className={styles.newStudentForm}>
+            <Row>
+              <Col sm={12} md={2}>
+                <Nav variant='pills' className='flex-column'>
+                  {['Personal Information', 'Guardian Information', 'Registration Information'].map((navItem, idx) => (
+                    <Nav.Item key={`${idx}-${_.camelCase(navItem)}`}>
+                      <Nav.Link eventKey={_.camelCase(navItem)}>{navItem}</Nav.Link>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              </Col>
+              <Col sm={12} md={10}>
+                <Tab.Content>
+                  <Tab.Pane eventKey='personalInformation'>
+                    <PersonalInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey='guardianInformation'>
+                    <GuardianInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey='registrationInformation'>
+                    <RegistrationInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange}  />
+                  </Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
           </Form>
-        </Container>
-      </Fragment>
+        </Tab.Container>
+      </Container>
     )
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
 
 const mapDispatchToProps = dispatch => ({
   addStudentApplicant: student => dispatch(addStudentApplicant(student))
 }) 
 
-export default connect(null, mapDispatchToProps)(StudentFormContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentFormContainer)

@@ -3,14 +3,15 @@ import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 
 import Header from '../CustomComponents/Header'
+import TableList from '../CustomComponents/Lists/TableList'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
 
-class StaffContainer extends Component {
+class TeachersContainer extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      header: 'Staff',
+      header: 'Teachers/Instructors',
       staff: [
         { id: 1, name: 'Kweku Boampong', start_date: '12/2/2018' },
         { id: 2, name: 'Janet Antwi', start_date: '12/2/2018' },
@@ -23,12 +24,13 @@ class StaffContainer extends Component {
   render() {
     const { header } = this.state
     return (
-      <Container>
+      <Container fluid>
         <Header header={header} />
         <CurrentSchoolPeriodBar />
+        <TableList data={staff} />
       </Container>
     )
   }
 }
 
-export default StaffContainer
+export default TeachersContainer

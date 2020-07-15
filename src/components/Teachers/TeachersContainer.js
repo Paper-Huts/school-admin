@@ -22,7 +22,7 @@ class TeachersContainer extends Component {
   }
   
   render() {
-    const { header } = this.state
+    const { header, staff } = this.state
     return (
       <Container fluid>
         <Header header={header} />

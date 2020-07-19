@@ -91,7 +91,7 @@ class SignUp extends Component {
               value={password} />
           </Form.Group>
 
-          <Form.Group controlId='signInPassword'>
+          <Form.Group>
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               controlid='signUpConfirmPassword' 

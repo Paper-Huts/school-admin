@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import styles from "../../../stylesheets/pages.module.css";
 
-import Header from "../../CustomComponents/Header";
-import SubHeader from "../../CustomComponents/SubHeader";
+import Header from "../../CustomComponents/Headers/Header";
+import SubHeader from "../../CustomComponents/Headers/SubHeader";
 import CurrentSchoolPerdiodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import StudentTuitionPaymentHistoryTable from "../../CustomComponents/StudentTuitionPaymentHistoryTable";
 

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "../../CustomComponents/Header";
+import Header from "../../CustomComponents/Headers/Header";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import AddTuitionForm from "./AddGradeTuitionForm";
 

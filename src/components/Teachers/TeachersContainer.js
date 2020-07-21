@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Container } from 'react-bootstrap'
 
-import Header from '../CustomComponents/Header'
+import Header from '../CustomComponents/Headers/Header'
 import TableList from '../CustomComponents/Lists/TableList'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
 

@@ -4,7 +4,7 @@ import { Form, Button, ButtonGroup } from 'react-bootstrap'
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 import styles from '../../stylesheets/AuthPages.module.css'
 
-import MiniHeader from '../CustomComponents/MiniHeader'
+import MiniHeader from '../CustomComponents/Headers/MiniHeader'
 
 class SignIn extends Component {
   constructor(props) {

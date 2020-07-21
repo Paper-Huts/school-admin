@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../CustomComponents/Header'
+import Header from '../../CustomComponents/Headers/Header'
 import { Container } from 'react-bootstrap'
 import StudentFormContainer from '../StudentForms/StudentFormContainer'
 

@@ -6,7 +6,7 @@ import { selectCurrentUser } from '../../redux/User/UserSelectors'
 import UserProfile from './UserProfile'
 
 const UserContainer = ({ currentUser }) => {
-  const imagePlaceholder = 'https://boxist.com/portfolio/wp-content/uploads/2009/08/Puppy-Dog-Sleeping-in-Hands.jpg'
+  const imagePlaceholder = 'https://images.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
   return (
     <Fragment>
       <UserProfile imagePlaceholder={imagePlaceholder} currentUser={currentUser} />

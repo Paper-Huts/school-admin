@@ -97,8 +97,10 @@ class AddTuitionForm extends React.Component {
       academicYear,
     } = this.state;
 
+    const { gradeLevels, show, onHide } = this.props;
+
     return (
-      <Modal {...this.props}>
+      <Modal show={show} onHide={onHide} centered>
         <Modal.Header closeButton>
           <Modal.Title>Add/Edit Tuition</Modal.Title>
         </Modal.Header>
@@ -114,7 +116,7 @@ class AddTuitionForm extends React.Component {
                   defaultValue={gradeLevelCode}
                   custom
                 >
-                  {this.props.gradeLevels.map((gradeLevel) => (
+                  {gradeLevels.map((gradeLevel) => (
                     <option key={gradeLevel.id} value={gradeLevel.gradeCode}>
                       {gradeLevel.name}
                     </option>
@@ -191,9 +193,18 @@ class AddTuitionForm extends React.Component {
                 </Form.Group>
               </Col>
             </Row>
-            <Button type="submit" block onClick={this.props.handleClose}>
-              Add Tuition
-            </Button>
+            <Row>
+              <Col>
+                <Button type="button" block variant="secondary">
+                  Cancel
+                </Button>
+              </Col>
+              <Col>
+                <Button type="submit" block onClick={onHide}>
+                  Add Tuition
+                </Button>
+              </Col>
+            </Row>
           </Form>
         </Modal.Body>
       </Modal>

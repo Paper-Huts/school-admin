@@ -6,7 +6,7 @@ import { selectCurrentUser } from '../../redux/User/UserSelectors'
 import UserProfile from './UserProfile'
 
 const UserContainer = ({ currentUser }) => {
-  const imagePlaceholder = 'https://images.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+  const imagePlaceholder = 'https://cdna.artstation.com/p/assets/images/images/021/654/320/large/jeremy-anninos-td-ekko-final.jpg?1572466275'
   return (
     <Fragment>
       <UserProfile imagePlaceholder={imagePlaceholder} currentUser={currentUser} />

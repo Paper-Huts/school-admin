@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Image, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Image, Card, Button, Form } from 'react-bootstrap'
 
 const UserProfile = ({currentUser, imagePlaceholder}) => {
   return (
@@ -14,7 +14,21 @@ const UserProfile = ({currentUser, imagePlaceholder}) => {
               <Card.Text>
                 <Row>
                   <Col>
-                    <Button>Upload File</Button>
+                    <Form>
+                      <Form.Group>
+                        <Form.Control as='select'>
+                          <option>Select Collection to Update</option>
+                          <option>Student Applicants</option>
+                          <option>Student List</option>
+                          <option>Teachers</option>
+                          <option>Tuition</option>
+                        </Form.Control>
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.File id="UploadToFirestore" label="Upload dataset" />
+                      </Form.Group>
+                      <Button>Upload to Firestore</Button>
+                    </Form>
                   </Col>
                 </Row>
               </Card.Text>

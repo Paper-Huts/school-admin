@@ -1,42 +1,32 @@
 import React from 'react'
-import { Container, Row, Col, Image, Card, Button, Form } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
+import UserMiniNav from './UserMiniNav'
 
 const UserProfile = ({currentUser, imagePlaceholder}) => {
   return (
-    <Container fluid>
+    <Container>
       <Row>
-        <Col sm={6} md={6} lg={3}>
+        <Col>
           <Card>
-            {console.log(imagePlaceholder)}
-            <Card.Img variant='top' src={imagePlaceholder} alt='Profile Pic' />
-            <Card.Body>
-              <Card.Title>{currentUser.displayName}</Card.Title>
-              <Card.Text>
-                <Row>
-                  <Col>
-                    <Form>
-                      <Form.Group>
-                        <Form.Control as='select'>
-                          <option>Select Collection to Update</option>
-                          <option>Student Applicants</option>
-                          <option>Student List</option>
-                          <option>Teachers</option>
-                          <option>Tuition</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.File id="UploadToFirestore" label="Upload dataset" />
-                      </Form.Group>
-                      <Button>Upload to Firestore</Button>
-                    </Form>
-                  </Col>
-                </Row>
-              </Card.Text>
-            </Card.Body>
+            <Row>
+              <Col lg={3}>
+                <Card.Img src={imagePlaceholder} alt='Profile Pic' />
+              </Col>
+              <Col lg={9}>
+                <Card.Body>
+                  <Card.Title>{currentUser.displayName}</Card.Title>
+                </Card.Body>
+              </Col>
+            </Row>
           </Card>
         </Col>
       </Row>
-    </Container>
+      <Row>
+        <Col>
+          <UserMiniNav />
+        </Col>
+      </Row>
+      </Container>
   )
 }
 

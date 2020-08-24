@@ -21,8 +21,8 @@ const UserMiniNav = () => {
         <Col sm={3}>
           <Nav variant="pills" className="flex-column">
             {items.map(({id, title}) => (
-              <Nav.Item>
-                <Nav.Link eventKey={id} key={`tab-${id}`}>{title}</Nav.Link>
+              <Nav.Item key={`tab-${id}`}>
+                <Nav.Link eventKey={id}>{title}</Nav.Link>
               </Nav.Item>
             ))}
           </Nav>

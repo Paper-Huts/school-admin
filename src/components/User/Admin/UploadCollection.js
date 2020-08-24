@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'react-bootstrap'
 import { createStructuredSelector } from 'reselect'
+import _ from 'lodash'
 
 import { selectStudentApplicantsArray } from '../../../redux/Students/StudentsSelectors'
 import {addCollectionAndDocuments} from '../../../firebase/firebase.utils'
@@ -12,7 +13,18 @@ const UploadCollection = ({ currentUser, studentApplicants}) => {
 
   const handleFile = e => {
     e.preventDefault()
-    console.log(e.target)
+    const fileReader = new FileReader()
+    fileReader.readAsText(e.target.files[0], "UTF-8")
+    fileReader.onload = e => {
+      setCollectionFile(Object.values(JSON.parse(e.target.result)))
+    }
+  }
+
+  const uploadFile = () => {
+    addCollectionAndDocuments(_.camelCase(collectionKey), collectionFile)
+    alert('File Uploaded Successfully')
+    setCollectionFile(null)
+    setCollectionKey('')
   }
 
   return (
@@ -29,7 +41,8 @@ const UploadCollection = ({ currentUser, studentApplicants}) => {
       <Form.Group>
         <Form.File id="UploadToFirestore" label="Upload dataset" onChange={handleFile} />
       </Form.Group>
-      <Button onClick={() => addCollectionAndDocuments(collectionKey, studentApplicants)}>Upload to Firestore</Button>
+      <Button onClick={() => uploadFile()}>Upload to Firestore</Button>
+      {/* <Button onClick={() => console.log(collectionFile)}>Upload to Firestore</Button> */}
     </Form>
   )
 }

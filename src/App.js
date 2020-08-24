@@ -17,6 +17,7 @@ import TeachersContainer from './components/Teachers/TeachersContainer'
 import NewStudent from './components/Admissions/NewStudent/NewStudent'
 import UpdateStudent from './components/Admissions/UpdateStudent/UpdateStudent'
 import AuthPages from './components/AuthPages/AuthPages'
+import UserContainer from './components/User/UserContainer'
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -60,6 +61,7 @@ class App extends Component {
               <Route exact path='/teachers' component={TeachersContainer} />
               <Route exact path='/admissions/new_student' component={NewStudent} />
               <Route exact path='/admissions/update_student' component={UpdateStudent} />
+              <Route exact path='/account' render={() => currentUser ? (<UserContainer />) : (<AuthPages />)} />
               <Route exact path='/login' render={() => currentUser ? (<Redirect to='/' />) : (<AuthPages />)} />
           </Switch>
         </Container>

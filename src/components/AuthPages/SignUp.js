@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
 
-import MiniHeader from '../CustomComponents/MiniHeader'
+import MiniHeader from '../CustomComponents/Headers/MiniHeader'
 
 class SignUp extends Component {
   constructor() {
@@ -91,7 +91,7 @@ class SignUp extends Component {
               value={password} />
           </Form.Group>
 
-          <Form.Group controlId='signInPassword'>
+          <Form.Group>
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               controlid='signUpConfirmPassword' 

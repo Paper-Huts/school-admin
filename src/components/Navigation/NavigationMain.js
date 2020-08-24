@@ -29,6 +29,7 @@ const NavigationMain = ({ navItems, navBrand, currentUser }) => {
           (
             <div>
               <DropdownButton variant='outline-light' alignRight title={<BsPersonSquare />} id={styles.myDropdownToggle}>
+                <Dropdown.Item as={Link} to='/account'>Profile</Dropdown.Item>
                 <Dropdown.Item onClick={() => auth.signOut()}>Logout</Dropdown.Item>
               </DropdownButton>
             </div>

@@ -1,6 +1,7 @@
 import { StudentActionTypes } from "./StudentsTypes";
 import { updateStudentTuitionOwed, removeStudentApplicant } from "./StudentUtils";
 import { students } from './StudentData'
+// import studentApplicantsData from '../../data/studentApplicants.json'
 
 const INITIAL_STATE = {
   studentApplicants: null,

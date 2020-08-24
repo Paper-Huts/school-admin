@@ -3,7 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import styles from "../../stylesheets/pages.module.css";
 
-import Header from "../CustomComponents/Header";
+import Header from "../CustomComponents/Headers/Header";
 import CurrentSchoolPeriodBar from "../CustomComponents/CurrentSchoolPeriodBar";
 import OptionsBar from '../CustomComponents/Lists/OptionsBar'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../CustomComponents/Header'
+import Header from '../../CustomComponents/Headers/Header'
 import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -14,12 +14,19 @@ import { removeStudentApplicant } from '../../../redux/Students/StudentUtils'
 const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
 
   const handleDelete = (e, student) => {
+    e.preventDefault()
     console.log(e, 'haha'*20, student)
     // return removeStudentApplicant(studentApplicants, student)
   }
 
+  const handleUpdate = (e, student) => {
+    e.preventDefault()
+    alert('Update Function not yet implemented!')
+    console.log(student)
+  }
+
   const actionList = {
-    update: { label: 'Update' },
+    update: { label: 'Update', onClick: handleUpdate },
     delete: { label: 'Delete', onClick: handleDelete }
   }
 
@@ -28,12 +35,12 @@ const UpdateStudent = ({ studentApplicants, removeStudentApplicant }) => {
       <Header header='Update Student Info' />
       <CurrentSchoolPeriodBar />
       <SearchBar
-        placeholder='Search Student Applicants'
+        placeholder='Search functionality currently not available for this table!!'
       />
       <TableList
         data={studentApplicants}
         actions={actionList}
-        include={['id', 'firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
+        include={['firstName', 'lastName', 'otherNames', 'gender', 'dateOfBirth', 'address', 'hometown', 'nationality']}
       />
     </Container>
   )

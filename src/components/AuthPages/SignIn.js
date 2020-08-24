@@ -4,7 +4,7 @@ import { Form, Button, ButtonGroup } from 'react-bootstrap'
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 import styles from '../../stylesheets/AuthPages.module.css'
 
-import MiniHeader from '../CustomComponents/MiniHeader'
+import MiniHeader from '../CustomComponents/Headers/MiniHeader'
 
 class SignIn extends Component {
   constructor(props) {
@@ -46,6 +46,7 @@ class SignIn extends Component {
           <Form.Group>
             <Form.Label>E-mail address</Form.Label>
             <Form.Control 
+              controlid='signInEmail'
               name='email'
               type='email' 
               placeholder='Enter email' 
@@ -53,9 +54,10 @@ class SignIn extends Component {
               value={email} />
           </Form.Group>
 
-          <Form.Group controlId='signInPassword'>
+          <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
+              controlid='signInPassword'
               name='password'
               type='password' 
               placeholder='Password' 

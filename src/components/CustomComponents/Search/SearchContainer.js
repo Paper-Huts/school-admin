@@ -1,15 +1,18 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import SearchBar from './SearchBar'
-import SearchList from './SearchList'
+import TableList from '../Lists/TableList'
+import PaginationBarContainer from '../Pagination/PaginationBarContainer'
 
-const SearchContainer = ({ data, placeholder }) => {
+const SearchContainer = ({ data, placeholder, controlId }) => {
   return (
     <Container>
       <SearchBar 
         data={data}
-        placeholder={placeholder} />
-      {/* <SearchList data={data} /> */}
+        placeholder={placeholder}
+        controlId={controlId} />
+      <TableList data={data} />
+      <PaginationBarContainer />
     </Container>
   )
 }

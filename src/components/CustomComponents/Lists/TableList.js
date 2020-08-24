@@ -5,14 +5,13 @@ import _ from 'lodash'
 const TableList = ({ data, include, exclude, actions }) => {
 
   const filterData = (list, includeList, excludeList) => {
-    let filteredList = Object.values(data)
+    let filteredList = Object.values(list)
     if (includeList) {
       filteredList = _.map(list, _.partialRight(_.pick, includeList))
     }
     if (excludeList) {
       filteredList = _.map(filteredList, _.partialRight(_.omit, excludeList))
     }
-    console.log(list)
     return filteredList
   }
 
@@ -26,10 +25,11 @@ const TableList = ({ data, include, exclude, actions }) => {
         <Table striped bordered hover size='sm' responsive>
           <thead>
             <tr>
+              {/* <th>#</th> */}
               {
                 headerList ? 
                 headerList.map((header, idx) => (
-                  <th key={idx}>{_.startCase(header)}</th>
+                  <th key={`header-${idx}`}>{_.startCase(header)}</th>
                 )) :
                 null
               }
@@ -43,18 +43,18 @@ const TableList = ({ data, include, exclude, actions }) => {
           <tbody>
           {
             arrayToMap.map((row, idx) => (
-              <tr key={idx}>
+              <tr key={`${row}-${idx}`}>
+                {/* <td>{idx + 1}</td> */}
                 {
                   headerList.map((item, idx) => (
-                    <td key={idx}>{row[item]}</td>
+                    <td key={`${item}-${idx}`}>{row[item]}</td>
                   ))
                 }
                 {
                   actions ? 
                   Object.entries(actions).map(([key, value]) => (
                     <td key={key}>
-                      {console.log(row)}
-                      <Button size='sm' onClick={(e, row) => value.handleClick(e, row)}>{_.startCase(value.label)}</Button>
+                      <Button size='sm' onClick={(e, student) => value.onClick(e, student)}>{_.startCase(value.label)}</Button>
                     </td>
                   )) :
                   null

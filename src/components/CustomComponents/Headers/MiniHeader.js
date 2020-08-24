@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../stylesheets/CustomComponents.module.css'
+import styles from '../../../stylesheets/CustomComponents.module.css'
 
 const MiniHeader = ({ title }) => (
   <div className={styles.miniHeader}>

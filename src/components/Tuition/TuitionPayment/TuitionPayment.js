@@ -5,9 +5,9 @@ import { createStructuredSelector } from "reselect";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../../stylesheets/pages.module.css";
 
-import Header from "../../CustomComponents/Header";
+import Header from "../../CustomComponents/Headers/Header";
 import SearchBar from "../../CustomComponents/Search/SearchBar";
-import SubHeader from "../../CustomComponents/SubHeader";
+import SubHeader from "../../CustomComponents/Headers/SubHeader";
 import CurrentSchoolPeriodBar from "../../CustomComponents/CurrentSchoolPeriodBar";
 import StudentListTable from '../../CustomComponents/StudentListTable'
 

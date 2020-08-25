@@ -52,7 +52,7 @@ const RegistrationInformation = ({formItems, handleChange, handleDateChange }) =
               <Button className='btn-block' 
                 variant='primary' 
                 type='submit'>
-                  Submit
+                  Review and Submit
               </Button>
             </Col>
           </Form.Row>

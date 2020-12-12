@@ -44,7 +44,21 @@ class StudentFormContainer extends Component {
       nameOfProxyWhoSubmittedApplication: '',
       dateOfApplicationSubmission: null,
       createdBy: null,
-      createdAt: null
+      createdAt: null,
+      personalInformation: {
+        firstName: '',
+        lastName: '',
+        otherNames: '',
+        address: '',
+        dateOfBirth: null,
+        gender: '',
+        hometown: '',
+        countryOfOrigin: '',
+        religiousAffiliation: '',
+        nameOfFormerSchool: '',
+        disabilityStatus: false,
+        disabilityInformation: '',
+      }
     }
   }
 
@@ -80,6 +94,7 @@ class StudentFormContainer extends Component {
 
   render() {
     const formItems = this.state
+    const { personalInformation } = this.state
     return (
       <Container fluid>
         <CurrentSchoolPeriodBar />
@@ -98,7 +113,7 @@ class StudentFormContainer extends Component {
               <Col sm={12} md={10}>
                 <Tab.Content>
                   <Tab.Pane eventKey='personalInformation'>
-                    <PersonalInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
+                    <PersonalInformation personalInformation={{personalInformation}} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />
                   </Tab.Pane>
                   <Tab.Pane eventKey='guardianInformation'>
                     <GuardianInformation formItems={formItems} handleChange={this.handleChange} handleDateChange={this.handleDateChange} />

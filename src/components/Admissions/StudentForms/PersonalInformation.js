@@ -5,7 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import styles from '../../../stylesheets/Admissions.module.css'
 
-const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
+const PersonalInformation = ({ personalInformation, handleChange, handleDateChange }) => {
+  
   return (
     <Container fluid>
       <legend>Personal Information</legend>
@@ -21,7 +22,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.firstName} />
+                value={personalInformation.firstName} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoLastName'>
@@ -33,7 +34,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.lastName} />
+                value={personalInformation.lastName} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoOtherNames'>
@@ -45,7 +46,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.otherNames} />
+                value={personalInformation.otherNames} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoAddress'>
@@ -57,7 +58,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.address} />
+                value={personalInformation.address} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoDateOfBirth'>
@@ -65,7 +66,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
             <Col sm='9'>
               <DatePicker 
                 name='dateOfBirth'
-                selected={formItems.dateOfBirth} 
+                selected={personalInformation.dateOfBirth} 
                 onChange={date => handleDateChange('dateOfBirth', date)} as={Form.Control} 
                 maxDate={new Date()}
                 minDate={new Date(99,12,8)}
@@ -80,7 +81,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
           <Form.Group as={Row} controlId='personalInfoGender'>
             <Form.Label column sm='3'>Gender</Form.Label>
             <Col sm='9'>
-              <fieldset onChange={handleChange} value={formItems.gender}>
+              <fieldset onChange={handleChange} value={personalInformation.gender}>
                 {
                   ['Male', 'Female', 'Other'].map((gender, idx) => (
                     <Form.Check key={`${gender}-${idx}`} size='sm' inline label={gender} type='radio' name='gender' value={gender} />
@@ -98,7 +99,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.hometown} />
+                value={personalInformation.hometown} />
             </Col>
           </Form.Group>
         </Col>
@@ -111,7 +112,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 as='select'
                 size="sm"
                 onChange={handleChange}
-                value={formItems.countryOfOrigin}>
+                value={personalInformation.countryOfOrigin}>
                   {
                     ['Select Country...','Ghana', 'Ivory Coast', 'Burkina Faso', 'Togo', 'Nigeria', 'Other'].map((country, idx) => (
                       <option key={`${country}-${idx}`} value={idx === 0 ? '' : country} >{country}</option>
@@ -129,7 +130,7 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder='Select a Religion'
                 size="sm"
                 onChange={handleChange}
-                value={formItems.religiousAffiliation} >
+                value={personalInformation.religiousAffiliation} >
                   {
                     ['Select Religion...','Christian', 'Christian (Catholic)', 'Muslim', 'Budhist', 'Hindu', 'Other'].map((religion, idx) => (
                       <option key={`${religion}-${idx}`} value={idx === 0 ? '' : religion} >{religion}</option>
@@ -147,13 +148,13 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                value={formItems.nameOfFormerSchool} />
+                value={personalInformation.nameOfFormerSchool} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='personalInfoDisabilityStatus'>
             <Form.Label column sm='3'>Disability Status</Form.Label>
             <Col sm='9'>
-              <fieldset onChange={handleChange} value={formItems.disabilityStatus}>
+              <fieldset onChange={handleChange} value={personalInformation.disabilityStatus}>
                 {
                   ['Disabled', 'Not Disabled'].map((disabilityStatus, idx) => (
                     <Form.Check key={`${disabilityStatus}-${idx}`} size='sm' inline label={disabilityStatus} type='radio' name='disabilityStatus' value={disabilityStatus} />
@@ -171,8 +172,8 @@ const PersonalInformation = ({ formItems, handleChange, handleDateChange }) => {
                 placeholder=''
                 size="sm"
                 onChange={handleChange}
-                disabled={formItems.disabilityStatus === 'Disabled' ? false : true}
-                value={formItems.disabilityInformation} />
+                disabled={personalInformation.disabilityStatus === 'Disabled' ? false : true}
+                value={personalInformation.disabilityInformation} />
             </Col>
           </Form.Group>
         </Col>

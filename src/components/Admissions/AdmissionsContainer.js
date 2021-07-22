@@ -1,51 +1,60 @@
-import React, { Component } from 'react'
-import { Container} from 'react-bootstrap'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import React, { Component } from "react";
+import { Container } from "react-bootstrap";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import { selectNavigation } from '../../redux/Navigation/NavigationSelectors'
-import { addStudentApplicant } from '../../redux/Students/StudentsActions'
-import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
-import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
-import Header from '../CustomComponents/Headers/Header'
-import Admissions from './Admissions'
-import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
+import { selectAdmissionsNav } from "../../redux/Navigation/NavigationSelectors";
+import { addStudentApplicant } from "../../redux/Students/StudentsActions";
+import { selectAdmissionStats } from "../../redux/SchoolStats/SchoolStatsSelectors";
+import CurrentSchoolPeriodBar from "../CustomComponents/CurrentSchoolPeriodBar";
+import Header from "../CustomComponents/Headers/Header";
+import Admissions from "./Admissions";
+import {
+  firestore,
+  convertCollectionsSnapshotToMap,
+} from "../../firebase/firebase.utils";
 
 class AdmissionsContainer extends Component {
-  
-  unsubscribeFromSnapshot = null
+  unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const { addStudentApplicant } = this.props
-    const studentApplicantsRef = firestore.collection('studentApplicants')
+    const { addStudentApplicant } = this.props;
+    const studentApplicantsRef = firestore.collection("studentApplicants");
 
-    this.unsubscribeFromSnapshot = studentApplicantsRef.onSnapshot(async snapshot => {
-      const studentApplicant = convertCollectionsSnapshotToMap(snapshot)
-      addStudentApplicant(studentApplicant)
-    })
+    this.unsubscribeFromSnapshot = studentApplicantsRef.onSnapshot(
+      async (snapshot) => {
+        const studentApplicant = convertCollectionsSnapshotToMap(snapshot);
+        addStudentApplicant(studentApplicant);
+      }
+    );
   }
 
   render() {
-    const { navigation: { header, options }} = this.props
+    const {
+      admissionsNav: { header, options },
+    } = this.props;
+
     return (
       <Container fluid>
         <Header header={header} />
         <CurrentSchoolPeriodBar />
-        { console.log(JSON.stringify(this.props))}
-        { console.log(header + " " + JSON.stringify(options))}
         {options && <Admissions options={options} />}
       </Container>
-    )
+    );
   }
 }
- 
+
 const mapStateToProps = createStructuredSelector({
-  navigation: selectNavigation,
-  admissionStats: selectAdmissionStats
-})
+  admissionsNav: selectAdmissionsNav,
+  admissionStats: selectAdmissionStats,
+});
 
-const mapDispatchToProps = dispatch => ({
-  addStudentApplicant: studentApplicant => dispatch(addStudentApplicant(studentApplicant))
-})
+const mapDispatchToProps = (dispatch) => ({
+  addStudentApplicant: (studentApplicant) =>
+    dispatch(addStudentApplicant(studentApplicant)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdmissionsContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AdmissionsContainer);

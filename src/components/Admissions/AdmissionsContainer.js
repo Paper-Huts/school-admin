@@ -3,6 +3,7 @@ import { Container} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
+import { selectNavigation } from '../../redux/Navigation/NavigationSelectors'
 import { addStudentApplicant } from '../../redux/Students/StudentsActions'
 import { selectAdmissionStats } from '../../redux/SchoolStats/SchoolStatsSelectors'
 import CurrentSchoolPeriodBar from '../CustomComponents/CurrentSchoolPeriodBar'
@@ -11,18 +12,7 @@ import Admissions from './Admissions'
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
 class AdmissionsContainer extends Component {
-  constructor(props) {
-    super(props)
-    
-    this.state = {
-      header: 'Admissions',
-      options: [
-        {id: 0, title: 'New Student Application', path: '/admissions/new_student'},
-        {id: 1, title: 'Update Student Info', path: '/admissions/update_student'}
-      ]
-    }
-  }
-
+  
   unsubscribeFromSnapshot = null
 
   componentDidMount() {
@@ -36,19 +26,21 @@ class AdmissionsContainer extends Component {
   }
 
   render() {
-    const { header, options } = this.state
-
+    const { navigation: { header, options }} = this.props
     return (
       <Container fluid>
         <Header header={header} />
         <CurrentSchoolPeriodBar />
-        <Admissions options={options} />
+        { console.log(JSON.stringify(this.props))}
+        { console.log(header + " " + JSON.stringify(options))}
+        {options && <Admissions options={options} />}
       </Container>
     )
   }
 }
  
 const mapStateToProps = createStructuredSelector({
+  navigation: selectNavigation,
   admissionStats: selectAdmissionStats
 })
 
